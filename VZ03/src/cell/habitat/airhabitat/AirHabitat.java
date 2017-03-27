@@ -6,6 +6,7 @@ import renderable.Renderable;
  * @version     1.0
  * @since       1.0
  */
+
 public class AirHabitat extends Habitat implements Renderable {
     /**
      * maximum_height define the max altitude that the Animal

@@ -7,6 +7,7 @@ import renderable.Renderable;
  * @version     1.0
  * @since       1.0
  */
+
 public class Restaurant extends Facility implements Renderable {
     /**
      * resto_name define the name of the restaurant

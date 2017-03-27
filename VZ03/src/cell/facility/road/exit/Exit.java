@@ -6,6 +6,7 @@ import cell.facility.road.Road;
  * @version     1.0
  * @since       1.0
  */
+
 public class Exit extends Road{
     /**
      * Road constructor

@@ -5,7 +5,6 @@ import animal.*;
  * @version     1.0
  * @since       1.0
  */
-
 public abstract class Cell {
     /**
      * type define what kind of cell it is

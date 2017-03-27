@@ -7,6 +7,7 @@ import renderable.Renderable;
  * @version     1.0
  * @since       1.0
  */
+
 public class WaterHabitat extends Habitat implements Renderable {
     /**
      * oxygen_rate define the oxygen rate contained

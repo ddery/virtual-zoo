@@ -7,6 +7,7 @@ import renderable.Renderable;
  * @version     1.0
  * @since       1.0
  */
+
 public class Road extends Facility implements Renderable {
     /**
      * road_type define the type of the road

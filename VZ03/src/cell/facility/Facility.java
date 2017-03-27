@@ -5,6 +5,7 @@ import cell.*;
  * @version     1.0
  * @since       1.0
  */
+
 public class Facility extends Cell {
     /**
      * for_people define that cell can be accessed by people

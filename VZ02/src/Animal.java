@@ -29,14 +29,14 @@ public class Animal {
         return dietType;
     }
 
-    public void setDietType(char _dietType) {
-        dietType = _dietType;
+    public void setDietType(char diet_Type) {
+        dietType = diet_Type;
     }
     public char getBioType() {
         return  bioType;
     }
 
-    public void setBioType(char _bioType) {
-        bioType = _bioType;
+    public void setBioType(char bio_Type) {
+        bioType = bio_Type;
     }
 }

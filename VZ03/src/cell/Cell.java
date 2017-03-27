@@ -33,14 +33,14 @@ public abstract class Cell {
      * Set a new type for the cell
      * @param new_type : as new type that is going to be assigned
      */
-    public void setType(char new_type) {
+    protected void setType(char new_type) {
         type = new_type;
     }
     /**
      * Set a new pointer to Animal for the cell
      * @param A : as new pointer to Animal that is going to be assigned
      */
-    public void setAnimal(Animal A) {
+    protected void setAnimal(Animal A) {
         hewan = A;
     }
     /**
@@ -68,7 +68,7 @@ public abstract class Cell {
      * Validate a Restaurant type cell
      * @return True if cell type is Restaurant, false if not
      */
-    public boolean IsRestaurant() {
+    public boolean isRestaurant() {
         return (type == 'R');
     }
     /**

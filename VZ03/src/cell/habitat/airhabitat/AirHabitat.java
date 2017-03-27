@@ -12,34 +12,34 @@ public class AirHabitat extends Habitat implements Renderable {
      * maximum_height define the max altitude that the Animal
      * can reach at the cell
      */
-    private int maximum_height;
+    private int maximumHeight;
     /**
      * AirHabitat constructor
      * <p>
      * Make a AirHabitat type cell, for FlyingAnimal
-     * @param max_height : maximum height that will be assigned
+     * @param maxHeight : maximum height that will be assigned
      */
-    public AirHabitat(int max_height) {
-        super.SetType('A');
-        super.SetAnimal(null);
-        maximum_height = max_height;
+    public AirHabitat(int maxHeight) {
+        super.setType('A');
+        super.setAnimal(null);
+        maximumHeight = maxHeight;
     }
     /**
-     * Getter for maximum_height
+     * Getter for maximumHeight
      * <p>
      * Give the maximum height value that can be reach by an Animal
      * inside the AirHabitat
      * @return integer type maximum height
      */
-    public int GetMaxHeight() {
-        return maximum_height;
+    public int getMaxHeight() {
+        return maximumHeight;
     }
     /**
      * Display AirHabitat into monitor
      * <p>
      * Display AirHabitat based on its characteristics
      */
-    public void Render() {
+    public void render() {
         System.out.print(" ");
     }
 }

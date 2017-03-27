@@ -11,7 +11,7 @@ public class LandHabitat extends Habitat implements Renderable {
     /**
      * soil_type define the type of the soil in the cell
      */
-    private String soil_type;
+    private String soilType;
     /**
      * LandHabitat constructor
      * <p>
@@ -19,25 +19,25 @@ public class LandHabitat extends Habitat implements Renderable {
      * @param soil : type of soil that will be assigned
      */
     public LandHabitat(String soil) {
-        super.SetType('L');
-        super.SetAnimal(null);
-        soil_type = soil;
+        super.setType('L');
+        super.setAnimal(null);
+        soilType = soil;
     }
     /**
-     * Getter for soil_type
+     * Getter for soilType
      * <p>
      * Give the soil type that used inside the cell
-     * @return string for soil_type
+     * @return string for soilType
      */
-    public String GetSoilType() {
-        return soil_type;
+    public String getSoilType() {
+        return soilType;
     }
     /**
      * Display LandHabitat into monitor
      * <p>
      * Display LandHabitat based on its characteristics
      */
-    public void Render() {
+    public void render() {
         System.out.print(" ");
     }
 }

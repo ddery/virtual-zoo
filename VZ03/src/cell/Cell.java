@@ -31,10 +31,10 @@ public abstract class Cell {
     }
     /**
      * Set a new type for the cell
-     * @param new_type : as new type that is going to be assigned
+     * @param newType : as new type that is going to be assigned
      */
-    protected void setType(char new_type) {
-        type = new_type;
+    protected void setType(char newType) {
+        type = newType;
     }
     /**
      * Set a new pointer to Animal for the cell

@@ -13,7 +13,7 @@ public class Park extends Facility implements Renderable {
      * park_name define the name of the park
      * as an identifier for a park-type cell
      */
-    private String park_name;
+    private String parkName;
     /**
      * Park constructor
      * <p>
@@ -21,8 +21,8 @@ public class Park extends Facility implements Renderable {
      * @param name : name of park that will be assigned
      */
     public Park(String name) {
-        super.SetType('P');
-        park_name = name;
+        super.setType('P');
+        parkName = name;
     }
     /**
      * Getter for park_name
@@ -30,13 +30,13 @@ public class Park extends Facility implements Renderable {
      * Give the name of the park
      * @return string type park name
      */
-    public String GetParkName() { return park_name; }
+    public String getParkName() { return parkName; }
     /**
      * Display Park into monitor
      * <p>
      * Display Park based on its characteristics
      */
-    public void Render() {
+    public void render() {
         System.out.print(' ');
     }
 }

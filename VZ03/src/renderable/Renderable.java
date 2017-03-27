@@ -13,5 +13,5 @@ public interface Renderable {
      * Display object for the user to be determined what kind of
      * object it is.
      */
-    void Render();
+    void render();
 }

@@ -19,91 +19,91 @@ public abstract class Cell {
      * Get type of cell
      * @return return the type of cell
      */
-    public char GetType() {
+    public char getType() {
         return type;
     }
     /**
      * Get pointer to Animal that exist in the cell
      * @return return the pointer to Animal
      */
-    public Animal GetAnimal() {
+    public Animal getAnimal() {
         return hewan;
     }
     /**
      * Set a new type for the cell
      * @param new_type : as new type that is going to be assigned
      */
-    public void SetType(char new_type) {
+    protected void setType(char new_type) {
         type = new_type;
     }
     /**
      * Set a new pointer to Animal for the cell
      * @param A : as new pointer to Animal that is going to be assigned
      */
-    public void SetAnimal(Animal A) {
+    protected void setAnimal(Animal A) {
         hewan = A;
     }
     /**
      * Validate a Land type cell
      * @return True if cell type is Land, false if not
      */
-    public boolean IsLH() {
+    public boolean isLH() {
         return (type == 'L');
     }
     /**
      * Validate a Water type cell
      * @return True if cell type is Water, false if not
      */
-    public boolean IsWH() {
+    public boolean isWH() {
         return (type == 'W');
     }
     /**
      * Validate an Air type cell
      * @return True if cell type is Air, false if not
      */
-    public boolean IsAH() {
+    public boolean isAH() {
         return (type == 'A');
     }
     /**
      * Validate a Restaurant type cell
      * @return True if cell type is Restaurant, false if not
      */
-    public boolean IsRestaurant() {
+    public boolean isRestaurant() {
         return (type == 'R');
     }
     /**
      * Validate a Park type cell
      * @return True if cell type is Park, false if not
      */
-    public boolean IsPark() {
+    public boolean isPark() {
         return (type == 'P');
     }
     /**
      * Validate a Road type cell
      * @return True if cell type is Road, false if not
      */
-    public boolean IsRoad() {
+    public boolean isRoad() {
         return (type == 'r');
     }
     /**
      * Validate an Entrance type cell
      * @return True if cell type is Entrance, false if not
      */
-    public boolean IsEntrance() {
+    public boolean isEntrance() {
         return (type == 'E');
     }
     /**
      * Validate an Exit type cell
      * @return True if cell type is Exit, false if not
      */
-    public boolean IsExit() {
+    public boolean isExit() {
         return (type == 'e');
     }
     /**
      * Validate whether there is an Animal in the cell
      * @return True if Animal exist, false if not
      */
-    public boolean IsAnimal() {
+    public boolean isAnimal() {
         return (hewan != null);
     }
 }

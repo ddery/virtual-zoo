@@ -10,5 +10,5 @@ public class Facility extends Cell {
     /**
      * for_people define that cell can be accessed by people
      */
-    private boolean for_people = true;
+    private boolean forPeople = true;
 }

@@ -13,7 +13,7 @@ public class Road extends Facility implements Renderable {
      * road_type define the type of the road
      * as an identifier for a road-type cell
      */
-    private String road_type;
+    private String roadType;
     /**
      * Road constructor
      * <p>
@@ -21,8 +21,8 @@ public class Road extends Facility implements Renderable {
      * the default for road_type = "default_road"
      */
     public Road() {
-        super.SetType('r');
-        road_type = "default_road";
+        super.setType('r');
+        roadType = "default_road";
     }
     /**
      * Getter for road_type
@@ -30,24 +30,24 @@ public class Road extends Facility implements Renderable {
      * Give the type of the road
      * @return string type road type
      */
-    public String GetRoadType() {
-        return road_type;
+    public String getRoadType() {
+        return roadType;
     }
     /**
      * Setter for road_type
      * <p>
      * Give the new type of the road
-     * @param type_road = new road type
+     * @param typeRoad = new road type
      */
-    protected void SetRoadType(String type_road) {
-        road_type = type_road;
+    protected void setRoadType(String typeRoad) {
+        roadType = typeRoad;
     }
     /**
      * Display Road into monitor
      * <p>
      * Display Road based on its characteristics
      */
-    public void Render() {
+    public void render() {
         System.out.print(' ');
     }
 }

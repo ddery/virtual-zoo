@@ -16,7 +16,7 @@ public class Exit extends Road{
      */
     public Exit() {
         super();
-        super.SetRoadType("Exit");
-        super.SetType('e');
+        super.setRoadType("Exit");
+        super.setType('e');
     }
 }

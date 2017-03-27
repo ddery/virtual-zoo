@@ -13,6 +13,10 @@ public class Cell {
      * represent an animal that exist in a cell
      */
     private Animal hewan;
+
+    Cell(char new_type) {
+        type =  new_type;
+    }
     /**
      * Get type of cell
      * @return return the type of cell

@@ -16,7 +16,7 @@ public class Entrance extends Road{
      */
     public Entrance() {
         super();
-        super.SetRoadType("Entrance");
-        super.SetType('E');
+        super.setRoadType("Entrance");
+        super.setType('E');
     }
 }

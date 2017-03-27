@@ -10,5 +10,5 @@ public class Habitat extends Cell {
     /**
      * for_animal define that cell can be used to place an Animal
      */
-    private boolean for_animal = true;
+    private boolean forAnimal = true;
 }

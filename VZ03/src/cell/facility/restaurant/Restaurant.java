@@ -13,7 +13,7 @@ public class Restaurant extends Facility implements Renderable {
      * resto_name define the name of the restaurant
      * as an identifier for a restaurant-type cell
      */
-    private String resto_name;
+    private String restoName;
     /**
      * Restaurant constructor
      * <p>
@@ -21,8 +21,8 @@ public class Restaurant extends Facility implements Renderable {
      * @param name : name of restaurant that will be assigned
      */
     public Restaurant(String name) {
-        super.SetType('R');
-        resto_name = name;
+        super.setType('R');
+        restoName = name;
     }
     /**
      * Getter for resto_name
@@ -30,13 +30,13 @@ public class Restaurant extends Facility implements Renderable {
      * Give the name of the restaurant
      * @return string type restaurant name
      */
-    public String GetRestoName() { return resto_name; }
+    public String getRestoName() { return restoName; }
     /**
      * Display Restaurant into monitor
      * <p>
      * Display Restaurant based on its characteristics
      */
-    public void Render() {
+    public void render() {
         System.out.print(' ');
     }
 }

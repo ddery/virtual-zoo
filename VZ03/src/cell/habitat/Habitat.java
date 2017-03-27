@@ -6,9 +6,16 @@ import cell.*;
  * @since       1.0
  */
 
-public class Habitat extends Cell {
+public abstract class Habitat extends Cell {
     /**
      * for_animal define that cell can be used to place an Animal
      */
     private boolean forAnimal = true;
+    /**
+     * method render to display objects
+     * <p>
+     * Display object for the user to be determined what kind of
+     * object it is.
+     */
+    public abstract void render();
 }

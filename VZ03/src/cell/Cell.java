@@ -33,14 +33,14 @@ public abstract class Cell {
      * Set a new type for the cell
      * @param newType : as new type that is going to be assigned
      */
-    protected void setType(char newType) {
+    public void setType(char newType) {
         type = newType;
     }
     /**
      * Set a new pointer to Animal for the cell
      * @param A : as new pointer to Animal that is going to be assigned
      */
-    protected void setAnimal(Animal A) {
+    public void setAnimal(Animal A) {
         hewan = A;
     }
     /**
@@ -106,4 +106,11 @@ public abstract class Cell {
     public boolean isAnimal() {
         return (hewan != null);
     }
+    /**
+     * method render to display objects
+     * <p>
+     * Display object for the user to be determined what kind of
+     * object it is.
+     */
+    public abstract void render();
 }

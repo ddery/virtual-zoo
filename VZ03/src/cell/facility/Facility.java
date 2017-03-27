@@ -6,9 +6,16 @@ import cell.*;
  * @since       1.0
  */
 
-public class Facility extends Cell {
+public abstract class Facility extends Cell {
     /**
      * for_people define that cell can be accessed by people
      */
     private boolean forPeople = true;
+    /**
+     * method render to display objects
+     * <p>
+     * Display object for the user to be determined what kind of
+     * object it is.
+     */
+    public abstract void render();
 }

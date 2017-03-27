@@ -13,27 +13,27 @@ abstract public class Animal {
     protected final static short A = 4;
 
     /* name of Animal */
-    private String name;
+    private String name = new String(" ");
     /**
      *  dietType of Animal
      *  'H' for herbivore, 'C' for carnivore
      *  'O' for omnivore
      *  */
-    private char dietType;
+    private char dietType = 'O';
     /**
      *  bioType of Animal
      *  W for WaterAnimal, L for LandAnimal, A for AirAnimal
      *  if an Animal is an Amphibian, bioType is W+L
      *  W+L is equal to 0011 in bytes
      *  */
-    private short bioType;
+    private short bioType = 'L';
     /* weight of Animal */
-    private double weight;
+    private double weight = 0;
     /**
-     * if Animal is tamed then tamed is true
-     * else tamed is false
+     * if Animal is domestic then domestic is true
+     * else domestic is false
      * */
-    private boolean tamed;
+    private boolean domestic = true;
 
     /**
      * Animal interaction with human.
@@ -42,20 +42,104 @@ abstract public class Animal {
     abstract public void interact();
 
     /**
-     *
-     * @return
+     * Get animal's weight of food consumption per day in kilograms
+     * weight/10
+     * @return animal's weight of food consumption per day in kilograms
      */
-    abstract public double foodConsumption();
-    abstract public char getDietType();
-    abstract public void setDietType(char dietType);
-    abstract public short getBioType();
-    abstract public void setBioType(short bioType);
-    abstract public double getWeight();
-    abstract public void setWeight(double weight);
-    abstract public boolean isTamed();
-    abstract public void setTamed(boolean tamed);
-    abstract public void render();
-    abstract public String getName();
-    abstract public void setName(String name);
+    public double foodConsumption() {
+        return weight/10;
+    }
 
+    /**
+     * get dietType of Animal
+     * @return dietType of Animal
+     */
+    public char getDietType(){
+        return dietType;
+    }
+
+    /**
+     * set dietType of Animal
+     * @param dietType
+     */
+    public void setDietType(char dietType){
+        this.dietType = dietType;
+    }
+
+    /**
+     * get bioType of Animal
+     * @return bioType of Animal
+     */
+    public short getBioType(){
+        return bioType;
+    }
+
+    /**
+     * set bioType of Animal
+     * @param bioType
+     */
+    public void setBioType(short bioType){
+        this.bioType = bioType;
+    }
+
+    /**
+     * get weight of Animal
+     * @return weight of Animal
+     */
+    public double getWeight(){
+        return weight;
+    }
+
+    /**
+     * set weight of Animal
+     * @param weight
+     */
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
+
+    /**
+     * @return true if Animal is domestic, false otherwise
+     */
+    public boolean isDomestic(){
+        return domestic;
+    }
+
+    /**
+     * set domestication status of Animal
+     * @param domestic
+     */
+    public void setDomestic(boolean domestic){
+        this.domestic = domestic;
+    }
+
+    /**
+     * method render to display objects
+     * <p>
+     * Display object for the user to be determined what kind of
+     * object it is.
+     */
+    abstract public void render();
+
+    /**
+     * get name of Animal
+     * @return string name of Animal
+     */
+    public String getName(){
+        return name;
+    }
+
+    /**
+     * set name of Animal
+     * @param name
+     */
+    public void setName(String name){
+        this.name = name;
+    }
+
+    /**
+     * action when Animal eat food
+     * @param food
+     */
+    abstract public void eat(String food);
 }

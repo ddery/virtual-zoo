@@ -1,4 +1,4 @@
-package util.global;
+package util;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
@@ -11,6 +11,11 @@ public class Global {
     public final static short WATER = 1;
     public final static short LAND = 2;
     public final static short AIR = 4;
+    public final static short PARK = 8;
+    public final static short RESTAURANT = 16;
+    public final static short ROAD = 32;
+    public final static short EXIT = 64;
+    public final static short ENTRANCE = 128;
 
     /* variable declaration for dietType */
     public final static short HERB = 1;

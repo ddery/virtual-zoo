@@ -1,6 +1,7 @@
 package cell.facility.road;
 import cell.facility.Facility;
 import renderable.Renderable;
+import util.Global;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
@@ -8,7 +9,7 @@ import renderable.Renderable;
  * @since       1.0
  */
 
-public class Road extends Facility implements Renderable {
+public class Road extends Facility {
     /**
      * road_type define the type of the road
      * as an identifier for a road-type cell
@@ -21,7 +22,7 @@ public class Road extends Facility implements Renderable {
      * the default for road_type = "default_road"
      */
     public Road() {
-        super.setType('r');
+        super.setType(Global.ROAD);
         roadType = "default_road";
     }
     /**

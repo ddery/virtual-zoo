@@ -1,9 +1,11 @@
 package cell.habitat.airhabitat;
 import cell.habitat.*;
 import renderable.Renderable;
+import util.Global;
+
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
- * @version     1.0
+ * @version     1.1
  * @since       1.0
  */
 
@@ -20,7 +22,7 @@ public class AirHabitat extends Habitat implements Renderable {
      * @param maxHeight : maximum height that will be assigned
      */
     public AirHabitat(int maxHeight) {
-        super.setType('A');
+        super.setType(Global.AIR);
         super.setAnimal(null);
         maximumHeight = maxHeight;
     }

@@ -1,9 +1,11 @@
 package cell.habitat.landhabitat;
 import cell.habitat.*;
 import renderable.Renderable;
+import util.Global;
+
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
- * @version     1.0
+ * @version     1.1
  * @since       1.0
  */
 
@@ -19,7 +21,7 @@ public class LandHabitat extends Habitat implements Renderable {
      * @param soil : type of soil that will be assigned
      */
     public LandHabitat(String soil) {
-        super.setType('L');
+        super.setType(Global.LAND);
         super.setAnimal(null);
         soilType = soil;
     }

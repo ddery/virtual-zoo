@@ -33,10 +33,50 @@ public class Zoo {
         return null;
     }
 
+    public void setCell(int i, int j, char type) {
+        zCell[i][j] = new Cell(type);
+    }
+
+    public void buildCell(int xPosition, int yPosition, int h, int w, char type, Cage cg) {
+        for(int i = xPosition; i < h; i++) {
+            for (int j = yPosition; j < w; j++) {
+                this.setCell(i,j,type);
+                cg.setCell(zCell[i][j]);
+            }
+        }
+    }
+
+    public void buildCell(int xPosition, int yPosition, int h, int w, char type) {
+        for(int i = xPosition; i < h; i++) {
+            for (int j = yPosition; j < w; j++) {
+                this.setCell(i,j,type);
+            }
+        }
+    }
+
     public void render() {
         for(int i = 0; i < height; i++){
             for (int j = 0; j < width; j++) zCell[i][j].render();
-            System.out.println();
+            //System.out.println();
         }
+    }
+
+    public void render(int height, int width) {
+        for(int i = 0; i < height; i++){
+            for (int j = 0; j < width; j++) zCell[i][j].render();
+            //System.out.println();
+        }
+    }
+
+    public void tour() {
+        boolean[][] visited;
+        visited = new boolean[height][width];
+        for (int i = 0; i < height;i++) {
+            for (int j = 0; j < width; j++) {
+                visited[i][j] = false;
+            }
+        }
+
+
     }
 }

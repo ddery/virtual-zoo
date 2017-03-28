@@ -85,13 +85,6 @@ public class Cell {
         return (type == 'P');
     }
     /**
-     * Validate a Road type cell
-     * @return True if cell type is Road, false if not
-     */
-    public boolean isRoad() {
-        return (type == 'r');
-    }
-    /**
      * Validate an Entrance type cell
      * @return True if cell type is Entrance, false if not
      */
@@ -104,6 +97,13 @@ public class Cell {
      */
     public boolean isExit() {
         return (type == 'e');
+    }
+    /**
+     * Validate a Road type cell
+     * @return True if cell type is Road, false if not
+     */
+    public boolean isRoad() {
+        return (type == 'r' || isEntrance() || isExit());
     }
     /**
      * Validate whether there is an Animal in the cell

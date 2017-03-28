@@ -13,9 +13,13 @@ public class Cell {
      * represent an animal that exist in a cell
      */
     private Animal hewan;
-
+    /**
+     * Constructor
+     * @param new_type type of cell
+     */
     Cell(char new_type) {
-        type =  new_type;
+        type = new_type;
+        hewan = null;
     }
     /**
      * Get type of cell
@@ -107,5 +111,13 @@ public class Cell {
      */
     public boolean isAnimal() {
         return (hewan != null);
+    }
+    /**
+     * Display Cage into monitor
+     * <p>
+     * Display Cage based on its characteristics
+     */
+    public void render(){
+        System.out.print(type);
     }
 }

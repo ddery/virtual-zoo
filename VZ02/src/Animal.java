@@ -350,6 +350,7 @@ public class Animal {
     public void setDietType(char dietType) {
         this.dietType = dietType;
     }
+
     public char getBioType() {
         return  bioType;
     }
@@ -386,4 +387,7 @@ public class Animal {
         return name;
     }
 
+    public char getCode() {
+        return code;
+    }
 }

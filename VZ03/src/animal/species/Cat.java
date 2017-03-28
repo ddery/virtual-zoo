@@ -16,7 +16,7 @@ public class Cat extends Mammal implements LandAnimal {
      * @param name : name of this Cat
      * @param domestic : true if this Cat is tamed, false otherwise
      */
-    Cat(String name, boolean domestic){
+    public Cat(String name, boolean domestic){
         super(4,0);
         this.setDietType(Global.CARN);
         this.setWeight(3.9);

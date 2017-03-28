@@ -5,7 +5,9 @@ import animal.wateranimal.WaterAnimal;
 import util.global.Global;
 
 /**
- * Created by dery on 3/28/17.
+ * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
 public class Shark extends Pisces implements WaterAnimal {
 

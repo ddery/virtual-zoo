@@ -83,4 +83,30 @@ public class CellTest {
         assertFalse(facility.isEntrance());
         assertFalse(facility.isExit());
     }
+    @Test
+    public void EntranceTest() {
+        Cell facility= new Cell('E');
+        assertTrue(facility.getType()=='E');
+        assertFalse(facility.isLH());
+        assertFalse(facility.isAH());
+        assertFalse(facility.isWH());
+        assertFalse(facility.isRestaurant());
+        assertFalse(facility.isPark());
+        assertTrue(facility.isRoad());
+        assertTrue(facility.isEntrance());
+        assertFalse(facility.isExit());
+    }
+    @Test
+    public void ExitTest() {
+        Cell facility= new Cell('e');
+        assertTrue(facility.getType()=='e');
+        assertFalse(facility.isLH());
+        assertFalse(facility.isAH());
+        assertFalse(facility.isWH());
+        assertFalse(facility.isRestaurant());
+        assertFalse(facility.isPark());
+        assertTrue(facility.isRoad());
+        assertFalse(facility.isEntrance());
+        assertTrue(facility.isExit());
+    }
 }

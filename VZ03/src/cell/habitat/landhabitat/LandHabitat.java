@@ -1,9 +1,11 @@
 package cell.habitat.landhabitat;
 import cell.habitat.*;
 import renderable.Renderable;
+import util.Global;
+
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
- * @version     1.0
+ * @version     1.1
  * @since       1.0
  */
 
@@ -14,14 +16,14 @@ public class LandHabitat extends Habitat implements Renderable {
     private String soilType;
     /**
      * LandHabitat constructor
-     * <p>
+     * Default attribute of LandHabitat :
+     * soilType : Grass
      * Make a LandHabitat type cell, for LandAnimal
-     * @param soil : type of soil that will be assigned
      */
-    public LandHabitat(String soil) {
-        super.setType('L');
+    public LandHabitat() {
+        super.setType(Global.LAND);
         super.setAnimal(null);
-        soilType = soil;
+        soilType = "Grass";
     }
     /**
      * Getter for soilType
@@ -32,12 +34,22 @@ public class LandHabitat extends Habitat implements Renderable {
     public String getSoilType() {
         return soilType;
     }
+
+    /**
+     * Setter for soilType
+     * <p>
+     * Give the soil type that used inside the cell
+     * @param soilType : type of soil that will be assigned
+     */
+    public void setSoilType(String soilType) {
+        this.soilType = soilType;
+    }
     /**
      * Display LandHabitat into monitor
      * <p>
      * Display LandHabitat based on its characteristics
      */
     public void render() {
-        System.out.print(" ");
+        System.out.print(Global.ANSI_PURPLE_BACKGROUND + ' ' + Global.ANSI_RESET);
     }
 }

@@ -1,5 +1,6 @@
 package cell.facility.road.entrance;
 import cell.facility.road.Road;
+import util.Global;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
@@ -17,6 +18,6 @@ public class Entrance extends Road{
     public Entrance() {
         super();
         super.setRoadType("Entrance");
-        super.setType('E');
+        super.setType(Global.ENTRANCE);
     }
 }

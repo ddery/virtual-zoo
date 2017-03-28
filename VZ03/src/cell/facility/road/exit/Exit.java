@@ -1,5 +1,6 @@
 package cell.facility.road.exit;
 import cell.facility.road.Road;
+import util.Global;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
@@ -17,6 +18,6 @@ public class Exit extends Road{
     public Exit() {
         super();
         super.setRoadType("Exit");
-        super.setType('e');
+        super.setType(Global.EXIT);
     }
 }

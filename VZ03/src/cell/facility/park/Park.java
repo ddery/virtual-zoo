@@ -1,6 +1,7 @@
 package cell.facility.park;
 import cell.facility.Facility;
 import renderable.Renderable;
+import util.Global;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
@@ -21,7 +22,7 @@ public class Park extends Facility implements Renderable {
      * @param name : name of park that will be assigned
      */
     public Park(String name) {
-        super.setType('P');
+        super.setType(Global.PARK);
         parkName = name;
     }
     /**

@@ -3,7 +3,7 @@ package animal.species;
 import animal.aves.Aves;
 import animal.flyinganimal.FlyingAnimal;
 import animal.landanimal.LandAnimal;
-import util.global.Global;
+import util.Global;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>

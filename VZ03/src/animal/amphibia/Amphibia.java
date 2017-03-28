@@ -1,7 +1,7 @@
 package animal.amphibia;
 
 import animal.Animal;
-import util.global.Global;
+import util.Global;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>

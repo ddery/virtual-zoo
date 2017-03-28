@@ -1,7 +1,14 @@
 package zoo;
 
 import cell.Cell;
+import cell.facility.park.Park;
+import cell.facility.restaurant.Restaurant;
 import cell.facility.road.Road;
+import cell.facility.road.entrance.Entrance;
+import cell.facility.road.exit.Exit;
+import cell.habitat.airhabitat.AirHabitat;
+import cell.habitat.landhabitat.LandHabitat;
+import cell.habitat.waterhabitat.WaterHabitat;
 import renderable.Renderable;
 import util.Global;
 
@@ -32,8 +39,30 @@ public class Zoo implements Renderable {
             {
                 for(int j = 0; j < width; j++){
                     short t = convertCharToType(line.charAt(j));
+
+                    if((t & Global.WATER) > 0){
+                        zCell[i][j] = new WaterHabitat();
+                    }
+                    if((t & Global.LAND) > 0){
+                        zCell[i][j] = new LandHabitat();
+                    }
+                    if((t & Global.AIR) > 0){
+                        zCell[i][j] = new AirHabitat();
+                    }
+                    if((t & Global.RESTAURANT) > 0){
+                        zCell[i][j] = new Restaurant("Resto 1");
+                    }
+                    if((t & Global.PARK) > 0){
+                        zCell[i][j] = new Park("Park 1");
+                    }
                     if((t & Global.ROAD) > 0){
                         zCell[i][j] = new Road();
+                    }
+                    if((t & Global.EXIT) > 0){
+                        zCell[i][j] = new Exit();
+                    }
+                    if((t & Global.ENTRANCE) > 0){
+                        zCell[i][j] = new Entrance();
                     }
                 }
                 i++;

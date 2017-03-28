@@ -1,5 +1,7 @@
 /**
- * Created by irfan on 29/03/17.
+ * @author      Dery Rahman <13515097@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
 public class Global {
 

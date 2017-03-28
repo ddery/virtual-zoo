@@ -4,7 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- * Created by irfan on 29/03/17.
+ * @author      Irfan Ariq <13515112@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
 public class Zoo {
     private Cell[][] zCell;

@@ -1,8 +1,11 @@
 import java.util.Random;
 
 /**
- * Created by irfan on 29/03/17.
+ * @author      Irfan Ariq <13515112@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
+
 public class Cage {
     /**
      * cageNumber define the cage number
@@ -95,8 +98,8 @@ public class Cage {
      * <p>
      * Set cell C into cellInside array at idx position
      */
-    public void setCell(int idx, Cell C) {
-        idx = 0;
+    public void setCell(Cell C) {
+        int idx = 0;
         while(this.cellInside[idx] != null){ idx++; }
         this.cellInside[idx] = C;
     }

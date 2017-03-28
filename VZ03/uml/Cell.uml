@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="222.5" y="427.0">cell.habitat.Habitat</node>
+    <node x="213.0" y="542.5">cell.habitat.landhabitat.LandHabitat</node>
+    <node x="907.0" y="542.5">cell.facility.park.Park</node>
+    <node x="667.0" y="531.0">cell.facility.road.Road</node>
+    <node x="458.25" y="0.0">cell.Cell</node>
+    <node x="0.0" y="542.5">cell.habitat.waterhabitat.WaterHabitat</node>
+    <node x="794.5" y="705.0">cell.facility.road.exit.Exit</node>
+    <node x="923.5" y="427.0">cell.facility.Facility</node>
+    <node x="426.0" y="542.5">cell.habitat.airhabitat.AirHabitat</node>
+    <node x="674.5" y="705.0">cell.facility.road.entrance.Entrance</node>
+    <node x="1133.0" y="542.5">cell.facility.restaurant.Restaurant</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="cell.facility.road.Road" target="cell.facility.Facility">
+      <point x="0.0" y="-62.0" />
+      <point x="777.0" y="506.0" />
+      <point x="952.3333333333334" y="506.0" />
+      <point x="-57.66666666666663" y="27.0" />
+    </edge>
+    <edge source="cell.facility.Facility" target="cell.Cell">
+      <point x="0.0" y="-27.0" />
+      <point x="1010.0" y="402.0" />
+      <point x="760.5" y="402.0" />
+      <point x="100.75" y="188.5" />
+    </edge>
+    <edge source="cell.facility.road.exit.Exit" target="cell.facility.road.Road">
+      <point x="0.0" y="-15.5" />
+      <point x="829.5" y="680.0" />
+      <point x="832.0" y="680.0" />
+      <point x="55.0" y="62.0" />
+    </edge>
+    <edge source="cell.habitat.airhabitat.AirHabitat" target="cell.habitat.Habitat">
+      <point x="0.0" y="-50.5" />
+      <point x="536.5" y="506.0" />
+      <point x="367.5" y="506.0" />
+      <point x="58.0" y="27.0" />
+    </edge>
+    <edge source="cell.facility.restaurant.Restaurant" target="cell.facility.Facility">
+      <point x="0.0" y="-50.5" />
+      <point x="1238.0" y="506.0" />
+      <point x="1067.6666666666665" y="506.0" />
+      <point x="57.66666666666663" y="27.0" />
+    </edge>
+    <edge source="cell.habitat.waterhabitat.WaterHabitat" target="cell.habitat.Habitat">
+      <point x="0.0" y="-50.5" />
+      <point x="96.5" y="506.0" />
+      <point x="251.5" y="506.0" />
+      <point x="-58.0" y="27.0" />
+    </edge>
+    <edge source="cell.habitat.Habitat" target="cell.Cell">
+      <point x="0.0" y="-27.0" />
+      <point x="309.5" y="402.0" />
+      <point x="559.0" y="402.0" />
+      <point x="-100.75" y="188.5" />
+    </edge>
+    <edge source="cell.habitat.landhabitat.LandHabitat" target="cell.habitat.Habitat">
+      <point x="0.0" y="-50.5" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="cell.facility.road.entrance.Entrance" target="cell.facility.road.Road">
+      <point x="0.0" y="-15.5" />
+      <point x="724.5" y="680.0" />
+      <point x="722.0" y="680.0" />
+      <point x="-55.0" y="62.0" />
+    </edge>
+    <edge source="cell.facility.park.Park" target="cell.facility.Facility">
+      <point x="0.0" y="-50.5" />
+      <point x="0.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="20.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

@@ -13,9 +13,13 @@ public class Cell {
      * represent an animal that exist in a cell
      */
     private Animal hewan;
-
+    /**
+     * Constructor
+     * @param new_type type of cell
+     */
     Cell(char new_type) {
-        type =  new_type;
+        type = new_type;
+        hewan = null;
     }
     /**
      * Get type of cell
@@ -81,13 +85,6 @@ public class Cell {
         return (type == 'P');
     }
     /**
-     * Validate a Road type cell
-     * @return True if cell type is Road, false if not
-     */
-    public boolean isRoad() {
-        return (type == 'r');
-    }
-    /**
      * Validate an Entrance type cell
      * @return True if cell type is Entrance, false if not
      */
@@ -102,10 +99,25 @@ public class Cell {
         return (type == 'e');
     }
     /**
+     * Validate a Road type cell
+     * @return True if cell type is Road, false if not
+     */
+    public boolean isRoad() {
+        return (type == 'r' || isEntrance() || isExit());
+    }
+    /**
      * Validate whether there is an Animal in the cell
      * @return True if Animal exist, false if not
      */
     public boolean isAnimal() {
         return (hewan != null);
+    }
+    /**
+     * Display Cell into monitor
+     * <p>
+     * Display cell based on its characteristics
+     */
+    public void render(){
+        System.out.print(type);
     }
 }

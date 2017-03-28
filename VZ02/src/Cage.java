@@ -95,7 +95,7 @@ public class Cage {
      * <p>
      * Set cell C into cellInside array at idx position
      */
-    public void setCell(int idx, Cell C){
+    public void setCell(int idx, Cell C) {
         idx = 0;
         while(this.cellInside[idx] != null){ idx++; }
         this.cellInside[idx] = C;

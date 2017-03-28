@@ -113,9 +113,9 @@ public class Cell {
         return (hewan != null);
     }
     /**
-     * Display Cage into monitor
+     * Display Cell into monitor
      * <p>
-     * Display Cage based on its characteristics
+     * Display cell based on its characteristics
      */
     public void render(){
         System.out.print(type);

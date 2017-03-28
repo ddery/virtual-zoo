@@ -50,6 +50,6 @@ public class LandHabitat extends Habitat implements Renderable {
      * Display LandHabitat based on its characteristics
      */
     public void render() {
-        System.out.print(Global.ANSI_PURPLE_BACKGROUND + ' ' + Global.ANSI_RESET);
+        System.out.print(Global.ANSI_YELLOW_BACKGROUND + "  " + Global.ANSI_RESET);
     }
 }

@@ -346,14 +346,21 @@ public class Animal {
     public char getDietType() {
         return dietType;
     }
-
+    /**
+     * Set a new value for dietType
+     * @param dietType : as new value that is going to be assigned
+     */
     public void setDietType(char dietType) {
         this.dietType = dietType;
     }
+
     public char getBioType() {
         return  bioType;
     }
-
+    /**
+     * Set a new value for bioType
+     * @param bioType : as new value that is going to be assigned
+     */
     public void setBioType(char bioType) {
         this.bioType = bioType;
     }
@@ -361,7 +368,10 @@ public class Animal {
     public double getWeight(){
         return weight;
     }
-
+    /**
+     * Set a new value for weight
+     * @param weight : as new value that is going to be assigned
+     */
     public void setWeight(double weight) {
         this.weight = weight;
     }
@@ -373,11 +383,18 @@ public class Animal {
     public void setTamed(boolean tamed) {
         this.tamed = tamed;
     }
-
+    /**
+     * Display Animal into monitor
+     * <p>
+     * Display animal based on its species
+     */
     public void render() {
         System.out.print(code);
     }
-
+    /**
+     * Set a new pointer to String for the name
+     * @param name : as new pointer to String that is going to be assigned
+     */
     public void setName(String name) {
         this.name = name;
     }

@@ -38,6 +38,6 @@ public class Restaurant extends Facility implements Renderable {
      * Display Restaurant based on its characteristics
      */
     public void render() {
-        System.out.print(' ');
+        System.out.print(Global.ANSI_PURPLE_BACKGROUND + "  " + Global.ANSI_RESET);
     }
 }

@@ -50,6 +50,6 @@ public class WaterHabitat extends Habitat implements Renderable {
      * Display WaterHabitat based on its characteristics
      */
     public void render() {
-        System.out.print(" ");
+        System.out.print(Global.ANSI_BLUE_BACKGROUND + "  " + Global.ANSI_RESET);
     }
 }

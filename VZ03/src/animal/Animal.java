@@ -7,33 +7,33 @@ package animal;
  */
 abstract public class Animal {
 
-    /* variable declaration for bioType */
-    protected final static short W = 1;
-    protected final static short L = 2;
-    protected final static short A = 4;
-
     /* name of Animal */
-    private String name = new String(" ");
+    private String name;
     /**
      *  dietType of Animal
-     *  'H' for herbivore, 'C' for carnivore
-     *  'O' for omnivore
+     *  Global.HERB for herbivore, Global.CARN for carnivore
+     *  Omnivore is Global.HERB+Global.CARN
      *  */
-    private char dietType = 'O';
+    private short dietType;
     /**
      *  bioType of Animal
-     *  W for WaterAnimal, L for LandAnimal, A for AirAnimal
-     *  if an Animal is an Amphibian, bioType is W+L
-     *  W+L is equal to 0011 in bytes
+     *  Global.WATER for WaterAnimal, Global.LAND for LandAnimal, Global.AIR for Animal
+     *  if an Animal is an Amphibian, bioType is WATER+LAND
+     *  WATER+LAND is equal to 0011 in bytes
      *  */
-    private short bioType = 'L';
+    private short bioType;
     /* weight of Animal */
-    private double weight = 0;
+    private double weight;
     /**
      * if Animal is domestic then domestic is true
      * else domestic is false
      * */
     private boolean domestic = true;
+    /**
+     * respiratory organ of Animal
+     * LUNG, GILL. LUNG as default
+     */
+    private short respiratoryOrgan;
 
     /**
      * Animal interaction with human.
@@ -54,15 +54,15 @@ abstract public class Animal {
      * get dietType of Animal
      * @return dietType of Animal
      */
-    public char getDietType(){
+    public short getDietType(){
         return dietType;
     }
 
     /**
      * set dietType of Animal
-     * @param dietType
+     * @param dietType of an Animal
      */
-    public void setDietType(char dietType){
+    public void setDietType(short dietType){
         this.dietType = dietType;
     }
 
@@ -76,7 +76,7 @@ abstract public class Animal {
 
     /**
      * set bioType of Animal
-     * @param bioType
+     * @param bioType of an Animal
      */
     public void setBioType(short bioType){
         this.bioType = bioType;
@@ -92,7 +92,7 @@ abstract public class Animal {
 
     /**
      * set weight of Animal
-     * @param weight
+     * @param weight in kg
      */
     public void setWeight(double weight){
         this.weight = weight;
@@ -107,7 +107,7 @@ abstract public class Animal {
 
     /**
      * set domestication status of Animal
-     * @param domestic
+     * @param domestic is true when animal is a domestic animal, false ortherwise
      */
     public void setDomestic(boolean domestic){
         this.domestic = domestic;
@@ -130,16 +130,23 @@ abstract public class Animal {
     }
 
     /**
-     * set name of Animal
-     * @param name
+     * set name of animal
+     * @param name : name of animal
      */
     public void setName(String name){
         this.name = name;
     }
-
+    /**
+     * get respiratory organ of animal
+     * @return short int respiratory organ
+     */
+    public short getRespiratoryOrgan() { return respiratoryOrgan; }
+    public void setRespiratoryOrgan(short respiratoryOrgan){
+        this.respiratoryOrgan = respiratoryOrgan;
+    }
     /**
      * action when Animal eat food
-     * @param food
+     * @param food of animal when eating
      */
     abstract public void eat(String food);
 }

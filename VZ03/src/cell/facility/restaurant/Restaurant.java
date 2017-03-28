@@ -1,6 +1,7 @@
 package cell.facility.restaurant;
 import cell.facility.Facility;
 import renderable.Renderable;
+import util.Global;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
@@ -21,7 +22,7 @@ public class Restaurant extends Facility implements Renderable {
      * @param name : name of restaurant that will be assigned
      */
     public Restaurant(String name) {
-        super.setType('R');
+        super.setType(Global.RESTAURANT);
         restoName = name;
     }
     /**

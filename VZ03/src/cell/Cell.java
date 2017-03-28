@@ -1,5 +1,6 @@
 package cell;
 import animal.*;
+import renderable.Renderable;
 import util.Global;
 
 /**
@@ -7,7 +8,7 @@ import util.Global;
  * @version     1.1
  * @since       1.0
  */
-public abstract class Cell {
+public class Cell implements Renderable{
     /**
      * type define what kind of cell it is
      */
@@ -17,6 +18,11 @@ public abstract class Cell {
      * represent an animal that exist in a cell
      */
     private Animal hewan;
+
+    public Cell(){
+        type = ' ';
+        hewan = null;
+    }
     /**
      * Get type of cell
      * @return return the type of cell
@@ -35,14 +41,14 @@ public abstract class Cell {
      * Set a new type for the cell
      * @param newType : as new type that is going to be assigned
      */
-    protected void setType(short newType) {
+    public void setType(short newType) {
         type = newType;
     }
     /**
      * Set a new pointer to Animal for the cell
      * @param A : as new pointer to Animal that is going to be assigned
      */
-    protected void setAnimal(Animal A) {
+    public void setAnimal(Animal A) {
         hewan = A;
     }
     /**
@@ -59,5 +65,10 @@ public abstract class Cell {
      */
     public boolean isAnimal() {
         return (hewan != null);
+    }
+
+    @Override
+    public void render() {
+        System.out.print('#');
     }
 }

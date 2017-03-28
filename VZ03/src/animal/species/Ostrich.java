@@ -1,10 +1,8 @@
 package animal.species;
 
 import animal.aves.Aves;
-import animal.flyinganimal.FlyingAnimal;
 import animal.landanimal.LandAnimal;
-import com.sun.org.apache.bcel.internal.generic.LAND;
-import util.global.Global;
+import util.Global;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>

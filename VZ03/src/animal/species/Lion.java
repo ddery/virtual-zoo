@@ -2,7 +2,7 @@ package animal.species;
 
 import animal.landanimal.LandAnimal;
 import animal.mammal.Mammal;
-import util.global.Global;
+import util.Global;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>

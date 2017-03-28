@@ -49,6 +49,6 @@ public class Road extends Facility {
      * Display Road based on its characteristics
      */
     public void render() {
-        System.out.print(' ');
+        System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
     }
 }

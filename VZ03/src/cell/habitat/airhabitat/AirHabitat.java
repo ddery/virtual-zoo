@@ -18,13 +18,14 @@ public class AirHabitat extends Habitat implements Renderable {
     /**
      * AirHabitat constructor
      * <p>
+     * Default attribute value in AirHabitat
+     * maximumHeight = 100
      * Make a AirHabitat type cell, for FlyingAnimal
-     * @param maxHeight : maximum height that will be assigned
      */
-    public AirHabitat(int maxHeight) {
+    public AirHabitat() {
         super.setType(Global.AIR);
         super.setAnimal(null);
-        maximumHeight = maxHeight;
+        maximumHeight = 100;
     }
     /**
      * Getter for maximumHeight
@@ -37,11 +38,21 @@ public class AirHabitat extends Habitat implements Renderable {
         return maximumHeight;
     }
     /**
+     * Setter for maximumHeight
+     * <p>
+     * Give the maximum height value that can be reach by an Animal
+     * inside the AirHabitat
+     * @param maximumHeight: maximum height that will be assigned
+     */
+    public void setMaxHeight(int maximumHeight) {
+        this.maximumHeight = maximumHeight;
+    }
+    /**
      * Display AirHabitat into monitor
      * <p>
      * Display AirHabitat based on its characteristics
      */
     public void render() {
-        System.out.print(" ");
+        System.out.print(Global.ANSI_RED_BACKGROUND + ' ' + Global.ANSI_RESET);
     }
 }

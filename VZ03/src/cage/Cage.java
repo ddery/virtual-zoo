@@ -88,7 +88,7 @@ public class Cage implements Renderable {
             i++;
         }
         Animal A = cellInside[i].getAnimal();
-        return (A.isTamed());
+        return (A.isDomestic());
     }
     /**
      * Getter for nbcage
@@ -119,12 +119,12 @@ public class Cage implements Renderable {
     public void addAnimal(Animal A, int count) {
         int idx = 0;
         if((nAnimal + count) < 0.3*(this.size)) {
-            if(A.isTamed() || (!A.isTamed() && nAnimal==0)) {
+            if(A.isDomestic() || (!A.isDomestic() && nAnimal==0)) {
                 while (cellInside[idx].isAnimal()) { idx++; }
                 while (count > 0) {
                     count--;
                     if(A.getBioType() == 'z'){
-                        while ((cellInside[idx].isAH()) && idx < size-1) { idx++; }
+                        // while ((cellInside[idx].isAH()) && idx < size-1) { idx++; }
                     } else {
                         if (cellInside[idx].getType() != A.getBioType()) {
                             while ((cellInside[idx].getType() != A.getBioType()) && (idx < size - 1)) { idx++; }
@@ -221,7 +221,7 @@ public class Cage implements Renderable {
                 }
             }
         }
-        /* untuk setiap animal, akan diberikan cell baru */
+        /* untuk setiap animal, akan diberikan cell baru
         Random rand = new Random();
         int randomValue = rand.nextInt(size);
         for (int i = 0;i < count;i++) {
@@ -246,6 +246,7 @@ public class Cage implements Renderable {
             cellInside[index].setAnimal(temp[i]);
             temp[i] = null;
         }
+        */
     }
     /**
      * Display Cage into monitor

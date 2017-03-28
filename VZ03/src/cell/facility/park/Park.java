@@ -37,7 +37,5 @@ public class Park extends Facility implements Renderable {
      * <p>
      * Display Park based on its characteristics
      */
-    public void render() {
-        System.out.print(' ');
-    }
+    public void render() { System.out.print(Global.ANSI_GREEN_BACKGROUND + "  " + Global.ANSI_RESET); }
 }

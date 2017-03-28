@@ -386,4 +386,7 @@ public class Animal {
         return name;
     }
 
+    public char getCode() {
+        return code;
+    }
 }

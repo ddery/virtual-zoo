@@ -1,7 +1,5 @@
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import util.Global;
+
 import java.util.Random;
 
 /**
@@ -10,11 +8,24 @@ import java.util.Random;
  * @since       1.0
  */
 public class Zoo {
+    /**
+     * zCell define the Cell inside the zoo
+     */
     private Cell[][] zCell;
-    private int height,width;
+    /**
+     * height define the height of the zoo
+     * width define the width of the zoo
+     */
+    private int height, width;
 
-    // max animal in 1 cell is 5
-    public Zoo(int height, int width){
+    /**
+     * Zoo constructor
+     * <p>
+     * Make a zoo, for cell and animal
+     * @param height = height of the zoo
+     * @param width = width of the zoo
+     */
+    public Zoo(int height, int width) {
         this.height = height;
         this.width = width;
         zCell = new Cell[height][width];
@@ -24,8 +35,14 @@ public class Zoo {
                 zCell[i][j] = null;
         }
     }
-
-    public Cell getCell(int i, int j){
+    /**
+     * Getter for the cell
+     * <p>
+     * return the cell with in exact postion
+     * @param i = x position
+     * @param j = y position
+     */
+    public Cell getCell(int i, int j) {
         try {
             return zCell[i][j];
         }
@@ -34,20 +51,28 @@ public class Zoo {
         }
         return null;
     }
-
+    /**
+     * Setter for the cell in zoo
+     * <p>
+     * set the cell in exact position
+     * @param i = x position
+     * @param j = y position
+     * @param type = type of the cell
+     */
     public void setCell(int i, int j, char type) {
         zCell[i][j] = new Cell(type);
-        /*
-        if (type == 'L'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'W'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'A'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'R'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'r'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'P'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'E'){ zCell[i][j] = new Cell(type); } else
-        if (type == 'e'){ zCell[i][j] = new Cell(type); }*/
     }
-
+    /**
+     * build some cell
+     * <p>
+     * sett some cell start in (x,y) until (x+height,y+width) in cage cg
+     * @param xPosition = initial x position
+     * @param yPosition = initial y position
+     * @param h = height
+     * @param w = width
+     * @param type = type of the cell
+     * @param cg = cage
+     */
     public void buildCell(int xPosition, int yPosition, int h, int w, char type, Cage cg) {
         for(int i = xPosition; i < h+xPosition; i++) {
             for (int j = yPosition; j < w+yPosition; j++) {
@@ -56,7 +81,16 @@ public class Zoo {
             }
         }
     }
-
+    /**
+     * build some cell
+     * <p>
+     * sett some cell start in (x,y) until (x+height,y+width)
+     * @param xPosition = initial x position
+     * @param yPosition = initial y position
+     * @param h = height
+     * @param w = width
+     * @param type = type of the cell
+     */
     public void buildCell(int xPosition, int yPosition, int h, int w, char type) {
         for(int i = xPosition; i < h+xPosition; i++) {
             for (int j = yPosition; j < w+yPosition; j++) {
@@ -64,13 +98,16 @@ public class Zoo {
             }
         }
     }
-
+    /**
+     * display tha map into the monitor
+     * <p>
+     */
     public void render() {
-        for(int i = 0; i < height; i++){
+        for(int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if(zCell[i][j] != null) {
                     zCell[i][j].render();
-                }else{
+                } else {
                     System.out.print(" ");
                 }
             }
@@ -79,9 +116,15 @@ public class Zoo {
     }
 
     public void render(int height, int width) {
-        for(int i = 0; i < height; i++){
-            for (int j = 0; j < width; j++) zCell[i][j].render();
-            //System.out.println();
+        for(int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if(zCell[i][j] != null) {
+                    zCell[i][j].render();
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.print("\n");
         }
     }
 
@@ -98,13 +141,13 @@ public class Zoo {
         int randomValue = rand.nextInt();
         int nowX, nowY;
         if ((randomValue % 2) == 0) {
-            nowX = 1;
-            nowY = 0;
-            visited[nowX][nowY] = true;
+            nowX = 0;
+            nowY = 1;
+            visited[nowY][nowX] = true;
         } else {
             nowX = 19;
             nowY = 4;
-            visited[nowX][nowY] = true;
+            visited[nowY][nowX] = true;
         }
 
         boolean finish = false;
@@ -112,9 +155,8 @@ public class Zoo {
             int visibleX[] = new int[3];
             int visibleY[] = new int[3];
             int visible = 0;
-            if (!zCell[nowX][nowY].isExit()) {
+            if (!zCell[nowY][nowX].isExit()) {
                 if (nowX != 0) {
-        /* cek kirinya */
                     int tempX = nowX - 1;
                     if (zCell[nowY][tempX].isAnimal()) {
                         Animal temp;
@@ -127,7 +169,6 @@ public class Zoo {
                     }
                 }
                 if (nowX != 19) {
-                    //cekkanan
                     int tempX = nowX + 1;
                     if (zCell[nowY][tempX].isAnimal()) {
                         Animal temp;
@@ -140,7 +181,6 @@ public class Zoo {
                     }
                 }
                 if (nowY != 0) {
-        /* cekatas */
                     int tempY = nowY - 1;
                     if (zCell[tempY][nowX].isAnimal()) {
                         Animal temp;
@@ -235,19 +275,14 @@ public class Zoo {
                 if (zCell[i][j] == null) {
                     System.out.print(" ");
                 } else {
-                    if (zCell[i][j].isAnimal()) {
-                        Animal temp;
-                        temp = zCell[i][j].getAnimal();
-                        temp.render();
+                    if (visited[i][j]) {
+                        System.out.print( Global.ANSI_CYAN_BACKGROUND + Global.ANSI_BLACK + ".." + Global.ANSI_RESET);
                     } else {
-                        if (visited[i][j]) {
-                            System.out.print(".");
-                        } else {
-                            zCell[i][j].render();
-                        }
+                        zCell[i][j].render();
                     }
                 }
             }
+            System.out.print("\n");
         }
     }
 

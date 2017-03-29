@@ -1,3 +1,5 @@
+import util.*;
+
 /**
  * @author      Irfan Ariq <13515112@std.stei.itb.ac.id>
  * @version     1.0
@@ -15,10 +17,10 @@ public class Cell {
     private Animal hewan;
     /**
      * Constructor
-     * @param new_type type of cell
+     * @param newType type of cell
      */
-    Cell(char new_type) {
-        type = new_type;
+    Cell(char newType) {
+        type = newType;
         hewan = null;
     }
     /**
@@ -118,6 +120,37 @@ public class Cell {
      * Display cell based on its characteristics
      */
     public void render(){
-        System.out.print(type);
+        if(isAnimal()) {
+            Animal temp;
+            temp = getAnimal();
+            temp.render();
+        }else {
+            switch (type) {
+                case 'L':
+                    System.out.print(Global.ANSI_PURPLE_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'W':
+                    System.out.print(Global.ANSI_BLUE_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'A':
+                    System.out.print(Global.ANSI_YELLOW_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'R':
+                    System.out.print(Global.ANSI_PURPLE_BACKGROUND+ "  " + Global.ANSI_RESET);
+                    break;
+                case 'r':
+                    System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'E':
+                    System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'e':
+                    System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'P':
+                    System.out.print(Global.ANSI_GREEN_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+            }
+        }
     }
 }

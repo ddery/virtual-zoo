@@ -59,7 +59,7 @@ public class Cage {
      * Return the cell in i-position at array
      * @param i = define the cell position
      */
-    public Cell getCell(int i){
+    public Cell getCell(int i) {
         return cellInside[i];
     }
     /**
@@ -118,7 +118,7 @@ public class Cage {
                 while (cellInside[idx].isAnimal()) { idx++; }
                 while (count > 0) {
                     count--;
-                    if(A.getBioType() == 'z'){
+                    if(A.getBioType() == 'z') {
                         while ((cellInside[idx].isAH()) && idx < size-1) { idx++; }
                     } else {
                         if (cellInside[idx].getType() != A.getBioType()) {
@@ -203,7 +203,7 @@ public class Cage {
      * Destination cell will be generated randomly but only
      * cell inside the cage and available to be placed
      */
-    public void moveAnimal(){
+    public void moveAnimal() {
         Animal [] temp;
         temp = new Animal[nAnimal];
         int count = 0;
@@ -227,6 +227,7 @@ public class Cage {
                         ((temp[i].getBioType() == 'z') && (cellInside[j].isWH() ||
                                 cellInside[j].isLH())))  { sizeHabit++; }
             }
+            randomValue = rand.nextInt(size);
             int index = startHabitIdx + randomValue % sizeHabit;
             while (cellInside[index].isAnimal() ||
                     ((cellInside[index].getType() != temp[i].getBioType()) &&
@@ -247,7 +248,7 @@ public class Cage {
      * <p>
      * Display Cage based on its characteristics
      */
-    public void render(){
+    public void render() {
         for(int i = 0; i < size; i++){
             cellInside[i].render();
         }

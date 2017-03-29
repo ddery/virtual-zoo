@@ -69,14 +69,14 @@ public class Driver {
         kdg[1].addAnimal(new Animal("Burung Unta"),2);
         kdg[1].addAnimal(new Animal("Cendrawasi"),1);
         kdg[1].addAnimal(new Animal("Merak"),2);
-        //kdg[1].addAnimal(new Animal("Elang"),2);
+        kdg[1].addAnimal(new Animal("Elang"),2);
         kdg[1].addAnimal(new Animal("Flamingo"),1);
-        /*
+
         kdg[2].addAnimal(new Animal("Lumba lumba"),2);
         kdg[2].addAnimal(new Animal("Pari"),2);
         kdg[2].addAnimal(new Animal("Salmon"),2);
-        */
-        /*kdg[3].addAnimal(new Animal("Panda"),10);
+
+        kdg[3].addAnimal(new Animal("Panda"),10);
         kdg[4].addAnimal(new Animal("Goliath Frog"),3);
         kdg[4].addAnimal(new Animal("Salamander"),3);
         kdg[4].addAnimal(new Animal("Pinguin"),3);
@@ -89,7 +89,7 @@ public class Driver {
         kdg[6].addAnimal(new Animal("Cendrawasi"),3);
         kdg[6].addAnimal(new Animal("Merak"),2);
         kdg[6].addAnimal(new Animal("Flamingo"),2);
-        */
+
     }
 
     public void logo() {
@@ -105,7 +105,7 @@ public class Driver {
     }
 
     public void zooInfo() {
-        for (int i = 0; i < kdg[i].getNbCage();i++) {
+        for (int i = 0; i < kdg[0].getNbCage();i++) {
             if(kdg[i].getnAnimal() > 0) {
                 System.out.println("Cage " + (i + 1));
                 kdg[i].listAnimal();
@@ -120,14 +120,14 @@ public class Driver {
     }
 
     public void animalMove() {
-        for (int i = 0; i < kdg[i].getNbCage(); i++) {
+        for (int i = 0; i < kdg[0].getNbCage(); i++) {
             kdg[i].moveAnimal();
         }
     }
 
     public int getnAnimal() {
         int total = 0;
-        for (int i = 0; i < kdg[i].getNbCage(); i++) {
+        for (int i = 0; i < kdg[0].getNbCage(); i++) {
             total += kdg[i].getnAnimal();
         }
         return total;
@@ -135,7 +135,7 @@ public class Driver {
 
     public float getFoodConsum (char type) {
         double total = 0;
-        for (int i = 0; i < kdg[i].getNbCage(); i++) {
+        for (int i = 0; i < kdg[0].getNbCage(); i++) {
             total += kdg[i].getFoodWeight(type);
         }
         return (float) total;

@@ -18,7 +18,7 @@ public class Shark extends Pisces implements WaterAnimal {
     public Shark(boolean domestic){
         super(true);
         this.setDietType(Global.CARN);
-        this.setWeight(907.1);
+        this.setWeight(907);
         this.setName("Shark");
         this.setDomestic(domestic);
     }

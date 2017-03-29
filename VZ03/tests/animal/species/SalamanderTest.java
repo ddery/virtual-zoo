@@ -6,20 +6,20 @@ import util.Global;
 import static org.junit.Assert.*;
 
 /**
- * @author      Abdurahman <13515024@std.stei.itb.ac.id>
+ * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
  * @version     1.0
  * @since       1.0
  */
-public class GoliathFrogTest {
+public class SalamanderTest {
     @Test
     public void OverallTest() {
-        GoliathFrog animal= new GoliathFrog(true);
-        assertTrue(animal.getName().equals("GoliathFrog"));
+        Salamander animal= new Salamander(true);
+        assertTrue(animal.getName().equals("Salamander"));
         assertTrue(animal.isDomestic());
-        assertTrue(animal.foodConsumption()==500);
+        assertTrue(animal.foodConsumption()==0.1);
         assertTrue(animal.getBioType()== Global.WATER+Global.LAND);
-        assertTrue(animal.getDietType()==Global.CARN);
+        assertTrue(animal.getDietType()==Global.HERB);
         assertTrue(animal.getRespiratoryOrgan()==Global.LUNG+Global.GILL);
-        assertTrue(animal.getWeight()==5000);
+        assertTrue(animal.getWeight()==1);
     }
 }

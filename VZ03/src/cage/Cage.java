@@ -131,7 +131,7 @@ public class Cage {
     public float getFoodWeight(short C) {
         float total = 0;
         for(int i = 0;i < size;i++){
-            if(cellInside[i].isAnimal() && ((cellInside[i].getAnimal().getDietType() & C) > 0))
+            if(cellInside[i].isAnimal() && (cellInside[i].getAnimal().getDietType()==C))
                 total += cellInside[i].getAnimal().foodConsumption();
         }
         return total;

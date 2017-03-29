@@ -13,14 +13,13 @@ public class Cat extends Mammal implements LandAnimal {
 
     /**
      * Constructor of Cat
-     * @param name : name of this Cat
      * @param domestic : true if this Cat is tamed, false otherwise
      */
-    public Cat(String name, boolean domestic){
+    public Cat(boolean domestic){
         super(4,0);
         this.setDietType(Global.CARN);
         this.setWeight(3.9);
-        this.setName(name);
+        this.setName("Cat");
         this.setDomestic(domestic);
     }
     

@@ -24,12 +24,28 @@ import java.util.Random;
 public class Zoo implements Renderable {
 
     /* zCell array matrix of cell */
-    private final Cell[][] zCell;
+    private Cell[][] zCell;
     /* height of zoo */
-    private final int height;
+    private int height;
     /* width of zoo */
-    private final int width;
+    private int width;
 
+    /**
+     * Constructor Zoo
+     * @param height height zoo
+     * @param width width zoo
+     */
+    public Zoo(int height, int width){
+        this.height = height;
+        this.width = width;
+        zCell = new Cell[height][width];
+        for(int i = 0; i < height; i++){
+            zCell[i] = new Cell[width];
+            for(int j = 0; j < width; j++) {
+                zCell[i][j] = new LandHabitat();
+            }
+        }
+    }
     /**
      * Constructor Zoo
      * @param height : height of zoo

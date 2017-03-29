@@ -29,5 +29,5 @@ public abstract class Pisces extends Animal{
      * @return name of pisces's gill
      */
     @SuppressWarnings("unused")
-    boolean isHarmful(){ return harmful; }
+    public boolean isHarmful(){ return harmful; }
 }

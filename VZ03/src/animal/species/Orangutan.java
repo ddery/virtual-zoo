@@ -13,13 +13,12 @@ public class Orangutan extends Mammal implements LandAnimal{
 
     /**
      * Constructor of Orangutan
-     * @param name : name of this Orangutan
      * @param domestic : true if this Orangutan is tamed, false otherwise
      */
-    public Orangutan(String name, boolean domestic){
+    public Orangutan(boolean domestic){
         super(2,2);
         this.setWeight(80);
-        this.setName(name);
+        this.setName("Orangutan");
         this.setDomestic(domestic);
     }
     @Override

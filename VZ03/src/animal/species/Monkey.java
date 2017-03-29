@@ -13,13 +13,12 @@ public class Monkey extends Mammal implements LandAnimal {
 
     /**
      * Constructor of Monkey
-     * @param name : name of this Monkey
      * @param domestic : true if this Monkey is tamed, false otherwise
      */
-    public Monkey(String name, boolean domestic){
+    public Monkey(boolean domestic){
         super(2,2);
         this.setWeight(38);
-        this.setName(name);
+        this.setName("Monkey");
         this.setDomestic(domestic);
     }
 

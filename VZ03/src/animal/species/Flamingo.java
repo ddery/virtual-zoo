@@ -14,15 +14,14 @@ public class Flamingo extends Aves implements FlyingAnimal, LandAnimal {
 
     /**
      * Constructor of Flamingo
-     * @param name : name of this Flamingo
      * @param domestic : true if this Flamingo is tamed, false otherwise
      */
-    public Flamingo(String name, boolean domestic){
+    public Flamingo(boolean domestic){
         super(1.0);
         this.setBioType((short) (Global.AIR+Global.LAND));
         this.setDietType(Global.CARN);
         this.setWeight(2);
-        this.setName(name);
+        this.setName("Flamingo");
         this.setDomestic(domestic);
     }
     @Override

@@ -4,15 +4,15 @@
  * @since       1.0
  */
 
-public class Driver {
+class Driver {
     /**
      * wow define the Zoo
      */
-    public Zoo wow;
+    private final Zoo wow;
     /**
      * kdg define the cage
      */
-    public Cage[] kdg;
+    private final Cage[] kdg;
     /**
      * Driver constructor
      * <p>

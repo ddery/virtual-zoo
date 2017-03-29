@@ -14,14 +14,13 @@ public class ParadiseBird extends Aves implements FlyingAnimal {
 
     /**
      * Constructor of Ostrich
-     * @param name : name of this ostrich
      * @param domestic : true if this eagle is tamed, false otherwise
      */
-    public ParadiseBird(String name, boolean domestic){
+    public ParadiseBird(boolean domestic){
         super(0.3);
         this.setDietType((short) (Global.CARN+Global.HERB));
         this.setWeight(0.5);
-        this.setName(name);
+        this.setName("ParadiseBird");
         this.setDomestic(domestic);
     }
     @Override

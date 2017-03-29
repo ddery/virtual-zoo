@@ -8,27 +8,28 @@ import util.Global;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public abstract class Amphibia extends Animal{
     /* primary Respiratory */
-    private short primaryRespiratory;
+    private final short primaryRespiratory;
 
     /**
      * Constructor for Amphibia
      * Amphibia has default attribute value :
      * bioType : WATER+LAND
      * respiratoryOrgan : LUNG+GILL
-     * @param primaryRespiratory : for primary respiratory LUNG or GILL
      */
-    public Amphibia(short primaryRespiratory){
+    protected Amphibia(){
         this.setBioType((short) (Global.WATER+Global.LAND));
         this.setRespiratoryOrgan((short) (Global.LUNG+Global.GILL));
-        this.primaryRespiratory = primaryRespiratory;
+        this.primaryRespiratory = Global.LUNG;
     }
 
     /**
      * get primary respiratory of amphibian animal
      * @return short int of primary respiratory organ
      */
+    @SuppressWarnings("unused")
     short getPrimaryRespiratory(){
         return primaryRespiratory;
     }
@@ -36,6 +37,7 @@ public abstract class Amphibia extends Animal{
      * get secondary respiratory of amphibian animal
      * @return short int of secondary respiratory organ
      */
+    @SuppressWarnings("unused")
     short getSecondaryRespiratory(){
         return (short) (primaryRespiratory ^ this.getRespiratoryOrgan());
     }

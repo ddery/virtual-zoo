@@ -5,6 +5,7 @@ import util.*;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public class Cell {
     /**
      * type define what kind of cell it is
@@ -41,6 +42,7 @@ public class Cell {
      * Set a new type for the cell
      * @param new_type : as new type that is going to be assigned
      */
+    @SuppressWarnings("unused")
     protected void setType(char new_type) {
         type = new_type;
     }
@@ -48,7 +50,7 @@ public class Cell {
      * Set a new pointer to Animal for the cell
      * @param A : as new pointer to Animal that is going to be assigned
      */
-    protected void setAnimal(Animal A) {
+    void setAnimal(Animal A) {
         hewan = A;
     }
     /**

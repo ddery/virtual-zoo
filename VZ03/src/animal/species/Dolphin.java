@@ -13,15 +13,14 @@ public class Dolphin extends Mammal implements WaterAnimal {
 
     /**
      * Constructor of Dolphin
-     * @param name : name of this Dolphin
      * @param domestic : true if this Dolphin is tamed, false otherwise
      */
-    public Dolphin(String name, boolean domestic){
+    public Dolphin(boolean domestic){
         super(4,0);
         this.setBioType(Global.WATER);
         this.setDietType(Global.CARN);
         this.setWeight(635);
-        this.setName(name);
+        this.setName("Dolphin");
         this.setDomestic(domestic);
     }
     @Override

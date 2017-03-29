@@ -11,11 +11,6 @@ import util.Global;
 
 public class WaterHabitat extends Habitat implements Renderable {
     /**
-     * oxygen_rate define the oxygen rate contained
-     * in the water at the cell
-     */
-    private int oxygenRate;
-    /**
      * WaterHabitat constructor
      * Default attribute for WaterHabitat :
      * oxygenRate : 10
@@ -24,26 +19,8 @@ public class WaterHabitat extends Habitat implements Renderable {
     public WaterHabitat() {
         super.setType(Global.WATER);
         super.setAnimal(null);
-        oxygenRate = 10;
     }
-    /**
-     * Getter for oxygenRate
-     * <p>
-     * Give the number of oxygen rate in the water at the cell
-     * @return integer type oxygen rate
-     */
-    public int getOxyRate() {
-        return oxygenRate;
-    }
-    /**
-     * Setter for oxygenRate
-     * <p>
-     * Give the number of oxygen rate in the water at the cell
-     * @param oxygenRate : an oxygen rate in water habitat
-     */
-    public void setOxyRate(int oxygenRate) {
-        this.oxygenRate = oxygenRate;
-    }
+
     /**
      * Display WaterHabitat into monitor
      * <p>

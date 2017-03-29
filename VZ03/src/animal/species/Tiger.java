@@ -13,14 +13,13 @@ public class Tiger extends Mammal implements LandAnimal {
 
     /**
      * Constructor of Tiger
-     * @param name : name of this Tiger
      * @param domestic : true if this Tiger is tamed, false otherwise
      */
-    public Tiger(String name, boolean domestic){
+    public Tiger(boolean domestic){
         super(4,0);
         this.setDietType(Global.CARN);
         this.setWeight(210);
-        this.setName(name);
+        this.setName("Tiger");
         this.setDomestic(domestic);
     }
     @Override

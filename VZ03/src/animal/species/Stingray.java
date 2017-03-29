@@ -13,14 +13,13 @@ public class Stingray extends Pisces implements WaterAnimal{
 
     /**
      * Constructor of Stingray
-     * @param name : name of this Stingray
      * @param domestic : true if this Stingray is tamed, false otherwise
      */
-    public Stingray(String name, boolean domestic){
+    public Stingray(boolean domestic){
         super(false);
         this.setDietType(Global.CARN);
         this.setWeight(100);
-        this.setName(name);
+        this.setName("Stingray");
         this.setDomestic(domestic);
     }
     @Override

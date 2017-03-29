@@ -8,9 +8,10 @@ import util.Global;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public abstract class Pisces extends Animal{
     /* true if pisces is harmful for human */
-    private boolean harmful;
+    private final boolean harmful;
 
     /**
      * Constructor for pisces
@@ -19,7 +20,7 @@ public abstract class Pisces extends Animal{
      * respiratoryOrgan : GILL
      * @param harmful : true if pisces is harmful for human, false otherwise
      */
-    public Pisces(boolean harmful){
+    protected Pisces(boolean harmful){
         this.setBioType(Global.WATER);
         this.setRespiratoryOrgan(Global.GILL);
         this.harmful = harmful;
@@ -27,5 +28,6 @@ public abstract class Pisces extends Animal{
     /**
      * @return name of pisces's gill
      */
+    @SuppressWarnings("unused")
     boolean isHarmful(){ return harmful; }
 }

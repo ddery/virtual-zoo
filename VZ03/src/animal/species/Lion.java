@@ -13,14 +13,13 @@ public class Lion extends Mammal implements LandAnimal {
 
     /**
      * Constructor of Lion
-     * @param name : name of this Lion
      * @param domestic : true if this Lion is tamed, false otherwise
      */
-    public Lion(String name, boolean domestic){
+    public Lion(boolean domestic){
         super(4,0);
         this.setDietType(Global.HERB);
         this.setWeight(200);
-        this.setName(name);
+        this.setName("Lion");
         this.setDomestic(domestic);
     }
     @Override

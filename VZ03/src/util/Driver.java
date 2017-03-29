@@ -2,28 +2,35 @@ package util;
 
 import animal.species.*;
 import cage.Cage;
-import renderable.Renderable;
 import zoo.Zoo;
 
+
 /**
- * Created by dery on 3/28/17.
+ * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
 public class Driver {
 
-    private Zoo zoo;
-    private Cage[] cage;
+    /* zoo type */
+    private final Zoo zoo;
+    /* cage array */
+    private final Cage[] cage;
 
-    public Driver(int height, int width, String filename){
-        zoo = new Zoo(height,width,filename);
+    /**
+     * Driver constructor
+     */
+    public Driver(){
+        zoo = new Zoo(15, 40, "test.txt");
         cage = new Cage[100];
         int idx = 0;
-        for(int i = 0; i < height; i++){
-            for(int j = 0; j < width; j++){
+        for(int i = 0; i < 15; i++){
+            for(int j = 0; j < 40; j++){
                 if(zoo.getCell(i,j).cekTypeCell(Global.HABITAT) && (zoo.getCell(i,j).getCageNumber()==-1)){
                     int i1 = i;
                     int j1 = j;
-                    while(i1 < height && zoo.getCell(i1,j1).cekTypeCell(Global.HABITAT)){ i1++;}
-                    while(j1 < width && zoo.getCell(i1-1,j1).cekTypeCell(Global.HABITAT)){ j1++;}
+                    while(i1 < 15 && zoo.getCell(i1,j1).cekTypeCell(Global.HABITAT)){ i1++;}
+                    while(j1 < 40 && zoo.getCell(i1-1,j1).cekTypeCell(Global.HABITAT)){ j1++;}
                     cage[idx] = new Cage(zoo,i,j,i1,j1);
                     idx++;
                 }
@@ -31,9 +38,9 @@ public class Driver {
         }
     }
 
-    /*	@brief displayMap
-        *	menampilkan bentuk zoo ke layar
-        */
+    /**
+     * Display logo in terminal
+     */
     public void displayMap(){
         zoo.render();
     }
@@ -44,36 +51,30 @@ public class Driver {
         System.out.print("   _|  _|  _|    _|    _|    _|  _|  _|          _|        _|    _|  _|    _|  \n");
         System.out.print("     _|  _|        _|_|        _|  _|          _|_|_|_|_|    _|_|      _|_|    \n");
     }
-    /*	@brief Zooinfo
-        *	menampilkan ke layar info makanan yang dibutuhkan dalam sehari dan
-        * list animal yang ada
-        */
+
+    /**
+     * print zoo information
+     */
     public void zooInfo(){
         for (int i = 0; i < getNbCage(); i++) {
             if(cage[i].getnAnimal()>0) {
-                System.out.println("CAGE " + i+1);
+                System.out.println(cage[i].getCageNumber());
                 cage[i].printAnimalList();
             }
         }
     }
-    /*	@brief Tourzoo
-        *	melakukan tour dengan cara memanggil prosedur Tour ada kelas zoo
-        */
-    public void tourZoo(){
-        update();
-        //zoo.
-    }
-    /*	@brief animalmove
-        * membuat animal pindah secara acak
-        */
+
+    /**
+     * update zoo for 1 minutes
+     */
     public void update(){
         for (int i = 0; i < getNbCage(); i++){
             cage[i].updateOneMinutes();
         }
     }
 
-    /**	@brief getNAnimal
-     * total Animal dalam Zoo
+    /** get animal total
+     * @return number of animal
      */
     public int getNAnimal(){
         int total = 0;
@@ -83,10 +84,9 @@ public class Driver {
         return total;
     }
 
-    /**	@brief getFoodConsum
-     * total berat makanan Animal dalam Zoo dari tipe hewannya
-     * Carnivora/Herbivora/Omnifora
-     * @param type : tipe hewan
+    /**	total food weight
+     * @param type : animal type
+     * @return weight food consumption in specific type
      */
     public double getFoodConsum(short type){
         float total = 0;
@@ -96,69 +96,106 @@ public class Driver {
         return total;
     }
 
-    /**	@brief getNbCage
-     * mengembalikan nilai banyaknya Cage yang dibuat dalam kebun binatang
+    /**	get number of cage
+     * @return number of cage
      */
     public int getNbCage(){
         return cage[0].getNbCage();
     }
 
+    /**
+     * Create animal in specific cage
+     * @param animalName name of animal
+     * @param isDomestic true if animal is domestic, false otherwise
+     * @param count count of that animals
+     * @param cageNumber which cage belong to that animal
+     */
     public void createAnimal(String animalName, boolean isDomestic, int count, int cageNumber) {
-        if(animalName.equals("Cat")){
-            cage[cageNumber].addAnimal(new Cat("Cat",isDomestic),count);
-        } else if(animalName.equals("Chameleon")){
-            cage[cageNumber].addAnimal(new Chameleon("Chameleon",isDomestic),count);
-        } else if(animalName.equals("Chimpanzee")){
-            cage[cageNumber].addAnimal(new Chimpanzee("Chimpanzee",isDomestic),count);
-        } else if(animalName.equals("Dolphin")) {
-            cage[cageNumber].addAnimal(new Dolphin("Dolphin", isDomestic), count);
-        } else if(animalName.equals("Eagle")) {
-            cage[cageNumber].addAnimal(new Eagle("Eagle", isDomestic), count);
-        } else if(animalName.equals("Elephant")) {
-            cage[cageNumber].addAnimal(new Elephant("Elephant", isDomestic), count);
-        } else if(animalName.equals("Flamingo")) {
-            cage[cageNumber].addAnimal(new Flamingo("Flamingo", isDomestic), count);
-        } else if(animalName.equals("GoliathFrog")) {
-            cage[cageNumber].addAnimal(new GoliathFrog("GoliathFrog", isDomestic), count);
-        } else if(animalName.equals("Gorilla")) {
-            cage[cageNumber].addAnimal(new Gorilla("Gorilla", isDomestic), count);
-        } else if(animalName.equals("HumpbackWhale")) {
-            cage[cageNumber].addAnimal(new HumpbackWhale("HumpbackWhale", isDomestic), count);
-        } else if(animalName.equals("KomodoDragon")) {
-            cage[cageNumber].addAnimal(new KomodoDragon("KomodoDragon", isDomestic), count);
-        } else if(animalName.equals("Lion")) {
-            cage[cageNumber].addAnimal(new Lion("Lion", isDomestic), count);
-        } else if(animalName.equals("Monkey")) {
-            cage[cageNumber].addAnimal(new Monkey("Monkey", isDomestic), count);
-        } else if(animalName.equals("Orangutan")) {
-            cage[cageNumber].addAnimal(new Orangutan("Orangutan", isDomestic), count);
-        } else if(animalName.equals("Ostrich")) {
-            cage[cageNumber].addAnimal(new Ostrich("Ostrich", isDomestic), count);
-        } else if(animalName.equals("Panda")) {
-            cage[cageNumber].addAnimal(new Panda("Panda", isDomestic), count);
-        } else if(animalName.equals("ParadiseBird")) {
-            cage[cageNumber].addAnimal(new ParadiseBird("ParadiseBird", isDomestic), count);
-        } else if(animalName.equals("Peacock")) {
-            cage[cageNumber].addAnimal(new Peacock("Peacock", isDomestic), count);
-        } else if(animalName.equals("Penguin")) {
-            cage[cageNumber].addAnimal(new Penguin("Penguin", isDomestic), count);
-        } else if(animalName.equals("Puma")) {
-            cage[cageNumber].addAnimal(new Puma("Puma", isDomestic), count);
-        } else if(animalName.equals("Salamander")) {
-            cage[cageNumber].addAnimal(new Salamander("Salamander", isDomestic), count);
-        } else if(animalName.equals("Salmon")) {
-            cage[cageNumber].addAnimal(new Salmon("Salmon", isDomestic), count);
-        } else if(animalName.equals("Shark")) {
-            cage[cageNumber].addAnimal(new Shark("Shark", isDomestic), count);
-        } else if(animalName.equals("Stingray")) {
-            cage[cageNumber].addAnimal(new Stingray("Stingray", isDomestic), count);
-        } else if(animalName.equals("Tiger")) {
-            cage[cageNumber].addAnimal(new Tiger("Tiger", isDomestic), count);
-        } else {
-            System.out.println("Hewan yang dimasukan salah");
+        switch (animalName) {
+            case "Cat":
+                cage[cageNumber].addAnimal(new Cat("Cat", isDomestic), count);
+                break;
+            case "Chameleon":
+                cage[cageNumber].addAnimal(new Chameleon(isDomestic), count);
+                break;
+            case "Chimpanzee":
+                cage[cageNumber].addAnimal(new Chimpanzee(isDomestic), count);
+                break;
+            case "Dolphin":
+                cage[cageNumber].addAnimal(new Dolphin(isDomestic), count);
+                break;
+            case "Eagle":
+                cage[cageNumber].addAnimal(new Eagle(isDomestic), count);
+                break;
+            case "Elephant":
+                cage[cageNumber].addAnimal(new Elephant(isDomestic), count);
+                break;
+            case "Flamingo":
+                cage[cageNumber].addAnimal(new Flamingo(isDomestic), count);
+                break;
+            case "GoliathFrog":
+                cage[cageNumber].addAnimal(new GoliathFrog(isDomestic), count);
+                break;
+            case "Gorilla":
+                cage[cageNumber].addAnimal(new Gorilla(isDomestic), count);
+                break;
+            case "HumpbackWhale":
+                cage[cageNumber].addAnimal(new HumpbackWhale(isDomestic), count);
+                break;
+            case "KomodoDragon":
+                cage[cageNumber].addAnimal(new KomodoDragon(isDomestic), count);
+                break;
+            case "Lion":
+                cage[cageNumber].addAnimal(new Lion(isDomestic), count);
+                break;
+            case "Monkey":
+                cage[cageNumber].addAnimal(new Monkey(isDomestic), count);
+                break;
+            case "Orangutan":
+                cage[cageNumber].addAnimal(new Orangutan(isDomestic), count);
+                break;
+            case "Ostrich":
+                cage[cageNumber].addAnimal(new Ostrich(isDomestic), count);
+                break;
+            case "Panda":
+                cage[cageNumber].addAnimal(new Panda(isDomestic), count);
+                break;
+            case "ParadiseBird":
+                cage[cageNumber].addAnimal(new ParadiseBird(isDomestic), count);
+                break;
+            case "Peacock":
+                cage[cageNumber].addAnimal(new Peacock(isDomestic), count);
+                break;
+            case "Penguin":
+                cage[cageNumber].addAnimal(new Penguin(isDomestic), count);
+                break;
+            case "Puma":
+                cage[cageNumber].addAnimal(new Puma(isDomestic), count);
+                break;
+            case "Salamander":
+                cage[cageNumber].addAnimal(new Salamander(isDomestic), count);
+                break;
+            case "Salmon":
+                cage[cageNumber].addAnimal(new Salmon(isDomestic), count);
+                break;
+            case "Shark":
+                cage[cageNumber].addAnimal(new Shark(isDomestic), count);
+                break;
+            case "Stingray":
+                cage[cageNumber].addAnimal(new Stingray(isDomestic), count);
+                break;
+            case "Tiger":
+                cage[cageNumber].addAnimal(new Tiger(isDomestic), count);
+                break;
+            default:
+                System.out.println("Hewan yang dimasukan salah");
+                break;
         }
     }
 
+    /**
+     * print all available animal in this zoo
+     */
     public void printAvailableAnimal() {
         System.out.println("Cat");
         System.out.println("Chameleon");
@@ -187,8 +224,18 @@ public class Driver {
         System.out.println("Tiger");
     }
 
+    /**
+     * clear screen
+     */
     public void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    /**
+     * generate path zoo tour
+     */
+    public void tourZoo() {
+        zoo.tour();
     }
 }

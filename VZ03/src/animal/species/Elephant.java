@@ -13,14 +13,13 @@ public class Elephant extends Mammal implements LandAnimal{
 
     /**
      * Constructor of Elephant
-     * @param name : name of this Elephant
      * @param domestic : true if this Elephant is tamed, false otherwise
      */
-    public Elephant(String name, boolean domestic){
+    public Elephant(boolean domestic){
         super(4,0);
         this.setDietType(Global.HERB);
         this.setWeight(5000);
-        this.setName(name);
+        this.setName("Elephant");
         this.setDomestic(domestic);
     }
     @Override

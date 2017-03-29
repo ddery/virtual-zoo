@@ -5,6 +5,7 @@ package animal;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 abstract public class Animal {
 
     /* name of Animal */
@@ -148,5 +149,6 @@ abstract public class Animal {
      * action when Animal eat food
      * @param food of animal when eating
      */
+    @SuppressWarnings("unused")
     abstract public void eat(String food);
 }

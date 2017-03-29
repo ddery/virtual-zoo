@@ -7,16 +7,20 @@ import java.util.Random;
  * @version     1.0
  * @since       1.0
  */
-public class Zoo {
+@SuppressWarnings("ALL")
+class Zoo {
     /**
      * zCell define the Cell inside the zoo
      */
-    private Cell[][] zCell;
+    private final Cell[][] zCell;
     /**
      * height define the height of the zoo
+     */
+    private final int height;
+    /**
      * width define the width of the zoo
      */
-    private int height, width;
+    private final int width;
 
     /**
      * Zoo constructor
@@ -42,6 +46,7 @@ public class Zoo {
      * @param i = x position
      * @param j = y position
      */
+    @SuppressWarnings("unused")
     public Cell getCell(int i, int j) {
         try {
             return zCell[i][j];
@@ -59,7 +64,7 @@ public class Zoo {
      * @param j = y position
      * @param type = type of the cell
      */
-    public void setCell(int i, int j, char type) {
+    private void setCell(int i, int j, char type) {
         zCell[i][j] = new Cell(type);
     }
     /**
@@ -115,6 +120,7 @@ public class Zoo {
         }
     }
 
+    @SuppressWarnings("unused")
     public void render(int height, int width) {
         for(int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

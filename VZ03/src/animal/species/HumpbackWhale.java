@@ -13,15 +13,14 @@ public class HumpbackWhale extends Mammal implements WaterAnimal {
 
     /**
      * Constructor of HumpbackWhale
-     * @param name : name of this HumpbackWhale
      * @param domestic : true if this HumpbackWhale is tamed, false otherwise
      */
-    public HumpbackWhale(String name, boolean domestic){
+    public HumpbackWhale(boolean domestic){
         super(0,0);
         this.setBioType(Global.WATER);
         this.setDietType(Global.CARN);
         this.setWeight(36000);
-        this.setName(name);
+        this.setName("HumpbackWhale");
         this.setDomestic(domestic);
     }
 

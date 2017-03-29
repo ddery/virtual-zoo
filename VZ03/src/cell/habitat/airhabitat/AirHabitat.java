@@ -11,11 +11,6 @@ import util.Global;
 
 public class AirHabitat extends Habitat implements Renderable {
     /**
-     * maximum_height define the max altitude that the Animal
-     * can reach at the cell
-     */
-    private int maximumHeight;
-    /**
      * AirHabitat constructor
      * <p>
      * Default attribute value in AirHabitat
@@ -25,28 +20,8 @@ public class AirHabitat extends Habitat implements Renderable {
     public AirHabitat() {
         super.setType(Global.AIR);
         super.setAnimal(null);
-        maximumHeight = 100;
     }
-    /**
-     * Getter for maximumHeight
-     * <p>
-     * Give the maximum height value that can be reach by an Animal
-     * inside the AirHabitat
-     * @return integer type maximum height
-     */
-    public int getMaxHeight() {
-        return maximumHeight;
-    }
-    /**
-     * Setter for maximumHeight
-     * <p>
-     * Give the maximum height value that can be reach by an Animal
-     * inside the AirHabitat
-     * @param maximumHeight: maximum height that will be assigned
-     */
-    public void setMaxHeight(int maximumHeight) {
-        this.maximumHeight = maximumHeight;
-    }
+
     /**
      * Display AirHabitat into monitor
      * <p>

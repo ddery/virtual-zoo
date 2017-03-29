@@ -6,6 +6,7 @@ package renderable;
  * @since       1.0
  */
 
+@SuppressWarnings("ALL")
 public interface Renderable {
     /**
      * method render to display objects
@@ -13,5 +14,6 @@ public interface Renderable {
      * Display object for the user to be determined what kind of
      * object it is.
      */
+    @SuppressWarnings("unused")
     void render();
 }

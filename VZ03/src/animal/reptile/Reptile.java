@@ -8,9 +8,10 @@ import util.Global;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public abstract class Reptile extends Animal {
     /* poisonous relative, 0-5 */
-    private int poisonousRelative;
+    private final int poisonousRelative;
 
     /**
      * Constructor for reptile
@@ -20,7 +21,7 @@ public abstract class Reptile extends Animal {
      * respiratoryOrgan LUNG
      * @param poisonousRelative : poisonous relative 0-5
      */
-    public Reptile(int poisonousRelative){
+    protected Reptile(int poisonousRelative){
         this.setBioType(Global.LAND);
         this.setDietType(Global.CARN);
         this.setRespiratoryOrgan(Global.LUNG);
@@ -31,5 +32,6 @@ public abstract class Reptile extends Animal {
      * 5 is very dangerous, 0 with no poison
      * @return relative poisonous
      */
+    @SuppressWarnings("unused")
     int getPoisonousRelative(){ return poisonousRelative; }
 }

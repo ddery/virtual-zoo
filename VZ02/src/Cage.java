@@ -6,15 +6,16 @@ import java.util.Random;
  * @since       1.0
  */
 
-public class Cage {
+@SuppressWarnings("ALL")
+class Cage {
     /**
      * cageNumber define the cage number
      */
-    private int cageNumber;
+    private final int cageNumber;
     /**
      * size define the number of cell inside the cage
      */
-    private int size;
+    private final int size;
     /**
      * nAnimal define the number of animal inside the cage
      */
@@ -27,7 +28,7 @@ public class Cage {
      * cellInside define an array containing all cell
      * inside the cage
      */
-    private Cell [] cellInside;
+    private final Cell [] cellInside;
     /**
      * Cage constructor
      * <p>
@@ -50,6 +51,7 @@ public class Cage {
      * <p>
      * Return integer as the cage number
      */
+    @SuppressWarnings("unused")
     public int getCageNumber(){
         return cageNumber;
     }
@@ -77,6 +79,7 @@ public class Cage {
      * Validation using cell that placed by animal and
      * use Animal class method
      */
+    @SuppressWarnings("unused")
     public boolean isIsiBuas() {
         int i = 0;
         while ((i < size) && !(cellInside[i].isAnimal())){
@@ -155,6 +158,7 @@ public class Cage {
      * Return float as the number of weight of an animal
      * @param C  = char variable to identify diet of the animal
      */
+    @SuppressWarnings("unused")
     public float getAnimalWeight(char C) {
         float total = 0;
         for(int i = 0;i < size;i++){
@@ -218,7 +222,7 @@ public class Cage {
         }
         /* untuk setiap animal, akan diberikan cell baru */
         Random rand = new Random();
-        int randomValue = rand.nextInt(size);
+        @SuppressWarnings("UnusedAssignment") int randomValue = rand.nextInt(size);
         for (int i = 0;i < count;i++) {
             int sizeHabit = 0, startHabitIdx = 0;
             for(int j = 0;j < size;j++) {
@@ -248,6 +252,7 @@ public class Cage {
      * <p>
      * Display Cage based on its characteristics
      */
+    @SuppressWarnings("unused")
     public void render() {
         for(int i = 0; i < size; i++){
             cellInside[i].render();

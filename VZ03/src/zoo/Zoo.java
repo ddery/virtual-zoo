@@ -14,6 +14,7 @@ import renderable.Renderable;
 import util.Global;
 
 import java.io.*;
+import java.util.Random;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
@@ -21,10 +22,21 @@ import java.io.*;
  * @since       1.0
  */
 public class Zoo implements Renderable {
-    private Cell[][] zCell;
-    private int height,width;
 
-    // max animal in 1 cell is 5
+    /* zCell array matrix of cell */
+    private final Cell[][] zCell;
+    /* height of zoo */
+    private final int height;
+    /* width of zoo */
+    private final int width;
+
+    /**
+     * Constructor Zoo
+     * @param height : height of zoo
+     * @param width : width of zoo
+     * @param filename : from external file
+     */
+    @SuppressWarnings("SameParameterValue")
     public Zoo(int height, int width, String filename){
         this.height = height;
         this.width = width;
@@ -51,10 +63,10 @@ public class Zoo implements Renderable {
                         zCell[i][j] = new AirHabitat();
                     }
                     if((t & Global.RESTAURANT) > 0){
-                        zCell[i][j] = new Restaurant("Resto 1");
+                        zCell[i][j] = new Restaurant();
                     }
                     if((t & Global.PARK) > 0){
-                        zCell[i][j] = new Park("Park 1");
+                        zCell[i][j] = new Park();
                     }
                     if((t & Global.ROAD) > 0){
                         zCell[i][j] = new Road();
@@ -69,13 +81,16 @@ public class Zoo implements Renderable {
                 i++;
             }
             in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Convert character type of cell to short int
+     * @param c : char type
+     * @return short int of type cell
+     */
     private short convertCharToType(char c){
         switch (c){
             case 'W' : return Global.WATER;
@@ -90,6 +105,12 @@ public class Zoo implements Renderable {
         }
     }
 
+    /**
+     * Get Cell in zoo
+     * @param i : row of cell
+     * @param j : col of cell
+     * @return cell in that position
+     */
     public Cell getCell(int i, int j){
         try {
             return zCell[i][j];
@@ -100,13 +121,6 @@ public class Zoo implements Renderable {
         return null;
     }
 
-    public int getHeight(){
-        return height;
-    }
-
-    public int getWidth(){
-        return width;
-    }
     @Override
     public void render() {
         System.out.println();
@@ -121,6 +135,166 @@ public class Zoo implements Renderable {
                 }
             }
             System.out.println();
+        }
+    }
+
+    /**
+     * Tour in zoo
+     */
+    public void tour() {
+        boolean[][] visited;
+        visited = new boolean[height][width];
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                visited[i][j] = false;
+            }
+        }
+
+        int nowX, nowY;
+        int pintuX[] = new int[height+width];
+        int pintuY[] = new int[height+width];
+        int nPintu = 0;
+        for (int i = 0 ; i < height ; i++) {
+            for (int j = 0 ; j < width ; j++) {
+                if (zCell[i][j].cekTypeCell(Global.ENTRANCE)) {
+                    pintuX[nPintu] = j;
+                    pintuY[nPintu] = i;
+                    nPintu++;
+                }
+            }
+        }
+
+        Random rand = new Random();
+        int randomValue = rand.nextInt(nPintu);
+        int tempInt = randomValue % nPintu;
+        nowX = pintuX[tempInt];
+        nowY = pintuY[tempInt];
+        visited[nowY][nowX] = true;
+
+
+        boolean finish = false;
+        while (!finish) {
+            int visibleX[] = new int[3];
+            int visibleY[] = new int[3];
+            int visible = 0;
+            if (!zCell[nowY][nowX].cekTypeCell(Global.EXIT)) {
+                if (nowX != 0) {
+                    int tempX = nowX - 1;
+                    if (zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    } else if (zCell[nowY][tempX].cekTypeCell((short) (Global.ROAD + Global.EXIT + Global.ENTRANCE)) && !visited[nowY][tempX]) {
+                        visibleX[visible] = tempX;
+                        visibleY[visible] = nowY;
+                        visible++;
+                    }
+                }
+                if (nowX != width - 1) {
+                    int tempX = nowX + 1;
+                    if (zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    } else if (zCell[nowY][tempX].cekTypeCell((short) (Global.ENTRANCE + Global.EXIT + Global.ENTRANCE)) && !visited[nowY][tempX]) {
+                        visibleX[visible] = tempX;
+                        visibleY[visible] = nowY;
+                        visible++;
+                    }
+                }
+                if (nowY != 0) {
+                    int tempY = nowY - 1;
+                    if (zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    } else if (zCell[tempY][nowX].cekTypeCell((short) (Global.ENTRANCE + Global.EXIT + Global.ROAD)) && !visited[tempY][nowX]) {
+                        visibleX[visible] = nowX;
+                        visibleY[visible] = tempY;
+                        visible++;
+                    }
+                }
+                if (nowY != height - 1) {
+                    //cekbawah
+                    int tempY = nowY + 1;
+                    if (zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    } else if (zCell[tempY][nowX].cekTypeCell((short) (Global.ENTRANCE + Global.EXIT + Global.ROAD)) && !visited[tempY][nowX]) {
+                        visibleX[visible] = nowX;
+                        visibleY[visible] = tempY;
+                        visible++;
+                    }
+                }
+
+                if (visible == 0) {
+                    finish = true;
+                } else if (visible == 1) {
+                    nowX = visibleX[0];
+                    nowY = visibleY[0];
+                    visited[nowY][nowX] = true;
+                } else if (visible > 1) {
+                    randomValue = rand.nextInt(visible);
+                    int future = (randomValue % visible);
+                    nowX = visibleX[future];
+                    nowY = visibleY[future];
+                    visited[nowY][nowX] = true;
+                }
+            } else {
+                finish = true;
+                if (nowX != 0) {
+                /* cek kirinya */
+                    int tempX = nowX - 1;
+                    if (zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    }
+                }
+                if (nowX != width - 1) {
+                    //cekkanan
+                    int tempX = nowX + 1;
+                    if (zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    }
+                }
+                if (nowY != 0) {
+                /* cekatas */
+                    int tempY = nowY - 1;
+                    if (zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    }
+                }
+                if (nowY != height - 1) {
+                    //cekbawah
+                    int tempY = nowY + 1;
+                    if (zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (zCell[i][j] == null) {
+                    System.out.print(" ");
+                } else {
+                    if (visited[i][j]) {
+                        System.out.print( Global.ANSI_CYAN_BACKGROUND + Global.ANSI_BLACK + ".." + Global.ANSI_RESET);
+                    } else {
+                        zCell[i][j].render();
+                    }
+                }
+            }
+            System.out.print("\n");
         }
     }
 }

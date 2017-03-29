@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="1015.0">Cage</node>
+    <node x="457.75000000000006" y="1534.0">Driver</node>
+    <node x="319.42129629629636" y="0.0">Animal</node>
+    <node x="541.0" y="1118.5">Zoo</node>
+    <node x="342.9421296296297" y="565.0">Cell</node>
+    <node x="520.7500000000001" y="1846.0">Main</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Cell" target="Animal">
+      <point x="0.0" y="-200.0" />
+      <point x="554.4421296296297" y="540.0" />
+      <point x="588.9212962962963" y="540.0" />
+      <point x="0.0" y="257.5" />
+    </edge>
+    <edge source="Zoo" target="Cell">
+      <point x="79.5" y="-131.0" />
+      <point x="779.5" y="990.0" />
+      <point x="713.0671296296297" y="990.0" />
+      <point x="158.625" y="200.0" />
+    </edge>
+    <edge source="Driver" target="Zoo">
+      <point x="0.0" y="-131.0" />
+      <point x="607.7500000000001" y="1514.0" />
+      <point x="620.5" y="1514.0" />
+      <point x="-79.5" y="131.0" />
+    </edge>
+    <edge source="Main" target="Driver">
+      <point x="0.0" y="-27.0" />
+      <point x="0.0" y="131.0" />
+    </edge>
+    <edge source="Cage" target="Animal">
+      <point x="-173.66666666666663" y="-234.5" />
+      <point x="86.83333333333337" y="990.0" />
+      <point x="197.45138888888897" y="990.0" />
+      <point x="197.45138888888897" y="540.0" />
+      <point x="409.25462962962973" y="540.0" />
+      <point x="-179.66666666666663" y="257.5" />
+    </edge>
+    <edge source="Driver" target="Cage">
+      <point x="-60.0" y="-131.0" />
+      <point x="547.7500000000001" y="1504.0" />
+      <point x="390.75" y="1504.0" />
+      <point x="130.25" y="234.5" />
+    </edge>
+    <edge source="Cage" target="Cell">
+      <point x="173.66666666666663" y="-234.5" />
+      <point x="434.16666666666663" y="990.0" />
+      <point x="501.5671296296297" y="990.0" />
+      <point x="-52.875" y="200.0" />
+    </edge>
+    <edge source="Driver" target="Animal">
+      <point x="119.99999999999999" y="-131.0" />
+      <point x="727.75" y="1514.0" />
+      <point x="869.5" y="1514.0" />
+      <point x="869.5" y="540.0" />
+      <point x="768.587962962963" y="540.0" />
+      <point x="179.66666666666663" y="257.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.5" x="552.0" y="759.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Methods</Category>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

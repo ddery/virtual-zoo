@@ -22,7 +22,7 @@ public class Cell implements Renderable{
      */
     private int cageNumber = -1;
 
-    public Cell(){
+    protected Cell(){
         type = ' ';
         hewan = null;
     }
@@ -70,10 +70,18 @@ public class Cell implements Renderable{
         return (hewan != null);
     }
 
+    /**
+     * set cageNumber
+     * @param cageNumber cage number
+     */
     public void setCageNumber(int cageNumber){
         this.cageNumber = cageNumber;
     }
 
+    /**
+     * Get cage number
+     * @return get this cage number
+     */
     public int getCageNumber(){return cageNumber;}
 
     @Override

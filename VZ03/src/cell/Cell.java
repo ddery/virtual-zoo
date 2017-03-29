@@ -8,7 +8,7 @@ import util.Global;
  * @version     1.1
  * @since       1.0
  */
-public class Cell implements Renderable{
+public abstract class Cell implements Renderable{
     /**
      * type define what kind of cell it is
      */
@@ -18,6 +18,10 @@ public class Cell implements Renderable{
      * represent an animal that exist in a cell
      */
     private Animal hewan;
+    /**
+     * 0 if the cell not belong to any cage
+     */
+    private int cageNumber = -1;
 
     public Cell(){
         type = ' ';
@@ -67,8 +71,11 @@ public class Cell implements Renderable{
         return (hewan != null);
     }
 
-    @Override
-    public void render() {
-        System.out.print('#');
+    public void setCageNumber(int cageNumber){
+        this.cageNumber = cageNumber;
     }
+
+    public int getCageNumber(){return cageNumber;}
+    @Override
+    public abstract void render();
 }

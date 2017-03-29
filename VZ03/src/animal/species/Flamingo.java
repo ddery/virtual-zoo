@@ -17,7 +17,7 @@ public class Flamingo extends Aves implements FlyingAnimal, LandAnimal {
      * @param name : name of this Flamingo
      * @param domestic : true if this Flamingo is tamed, false otherwise
      */
-    Flamingo(String name, boolean domestic){
+    public Flamingo(String name, boolean domestic){
         super(1.0);
         this.setBioType((short) (Global.AIR+Global.LAND));
         this.setDietType(Global.CARN);
@@ -27,26 +27,25 @@ public class Flamingo extends Aves implements FlyingAnimal, LandAnimal {
     }
     @Override
     public void fly(double speed, double altitude) {
-
+        System.out.println(getName() + " is flying with speed " + speed + " m/s " + " and " + altitude + " m high");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Flam flam");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Fl" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 
     @Override
     public void move(double speed) {
-
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 }

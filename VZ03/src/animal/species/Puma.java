@@ -16,7 +16,7 @@ public class Puma extends Mammal implements LandAnimal {
      * @param name : name of this Puma
      * @param domestic : true if this Puma is tamed, false otherwise
      */
-    Puma(String name, boolean domestic){
+    public Puma(String name, boolean domestic){
         super(4,0);
         this.setDietType(Global.CARN);
         this.setWeight(180);
@@ -26,21 +26,20 @@ public class Puma extends Mammal implements LandAnimal {
 
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Hoaarr");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Pm" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

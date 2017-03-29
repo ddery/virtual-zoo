@@ -3,15 +3,17 @@ package cage;
 import animal.Animal;
 import cell.Cell;
 import renderable.Renderable;
+import util.Global;
+import zoo.Zoo;
 
 import java.util.Random;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
- * @version     1.0
+ * @version     1.1
  * @since       1.0
  */
-public class Cage implements Renderable {
+public class Cage {
     /**
      * cageNumber define the cage number
      */
@@ -23,7 +25,7 @@ public class Cage implements Renderable {
     /**
      * nAnimal define the number of animal inside the cage
      */
-    private int nAnimal;
+    private int nAnimal = 0;
     /**
      * nbCage define the number of cage in all over the zoo
      */
@@ -33,20 +35,25 @@ public class Cage implements Renderable {
      * inside the cage
      */
     private Cell [] cellInside;
+    public Cage(){
+        cageNumber = 0;
+        size = 0;
+    }
     /**
      * Cage constructor
      * <p>
      * Make a Cage, for cell and animal
-     * @param jumlahAnimal = number of animal inside the cage
-     * @param jumlahCell = number of cell inside the cage
      */
-    public Cage(int jumlahCell, int jumlahAnimal){
-        size = jumlahCell;
-        nAnimal = jumlahAnimal;
+    public Cage(Zoo zoo, int i, int j, int i1, int j1){
+        size = (((j1 - j) + 1) * ((i1 - i) + 1));
         cellInside = new Cell[size];
         cageNumber = nbCage;
-        for(int i = 0;i < size;i++){
-            cellInside[i] = null;
+        int idx = 0;
+        for(int i2 = i;i2 < i1; i2++){
+            for(int j2 = j;j2 < j1; j2++){
+                zoo.getCell(i2,j2).setCageNumber(idx);
+                this.setCell(zoo.getCell(i2,j2));
+            }
         }
         nbCage += 1;
     }
@@ -82,7 +89,7 @@ public class Cage implements Renderable {
      * Validation using cell that placed by animal and
      * use Animal class method
      */
-    public boolean isIsiBuas() {
+    public boolean isDanger() {
         int i = 0;
         while ((i < size) && !(cellInside[i].isAnimal())){
             i++;
@@ -103,9 +110,13 @@ public class Cage implements Renderable {
      * <p>
      * Set cell C into cellInside array at idx position
      */
-    public void setCell(int idx, Cell C){
-        idx = 0;
+    public void setCell(Cell C){
+        int idx = 0;
         while(this.cellInside[idx] != null){ idx++; }
+        if(idx>=size){
+            size++;
+            //cellInside[idx] = new Cell();
+        }
         this.cellInside[idx] = C;
     }
     /**
@@ -113,27 +124,18 @@ public class Cage implements Renderable {
      * <p>
      * Placing an Animal that compatible with the
      * cell inside the cage
-     * @param A = new animal that going to be added
+     * @param animal = new animal that going to be added
      * @param count = the number of animal A that going to be added
      */
-    public void addAnimal(Animal A, int count) {
+    public void addAnimal(Animal animal, int count) {
         int idx = 0;
         if((nAnimal + count) < 0.3*(this.size)) {
-            if(A.isDomestic() || (!A.isDomestic() && nAnimal==0)) {
+            if(animal.isDomestic() || (!animal.isDomestic() && nAnimal==0)) {
                 while (cellInside[idx].isAnimal()) { idx++; }
                 while (count > 0) {
+                    if((cellInside[idx].getType() & animal.getBioType()) > 0)
+                        cellInside[idx++].setAnimal(animal);
                     count--;
-                    if(A.getBioType() == 'z'){
-                        // while ((cellInside[idx].isAH()) && idx < size-1) { idx++; }
-                    } else {
-                        if (cellInside[idx].getType() != A.getBioType()) {
-                            while ((cellInside[idx].getType() != A.getBioType()) && (idx < size - 1)) { idx++; }
-                        }
-                    }
-                    if(idx < size-1) {
-                        this.cellInside[idx++].setAnimal(A);
-                        nAnimal++;
-                    }
                 }
             }
         }
@@ -160,10 +162,10 @@ public class Cage implements Renderable {
      * Return float as the number of weight of an animal
      * @param C  = char variable to identify diet of the animal
      */
-    public float getAnimalWeight(char C) {
+    public float getAnimalWeight(short C) {
         float total = 0;
         for(int i = 0;i < size;i++){
-            if(cellInside[i].isAnimal() && cellInside[i].getAnimal().getDietType() == C)
+            if(cellInside[i].isAnimal() && ((cellInside[i].getAnimal().getDietType() & C) > 0))
                 total +=cellInside[i].getAnimal().getWeight();
         }
         return total;
@@ -174,10 +176,10 @@ public class Cage implements Renderable {
      * Return float as the number of food weight of an animal
      * @param C  = char variable to identify diet of the animal
      */
-    public float getFoodWeight(char C) {
+    public float getFoodWeight(short C) {
         float total = 0;
         for(int i = 0;i < size;i++){
-            if(cellInside[i].isAnimal() && cellInside[i].getAnimal().getDietType() == C)
+            if(cellInside[i].isAnimal() && ((cellInside[i].getAnimal().getDietType() & C) > 0))
                 total += cellInside[i].getAnimal().foodConsumption();
         }
         return total;
@@ -188,16 +190,16 @@ public class Cage implements Renderable {
      * Display not only the animal but also some information like
      * weight and type
      */
-    public void listAnimal() {
+    public void printAnimalList() {
         for(int i = 0;i < size;i++){
             if(cellInside[i].isAnimal()) {
                 cellInside[i].getAnimal().render();
                 System.out.print(cellInside[i].getAnimal().getName() + " | ");
                 System.out.print("Berat : " + cellInside[i].getAnimal().getWeight() + " | ");
                 System.out.print("Tipe  : ");
-                if(cellInside[i].getAnimal().getDietType()=='H') { System.out.print("Herbivora"); }
-                else if(cellInside[i].getAnimal().getDietType()=='C') { System.out.print("Karnivora"); }
-                else if(cellInside[i].getAnimal().getDietType()=='O') { System.out.print("Omnivora"); }
+                if(cellInside[i].getAnimal().getDietType() == Global.HERB) { System.out.print("Herbivora"); }
+                else if(cellInside[i].getAnimal().getDietType() == Global.CARN) { System.out.print("Karnivora"); }
+                else if(cellInside[i].getAnimal().getDietType() == (Global.HERB + Global.CARN)) { System.out.print("Omnivora"); }
                 System.out.println();
             }
         }
@@ -208,54 +210,23 @@ public class Cage implements Renderable {
      * Destination cell will be generated randomly but only
      * cell inside the cage and available to be placed
      */
-    public void moveAnimal(){
-        Animal [] temp;
-        temp = new Animal[nAnimal];
-        int count = 0;
-        /* memindahkan seluruh kepemilikan animal ke array temporary */
-        for (int i = 0; i < size; i++) {
-            if (cellInside[i].isAnimal()) {
-                if (count < nAnimal) {
-                    temp[count++] = cellInside[i].getAnimal();
-                    cellInside[i].setAnimal(null);
-                }
-            }
-        }
-        /* untuk setiap animal, akan diberikan cell baru
+    public void updateOneMinutes(){
         Random rand = new Random();
-        int randomValue = rand.nextInt(size);
-        for (int i = 0;i < count;i++) {
-            int sizeHabit = 0, startHabitIdx = 0;
-            for(int j = 0;j < size;j++) {
-                if(sizeHabit == 0) { startHabitIdx = j; }
-                if ((cellInside[j].getType() == temp[i].getBioType()) ||
-                   ((temp[i].getBioType() == 'z') && (cellInside[j].isWH() ||
-                   cellInside[j].isLH())))  { sizeHabit++; }
-            }
-            int index = startHabitIdx + randomValue % sizeHabit;
-            while (cellInside[index].isAnimal() ||
-                  ((cellInside[index].getType() != temp[i].getBioType()) &&
-                  (temp[i].getBioType() == 'z' && !(cellInside[index].isWH() ||
-                  cellInside[index].isLH())))) {
-                if (index>=startHabitIdx+sizeHabit-1) {
-                    index= 0;
-                } else {
-                    index++;
+        int  idx;
+        for(int i = 0; i < nAnimal; i++){
+            int j = 0;
+            while(j<size){
+                if(cellInside[j].isAnimal()) {
+                    idx = rand.nextInt(size);
+                    while (cellInside[idx].isAnimal() || (!cellInside[idx].cekTypeCell(cellInside[idx].getAnimal().getBioType()))) {
+                        idx = (idx+1<size) ? idx+1 : 0;
+                    }
+                    System.out.print(idx);
+                    cellInside[idx].setAnimal(cellInside[idx].getAnimal());
+                    cellInside[idx].setAnimal(null);
                 }
+                j++;
             }
-            cellInside[index].setAnimal(temp[i]);
-            temp[i] = null;
-        }
-        */
-    }
-    /**
-     * Display Cage into monitor
-     * <p>
-     * Display Cage based on its characteristics
-     */
-    public void render(){
-        for(int i = 0; i < size; i++){
-            cellInside[i].render();
         }
     }
 }

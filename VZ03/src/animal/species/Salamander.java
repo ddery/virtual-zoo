@@ -17,7 +17,7 @@ public class Salamander extends Amphibia implements LandAnimal,WaterAnimal{
      * @param name : name of this Salamander
      * @param domestic : true if this Salamander is tamed, false otherwise
      */
-    Salamander(String name, boolean domestic){
+    public Salamander(String name, boolean domestic){
         super(Global.LUNG);
         this.setDietType(Global.HERB);
         this.setWeight(1);
@@ -26,26 +26,25 @@ public class Salamander extends Amphibia implements LandAnimal,WaterAnimal{
     }
     @Override
     public void move(double speed) {
-
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
     public void swim(double speed, double deep) {
-
+        System.out.println(getName() + " is swimming with speed " + speed + " m/s " + " and " + deep + " m deep");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Ssss");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Sl" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

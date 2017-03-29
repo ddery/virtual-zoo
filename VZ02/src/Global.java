@@ -1,11 +1,10 @@
-package util;
-
 /**
  * @author      Dery Rahman <13515097@std.stei.itb.ac.id>
  * @version     1.0
  * @since       1.0
  */
-public class Global {
+@SuppressWarnings("ALL")
+class Global {
 
     /* variable declaration for bioType */
     public final static short WATER = 1;

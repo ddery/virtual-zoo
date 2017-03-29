@@ -1,5 +1,7 @@
 import animal.Animal;
+import animal.species.Cat;
 import animal.species.Peacock;
+import cell.Cell;
 import util.Driver;
 import util.Global;
 
@@ -36,7 +38,6 @@ public class Main {
                     animalName = reader.nextLine();
                     break;
                 } else if (animalName.equals("#")) break;
-                System.out.print(driver.getNAnimal());
             } while (!animalName.equals("3"));
             if(!animalName.equals("#")) {
                 System.out.print("Masukan jumlah hewan : ");count = reader.nextInt();

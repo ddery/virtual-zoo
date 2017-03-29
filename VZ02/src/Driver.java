@@ -89,34 +89,55 @@ public class Driver {
     }
 
     public void logo() {
-
+        System.out.print("_|          _|  _|_|  _|          _|  _|_|_|_|_|  _|_|    _|_|  \n");
+        System.out.print("_|          _|_|    _|_|          _|        _|  _|    _|_|    _|\n");
+        System.out.print("_|    _|    _|_|    _|_|    _|    _|      _|    _|    _|_|    _|\n");
+        System.out.print("  _|  _|  _|  _|    _|  _|  _|  _|      _|      _|    _|_|    _|\n");
+        System.out.print("    _|  _|      _|_|      _|  _|      _|_|_|_|_|  _|_|    _|_|  \n");
     }
 
     public void displayMap() {
-
+        wow.render();
     }
 
     public void zooInfo() {
-
+        for (int i = 0; i < kdg[i].getNbCage();i++) {
+            if(kdg[i].getnAnimal() > 0) {
+                System.out.println("Cage " + (i + 1));
+                kdg[i].listAnimal();
+            }
+        }
+        System.out.print("\n");
     }
 
     public void tourZoo() {
-
+        animalMove();
+        wow.tour();
     }
 
     public void animalMove() {
-
+        for (int i = 0; i < kdg[i].getNbCage(); i++) {
+            kdg[i].moveAnimal();
+        }
     }
 
     public int getnAnimal() {
-        return 0;
+        int total = 0;
+        for (int i = 0; i < kdg[i].getNbCage(); i++) {
+            total += kdg[i].getnAnimal();
+        }
+        return total;
     }
 
     public float getFoodConsum (char type) {
-        return 0;
+        double total = 0;
+        for (int i = 0; i < kdg[i].getNbCage(); i++) {
+            total += kdg[i].getFoodWeight(type);
+        }
+        return (float) total;
     }
 
     public int getNbCage() {
-        return 0;
+        return kdg[0].getNbCage();
     }
 }

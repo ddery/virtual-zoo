@@ -17,7 +17,7 @@ public class ParadiseBird extends Aves implements FlyingAnimal {
      * @param name : name of this ostrich
      * @param domestic : true if this eagle is tamed, false otherwise
      */
-    ParadiseBird(String name, boolean domestic){
+    public ParadiseBird(String name, boolean domestic){
         super(0.3);
         this.setDietType((short) (Global.CARN+Global.HERB));
         this.setWeight(0.5);
@@ -25,22 +25,21 @@ public class ParadiseBird extends Aves implements FlyingAnimal {
         this.setDomestic(domestic);
     }
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Coku coku");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Pb" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 
     @Override
     public void fly(double speed, double altitude) {
-
+        System.out.println(getName() + " is flying with speed " + speed + " m/s " + " and " + altitude + " m high");
     }
 }

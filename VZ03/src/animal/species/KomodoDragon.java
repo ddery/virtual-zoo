@@ -2,6 +2,7 @@ package animal.species;
 
 import animal.landanimal.LandAnimal;
 import animal.reptile.Reptile;
+import util.Global;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
@@ -15,7 +16,7 @@ public class KomodoDragon extends Reptile implements LandAnimal{
      * @param name : name of this KomodoDragon
      * @param domestic : true if this KomodoDragon is tamed, false otherwise
      */
-    KomodoDragon(String name, boolean domestic){
+    public KomodoDragon(String name, boolean domestic){
         super(4);
         this.setWeight(70);
         this.setName(name);
@@ -23,21 +24,20 @@ public class KomodoDragon extends Reptile implements LandAnimal{
     }
     @Override
     public void move(double speed) {
-
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Zz...");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Km" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

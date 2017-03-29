@@ -16,7 +16,7 @@ public class Stingray extends Pisces implements WaterAnimal{
      * @param name : name of this Stingray
      * @param domestic : true if this Stingray is tamed, false otherwise
      */
-    Stingray(String name, boolean domestic){
+    public Stingray(String name, boolean domestic){
         super(false);
         this.setDietType(Global.CARN);
         this.setWeight(100);
@@ -25,21 +25,20 @@ public class Stingray extends Pisces implements WaterAnimal{
     }
     @Override
     public void swim(double speed, double deep) {
-
+        System.out.println(getName() + " is swimming with speed " + speed + " m/s " + " and " + deep + " m deep");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Sting");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "St" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

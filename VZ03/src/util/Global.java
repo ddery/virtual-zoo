@@ -16,6 +16,9 @@ public class Global {
     public final static short ROAD = 32;
     public final static short EXIT = 64;
     public final static short ENTRANCE = 128;
+    public final static short HABITAT = WATER+LAND+AIR;
+    public final static short ROADA = ROAD+EXIT+ENTRANCE;
+
 
     /* variable declaration for dietType */
     public final static short HERB = 1;

@@ -16,7 +16,7 @@ public class HumpbackWhale extends Mammal implements WaterAnimal {
      * @param name : name of this HumpbackWhale
      * @param domestic : true if this HumpbackWhale is tamed, false otherwise
      */
-    HumpbackWhale(String name, boolean domestic){
+    public HumpbackWhale(String name, boolean domestic){
         super(0,0);
         this.setBioType(Global.WATER);
         this.setDietType(Global.CARN);
@@ -27,21 +27,20 @@ public class HumpbackWhale extends Mammal implements WaterAnimal {
 
     @Override
     public void swim(double speed, double deep) {
-        
+        System.out.println(getName() + " is swimming with speed " + speed + " m/s " + " and " + deep + " m deep");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Hum hum");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Hw" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

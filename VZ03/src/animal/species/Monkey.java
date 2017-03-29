@@ -2,6 +2,7 @@ package animal.species;
 
 import animal.landanimal.LandAnimal;
 import animal.mammal.Mammal;
+import util.Global;
 
 /**
  * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
@@ -15,7 +16,7 @@ public class Monkey extends Mammal implements LandAnimal {
      * @param name : name of this Monkey
      * @param domestic : true if this Monkey is tamed, false otherwise
      */
-    Monkey(String name, boolean domestic){
+    public Monkey(String name, boolean domestic){
         super(2,2);
         this.setWeight(38);
         this.setName(name);
@@ -24,21 +25,20 @@ public class Monkey extends Mammal implements LandAnimal {
 
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Nguk nguk");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Mk" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

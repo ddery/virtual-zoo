@@ -17,7 +17,7 @@ public class Penguin extends Aves implements LandAnimal, WaterAnimal{
      * @param name : name of this Penguin
      * @param domestic : true if this Penguin is tamed, false otherwise
      */
-    Penguin(String name, boolean domestic){
+    public Penguin(String name, boolean domestic){
         super(0.7);
         this.setBioType((short) (Global.LAND+Global.WATER));
         this.setDietType(Global.CARN);
@@ -27,26 +27,25 @@ public class Penguin extends Aves implements LandAnimal, WaterAnimal{
     }
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Ii Iii");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Pe" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 
     @Override
     public void swim(double speed, double deep) {
-
+        System.out.println(getName() + " is swimming with speed " + speed + " m/s " + " and " + deep + " m deep");
     }
 }

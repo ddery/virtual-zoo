@@ -99,8 +99,16 @@ public class Zoo implements Renderable {
         return null;
     }
 
+    public int getHeight(){
+        return height;
+    }
+
+    public int getWidth(){
+        return width;
+    }
     @Override
     public void render() {
+        System.out.println();
         for(int i = 0; i < height; i++){
             for (int j = 0; j < width; j++) zCell[i][j].render();
             System.out.println();

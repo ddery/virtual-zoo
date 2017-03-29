@@ -56,13 +56,6 @@ public class Driver {
             }
         }
     }
-    /*	@brief Tourzoo
-        *	melakukan tour dengan cara memanggil prosedur Tour ada kelas zoo
-        */
-    public void tourZoo(){
-        update();
-        //zoo.
-    }
     /*	@brief animalmove
         * membuat animal pindah secara acak
         */
@@ -190,5 +183,12 @@ public class Driver {
     public void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
+    }
+
+    /*	@brief Tourzoo
+        *	melakukan tour dengan cara memanggil prosedur Tour ada kelas zoo
+        */
+    public void tourZoo() {
+        zoo.tour();
     }
 }

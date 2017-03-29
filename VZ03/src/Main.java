@@ -12,7 +12,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main(String[] args) {
-        Driver driver = new Driver(15,20,"test.txt");
+        Driver driver = new Driver(15,40,"test.txt");
         driver.clear();
         driver.logo();
         System.out.println("Untuk setup pertamakali, sebuah zoo perlu diinisiasi");
@@ -63,6 +63,7 @@ public class Main {
                 System.out.println("BABABA");
                 driver.zooInfo();
             } else if (option.equals("3")) {
+                driver.tourZoo();
             } else if (option.equals("4")) {
                 System.out.println(driver.getNAnimal());
             } else if (option.equals("5")) {

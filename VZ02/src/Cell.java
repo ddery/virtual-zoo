@@ -1,5 +1,3 @@
-import util.*;
-
 /**
  * @author      Irfan Ariq <13515112@std.stei.itb.ac.id>
  * @version     1.0

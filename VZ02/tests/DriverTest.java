@@ -12,18 +12,8 @@ public class DriverTest {
     public void driverTest() {
         Driver machine = new Driver();
         assertTrue(machine.getnAnimal() == 68);
-        assertTrue(machine.getFoodConsum('C') == 1);
-        assertTrue(machine.getFoodConsum('H') == 1);
-        assertTrue(machine.getFoodConsum('O') == 1);
+        assertTrue(machine.getFoodConsum('C') + (0.5*machine.getFoodConsum('O'))==(float)21834.50);
+        assertTrue(machine.getFoodConsum('H') + (0.5*machine.getFoodConsum('O'))==(float)1215.30);
         assertTrue(machine.getNbCage() == 7);
     }
-
-    @Test
-    public void getFoodConsum() throws Exception {
-    }
-
-    @Test
-    public void getNbCage() throws Exception {
-    }
-
 }

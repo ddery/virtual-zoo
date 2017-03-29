@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * @author      Irfan Ariq <13515112@std.stei.itb.ac.id>
@@ -77,6 +78,142 @@ public class Zoo {
             }
         }
 
+        Random rand = new Random();
+        int randomValue = rand.nextInt();
+        int nowX, nowY;
+        if ((randomValue % 2) == 0) {
+            nowX = 1;
+            nowY = 0;
+            visited[nowX][nowY] = true;
+        }else {
+            nowX = 19;
+            nowY = 4;
+            visited[nowX][nowY] = true;
+        }
 
+        boolean finish = false;
+        while (!finish) {
+            int visibleX[] = new int[3];
+            int visibleY[] = new int[3];
+            int visible = 0;
+            if(!zCell[nowX][nowY].isExit()) {
+                if (nowX != 0) {
+        /* cek kirinya */
+                    int tempX = nowX - 1;
+                    if(zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    }else if(zCell[nowY][tempX].isRoad() && !visited[nowY][tempX]) {
+                        visibleX[visible] = tempX;
+                        visibleY[visible] = nowY;
+                        visible++;
+                    }
+                }
+                if(nowX != 19) {
+                    //cekkanan
+                    int tempX = nowX + 1;
+                    if(zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    }else if(zCell[nowY][tempX].isRoad() && !visited[nowY][tempX]) {
+                        visibleX[visible] = tempX;
+                        visibleY[visible] = nowY;
+                        visible++;
+                    }
+                }
+                if (nowY != 0) {
+        /* cekatas */
+                    int tempY = nowY - 1;
+                    if(zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    }else if(zCell[tempY][nowX].isRoad() && !visited[tempY][nowX]) {
+                        visibleX[visible] = nowX;
+                        visibleY[visible] = tempY;
+                        visible++;
+                    }
+                }
+                if(nowY != 19) {
+                    //cekbawah
+                    int tempY = nowY + 1;
+                    if(zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    }else if(zCell[tempY][nowX].isRoad() && !visited[tempY][nowX]) {
+                        visibleX[visible] = nowX;
+                        visibleY[visible] = tempY;
+                        visible++;
+                    }
+                }
+
+                if (visible == 0) {
+                    finish = true;
+                }else if (visible == 1) {
+                    nowX = visibleX[0];
+                    nowY = visibleY[0];
+                    visited[nowY][nowX] = true;
+                }else if(visible > 1){
+                    randomValue = rand.nextInt();
+                    int future = (randomValue % visible);
+                    if( future == 0){
+                        nowX = visibleX[future];
+                        nowY = visibleY[future];
+                        visited[nowY][nowX] = true;
+                    }else if( future == 1){
+                        nowX = visibleX[future];
+                        nowY = visibleY[future];
+                        visited[nowY][nowX] = true;
+                    }else if( future == 2){
+                        nowX = visibleX[future];
+                        nowY = visibleY[future];
+                        visited[nowY][nowX] = true;
+                    }
+                }
+            }else {
+                finish = true;
+                if (nowX != 0) {
+                /* cek kirinya */
+                    int tempX = nowX - 1;
+                    if(zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    }
+                }
+                if(nowX != 19) {
+                    //cekkanan
+                    int tempX = nowX + 1;
+                    if(zCell[nowY][tempX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[nowY][tempX].getAnimal();
+                        temp.interact();
+                    }
+                }
+                if (nowY != 0) {
+                /* cekatas */
+                    int tempY = nowY - 1;
+                    if(zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    }
+                }
+                if(nowY != 19) {
+                    //cekbawah
+                    int tempY = nowY + 1;
+                    if(zCell[tempY][nowX].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[tempY][nowX].getAnimal();
+                        temp.interact();
+                    }
+                }
+            }
+        }
     }
+
+
 }

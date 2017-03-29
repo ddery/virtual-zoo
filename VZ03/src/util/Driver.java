@@ -113,7 +113,7 @@ public class Driver {
     public void createAnimal(String animalName, boolean isDomestic, int count, int cageNumber) {
         switch (animalName) {
             case "Cat":
-                cage[cageNumber].addAnimal(new Cat("Cat", isDomestic), count);
+                cage[cageNumber].addAnimal(new Cat(isDomestic), count);
                 break;
             case "Chameleon":
                 cage[cageNumber].addAnimal(new Chameleon(isDomestic), count);

@@ -13,15 +13,14 @@ public class Ostrich extends Aves implements LandAnimal{
 
     /**
      * Constructor of Ostrich
-     * @param name : name of this Ostrich
      * @param domestic : true if this Ostrich is tamed, false otherwise
      */
-    public Ostrich(String name, boolean domestic){
+    public Ostrich(boolean domestic){
         super(2.0);
         this.setBioType(Global.LAND);
         this.setDietType((short) (Global.CARN+Global.HERB));
         this.setWeight(145);
-        this.setName(name);
+        this.setName("Ostrich");
         this.setDomestic(domestic);
     }
     @Override

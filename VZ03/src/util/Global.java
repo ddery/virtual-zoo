@@ -16,8 +16,7 @@ public class Global {
     public final static short ROAD = 32;
     public final static short EXIT = 64;
     public final static short ENTRANCE = 128;
-    public final static short HABITAT = WATER+LAND+AIR;
-    public final static short ROADA = ROAD+EXIT+ENTRANCE;
+    final static short HABITAT = WATER+LAND+AIR;
 
 
     /* variable declaration for dietType */
@@ -31,13 +30,13 @@ public class Global {
     /* text color */
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
+    // public static final String ANSI_RED = "\u001B[31m";
+    // public static final String ANSI_GREEN = "\u001B[32m";
+    // public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+    // public static final String ANSI_PURPLE = "\u001B[35m";
+    // public static final String ANSI_CYAN = "\u001B[36m";
+    // public static final String ANSI_WHITE = "\u001B[37m";
 
     /* background color */
     public static final String ANSI_BLACK_BACKGROUND = "\u001B[40m";
@@ -47,6 +46,6 @@ public class Global {
     public static final String ANSI_BLUE_BACKGROUND = "\u001B[44m";
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
-    public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+    // public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
 }

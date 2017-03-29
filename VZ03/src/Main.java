@@ -1,18 +1,17 @@
-import animal.Animal;
-import animal.species.Cat;
-import animal.species.Peacock;
-import cell.Cell;
 import util.Driver;
 import util.Global;
 
 import java.util.Scanner;
 
+
 /**
- * Created by dery on 3/28/17.
+ * @author      Dery Rahman A <13515097@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
-        Driver driver = new Driver(15,40,"test.txt");
+        Driver driver = new Driver();
         driver.clear();
         driver.logo();
         System.out.println("Untuk setup pertamakali, sebuah zoo perlu diinisiasi");
@@ -23,21 +22,27 @@ public class Main {
         boolean domestic;
         String animalName;
         do {
+            label:
             do {
                 System.out.println("Menu Setup: ");
                 System.out.println("1 : Display Map \n2 : Available Animal \n3 : Masukan nama hewan \n# : Setup selesai");
                 System.out.print("Masukan pilihan : ");
                 animalName = reader.nextLine();
                 driver.clear();
-                if(animalName.equals("1")){
-                    driver.displayMap();
-                } else if (animalName.equals("2")){
-                    driver.printAvailableAnimal();
-                } else if (animalName.equals("3")){
-                    System.out.print("Masukan nama hewan : ");
-                    animalName = reader.nextLine();
-                    break;
-                } else if (animalName.equals("#")) break;
+                switch (animalName) {
+                    case "1":
+                        driver.displayMap();
+                        break;
+                    case "2":
+                        driver.printAvailableAnimal();
+                        break;
+                    case "3":
+                        System.out.print("Masukan nama hewan : ");
+                        animalName = reader.nextLine();
+                        break label;
+                    case "#":
+                        break label;
+                }
             } while (!animalName.equals("3"));
             if(!animalName.equals("#")) {
                 System.out.print("Masukan jumlah hewan : ");count = reader.nextInt();
@@ -56,28 +61,33 @@ public class Main {
 
             System.out.print("Masukan pilihan : ");
             option = reader.nextLine();
-            if(option.equals("1")) {
-                driver.update();
-                driver.displayMap();
-            } else if (option.equals("2")){
-                System.out.println("BABABA");
-                driver.zooInfo();
-            } else if (option.equals("3")) {
-                driver.tourZoo();
-            } else if (option.equals("4")) {
-                System.out.println(driver.getNAnimal());
-            } else if (option.equals("5")) {
-                System.out.println(driver.getFoodConsum(Global.HERB) + driver.getFoodConsum(Global.CARN) + (driver.getFoodConsum((short) (Global.HERB + Global.CARN)) / 2));
-            } else if(option.equals("6")) {
-                System.out.println(driver.getNbCage());
-                break;
-            } else if(option.equals("0")) {
-                break;
-            } else {
-                System.out.println("Pilihan tidak tersedia");
+            switch (option) {
+                case "1":
+                    driver.update();
+                    driver.displayMap();
+                    break;
+                case "2":
+                    driver.zooInfo();
+                    break;
+                case "3":
+                    driver.tourZoo();
+                    break;
+                case "4":
+                    System.out.println(driver.getNAnimal());
+                    break;
+                case "5":
+                    System.out.println(driver.getFoodConsum(Global.HERB) + driver.getFoodConsum(Global.CARN) + (driver.getFoodConsum((short) (Global.HERB + Global.CARN)) / 2));
+                    break;
+                case "6":
+                    System.out.println(driver.getNbCage());
+                    break;
+                case "0":
+                    break;
+                default:
+                    System.out.println("Pilihan tidak tersedia");
+                    break;
             }
             System.out.print("Tekan enter : ");
-
             option = reader.nextLine();
         } while(!option.equals("0"));
     }

@@ -13,14 +13,13 @@ public class Puma extends Mammal implements LandAnimal {
 
     /**
      * Constructor of Puma
-     * @param name : name of this Puma
      * @param domestic : true if this Puma is tamed, false otherwise
      */
-    public Puma(String name, boolean domestic){
+    public Puma(boolean domestic){
         super(4,0);
         this.setDietType(Global.CARN);
         this.setWeight(180);
-        this.setName(name);
+        this.setName("Puma");
         this.setDomestic(domestic);
     }
 

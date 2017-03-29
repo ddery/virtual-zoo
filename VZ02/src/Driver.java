@@ -4,15 +4,15 @@
  * @since       1.0
  */
 
-public class Driver {
+class Driver {
     /**
      * wow define the Zoo
      */
-    public Zoo wow;
+    private final Zoo wow;
     /**
      * kdg define the cage
      */
-    public Cage[] kdg;
+    private final Cage[] kdg;
     /**
      * Driver constructor
      * <p>
@@ -20,7 +20,7 @@ public class Driver {
      * generate zoo and cage
      */
     public Driver() {
-        wow = new Zoo(20, 20);
+        wow = new Zoo();
         kdg = new Cage[7];
         //set Jalan
         wow.buildCell(1, 0, 1, 1, 'E');

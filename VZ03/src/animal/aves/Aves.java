@@ -8,8 +8,9 @@ import util.Global;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public abstract class Aves extends Animal{
-    private double wingSpan;
+    private final double wingSpan;
 
     /**
      * Constructor for Aves
@@ -18,7 +19,7 @@ public abstract class Aves extends Animal{
      * respiratoryOrgan LUNG
      * @param wingSpan : size of animal's wing in m
      */
-    public Aves(double wingSpan){
+    protected Aves(double wingSpan){
         this.setBioType(Global.AIR);
         this.setRespiratoryOrgan(Global.LUNG);
         this.wingSpan = wingSpan;
@@ -27,6 +28,7 @@ public abstract class Aves extends Animal{
      * get wing span of aves
      * @return wing span of aves in m
      */
+    @SuppressWarnings("unused")
     double getWingSpan(){
         return wingSpan;
     }

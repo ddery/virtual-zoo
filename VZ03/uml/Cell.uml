@@ -14,6 +14,7 @@
     <node x="426.0" y="542.5">cell.habitat.airhabitat.AirHabitat</node>
     <node x="674.5" y="705.0">cell.facility.road.entrance.Entrance</node>
     <node x="1133.0" y="542.5">cell.facility.restaurant.Restaurant</node>
+    <node x="0.0" y="736.0">Main</node>
   </nodes>
   <notes />
   <edges>
@@ -74,8 +75,10 @@
       <point x="0.0" y="27.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="20.5" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="817.9999999999997" y="325.99999999999983" />
+  <SelectedNodes>
+    <node>cell.facility.restaurant.Restaurant</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
     <Category>Methods</Category>

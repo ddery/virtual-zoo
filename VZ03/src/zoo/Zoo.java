@@ -22,10 +22,12 @@ import java.util.Random;
  * @since       1.0
  */
 public class Zoo implements Renderable {
-    private Cell[][] zCell;
-    private int height,width;
+    private final Cell[][] zCell;
+    private final int height;
+    private final int width;
 
     // max animal in 1 cell is 5
+    @SuppressWarnings("SameParameterValue")
     public Zoo(int height, int width, String filename){
         this.height = height;
         this.width = width;
@@ -52,10 +54,10 @@ public class Zoo implements Renderable {
                         zCell[i][j] = new AirHabitat();
                     }
                     if((t & Global.RESTAURANT) > 0){
-                        zCell[i][j] = new Restaurant("Resto 1");
+                        zCell[i][j] = new Restaurant();
                     }
                     if((t & Global.PARK) > 0){
-                        zCell[i][j] = new Park("Park 1");
+                        zCell[i][j] = new Park();
                     }
                     if((t & Global.ROAD) > 0){
                         zCell[i][j] = new Road();
@@ -70,8 +72,6 @@ public class Zoo implements Renderable {
                 i++;
             }
             in.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -101,13 +101,6 @@ public class Zoo implements Renderable {
         return null;
     }
 
-    public int getHeight(){
-        return height;
-    }
-
-    public int getWidth(){
-        return width;
-    }
     @Override
     public void render() {
         System.out.println();

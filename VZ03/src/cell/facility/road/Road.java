@@ -1,6 +1,5 @@
 package cell.facility.road;
 import cell.facility.Facility;
-import renderable.Renderable;
 import util.Global;
 
 /**
@@ -9,12 +8,8 @@ import util.Global;
  * @since       1.0
  */
 
+@SuppressWarnings("ALL")
 public class Road extends Facility {
-    /**
-     * road_type define the type of the road
-     * as an identifier for a road-type cell
-     */
-    private String roadType;
     /**
      * Road constructor
      * <p>
@@ -23,25 +18,16 @@ public class Road extends Facility {
      */
     public Road() {
         super.setType(Global.ROAD);
-        roadType = "default_road";
     }
-    /**
-     * Getter for road_type
-     * <p>
-     * Give the type of the road
-     * @return string type road type
-     */
-    public String getRoadType() {
-        return roadType;
-    }
+
     /**
      * Setter for road_type
      * <p>
      * Give the new type of the road
      * @param typeRoad = new road type
      */
+    @SuppressWarnings({"EmptyMethod", "unused"})
     protected void setRoadType(String typeRoad) {
-        roadType = typeRoad;
     }
     /**
      * Display Road into monitor

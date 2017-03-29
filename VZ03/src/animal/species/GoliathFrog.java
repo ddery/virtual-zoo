@@ -14,14 +14,13 @@ public class GoliathFrog extends Amphibia implements LandAnimal,WaterAnimal {
 
     /**
      * Constructor of GoliathFrog
-     * @param name : name of this GoliathFrog
      * @param domestic : true if this GoliathFrog is tamed, false otherwise
      */
-    public GoliathFrog(String name, boolean domestic){
-        super(Global.LUNG);
+    public GoliathFrog(boolean domestic){
+        super();
         this.setDietType(Global.CARN);
         this.setWeight(5000);
-        this.setName(name);
+        this.setName("GoliathFrog");
         this.setDomestic(domestic);
     }
     

@@ -3,6 +3,7 @@
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public class Animal {
     /**
      * name define the name of an animal
@@ -205,6 +206,7 @@ public class Animal {
      * @param tamed = define tamed condition
      * @param weight = define the weight
      */
+    @SuppressWarnings("unused")
     Animal(String name, boolean tamed, double weight){
         this.name = name;
         this.tamed = tamed;
@@ -393,6 +395,7 @@ public class Animal {
      * Set a new value for dietType
      * @param dietType : as new value that is going to be assigned
      */
+    @SuppressWarnings("unused")
     public void setDietType(char dietType) {
         this.dietType = dietType;
     }
@@ -408,6 +411,7 @@ public class Animal {
      * Set a new value for bioType
      * @param bioType : as new value that is going to be assigned
      */
+    @SuppressWarnings("unused")
     public void setBioType(char bioType) {
         this.bioType = bioType;
     }
@@ -423,6 +427,7 @@ public class Animal {
      * Set a new value for weight
      * @param weight : as new value that is going to be assigned
      */
+    @SuppressWarnings("unused")
     public void setWeight(double weight) {
         this.weight = weight;
     }
@@ -438,6 +443,7 @@ public class Animal {
      * Setter for a bioType of an animal
      * @param tamed = define the tamed condtion
      */
+    @SuppressWarnings("unused")
     public void setTamed(boolean tamed) {
         this.tamed = tamed;
     }
@@ -454,6 +460,7 @@ public class Animal {
      * Set a new pointer to String for the name
      * @param name : as new pointer to String that is going to be assigned
      */
+    @SuppressWarnings("unused")
     public void setName(String name) {
         this.name = name;
     }

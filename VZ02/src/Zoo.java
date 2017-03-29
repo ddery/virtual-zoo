@@ -7,31 +7,32 @@ import java.util.Random;
  * @version     1.0
  * @since       1.0
  */
-public class Zoo {
+@SuppressWarnings("ALL")
+class Zoo {
     /**
      * zCell define the Cell inside the zoo
      */
-    private Cell[][] zCell;
+    private final Cell[][] zCell;
     /**
      * height define the height of the zoo
      * width define the width of the zoo
      */
-    private int height, width;
+    private final int height;
+    private final int width;
 
     /**
      * Zoo constructor
      * <p>
      * Make a zoo, for cell and animal
-     * @param height = height of the zoo
-     * @param width = width of the zoo
+     *
      */
-    public Zoo(int height, int width) {
-        this.height = height;
-        this.width = width;
-        zCell = new Cell[height][width];
-        for (int i = 0;i < width;i++) {
+    public Zoo() {
+        this.height = 20;
+        this.width = 20;
+        zCell = new Cell[20][20];
+        for (int i = 0; i < 20; i++) {
             //zCell[i] = new Cell[width];
-            for (int j = 0; j < width; j++)
+            for (int j = 0; j < 20; j++)
                 zCell[i][j] = null;
         }
     }
@@ -42,6 +43,7 @@ public class Zoo {
      * @param i = x position
      * @param j = y position
      */
+    @SuppressWarnings("unused")
     public Cell getCell(int i, int j) {
         try {
             return zCell[i][j];
@@ -59,7 +61,7 @@ public class Zoo {
      * @param j = y position
      * @param type = type of the cell
      */
-    public void setCell(int i, int j, char type) {
+    private void setCell(int i, int j, char type) {
         zCell[i][j] = new Cell(type);
     }
     /**
@@ -115,6 +117,7 @@ public class Zoo {
         }
     }
 
+    @SuppressWarnings("unused")
     public void render(int height, int width) {
         for(int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {

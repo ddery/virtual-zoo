@@ -13,14 +13,13 @@ public class Peacock extends Aves implements FlyingAnimal{
     
     /**
      * Constructor of Peacock
-     * @param name : name of this Peacock
      * @param domestic : true if this Peacock is tamed, false otherwise
      */
-    public Peacock(String name, boolean domestic){
+    public Peacock(boolean domestic){
         super(1.7);
         this.setDietType(Global.HERB);
         this.setWeight(8);
-        this.setName(name);
+        this.setName("Peacock");
         this.setDomestic(domestic);
     }
     @Override

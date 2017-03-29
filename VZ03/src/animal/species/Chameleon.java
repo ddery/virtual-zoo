@@ -13,13 +13,12 @@ public class Chameleon extends Reptile implements LandAnimal {
 
     /**
      * Constructor for Chameleon
-     * @param name : name of Chameleon
      * @param domestic : true if this chameleon is tamed, false otherwise
      */
-    public Chameleon(String name, boolean domestic){
+    public Chameleon(boolean domestic){
         super(0);
         this.setWeight(1.0);
-        this.setName(name);
+        this.setName("Chameleon");
         this.setDomestic(domestic);
     }
     @Override

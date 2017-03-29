@@ -1,12 +1,10 @@
 package cage;
 
 import animal.Animal;
-import animal.species.Cat;
 import cell.Cell;
 import cell.habitat.airhabitat.AirHabitat;
 import cell.habitat.landhabitat.LandHabitat;
 import cell.habitat.waterhabitat.WaterHabitat;
-import renderable.Renderable;
 import util.Global;
 import zoo.Zoo;
 
@@ -21,11 +19,11 @@ public class Cage {
     /**
      * cageNumber define the cage number
      */
-    private int cageNumber;
+    private final int cageNumber;
     /**
      * size define the number of cell inside the cage
      */
-    private int size;
+    private final int size;
     /**
      * nAnimal define the number of animal inside the cage
      */
@@ -38,11 +36,7 @@ public class Cage {
      * cellInside define an array containing all cell
      * inside the cage
      */
-    private Cell [] cellInside;
-    public Cage(){
-        cageNumber = 0;
-        size = 0;
-    }
+    private final Cell [] cellInside;
     /**
      * Cage constructor
      * <p>
@@ -64,42 +58,10 @@ public class Cage {
     /**
      * Getter for cage number
      * <p>
-     * Return integer as the cage number
+     * Return integer as the number of cage
      */
     public int getCageNumber(){
         return cageNumber;
-    }
-    /**
-     * Getter for a cell inside the cage
-     * <p>
-     * Return the cell in i-position at array
-     * @param i = define the cell position
-     */
-    public Cell getCell(int i){
-        return cellInside[i];
-    }
-    /**
-     * Validate the capacity of animal inside the cage
-     * <p>
-     * The maximum capacity for animal inside a cage is
-     * 30% from the number of cell inside the cage
-     */
-    public boolean isFull() {
-        return ((float)nAnimal >= 0.3*size);
-    }
-    /**
-     * Validate whether animal inside the cage is tamed or not
-     * <p>
-     * Validation using cell that placed by animal and
-     * use Animal class method
-     */
-    public boolean isDanger() {
-        int i = 0;
-        while ((i < size) && !(cellInside[i].isAnimal())){
-            i++;
-        }
-        Animal A = cellInside[i].getAnimal();
-        return (A.isDomestic());
     }
     /**
      * Getter for nbcage
@@ -114,12 +76,10 @@ public class Cage {
      * <p>
      * Set cell C into cellInside array at idx position
      */
-    public void setCell(Cell C){
+    private void setCell(Cell C){
         int idx = 0;
         while(this.cellInside[idx] != null){ idx++; }
-        if(idx>=size){
-            //size++;
-        } else {
+        if(idx<size){
             if ((C.getType() & Global.WATER) > 0)
                 cellInside[idx] = new WaterHabitat();
             else if ((C.getType() & Global.LAND) > 0)
@@ -161,28 +121,7 @@ public class Cage {
     public int getnAnimal() {
         return nAnimal;
     }
-    /**
-     * Getter for size
-     * <p>
-     * Return integer as the number of cell inside
-     */
-    public int getSize() {
-        return size;
-    }
-    /**
-     * Get weight of an animal inside
-     * <p>
-     * Return float as the number of weight of an animal
-     * @param C  = char variable to identify diet of the animal
-     */
-    public float getAnimalWeight(short C) {
-        float total = 0;
-        for(int i = 0;i < size;i++){
-            if(cellInside[i].isAnimal() && ((cellInside[i].getAnimal().getDietType() & C) > 0))
-                total +=cellInside[i].getAnimal().getWeight();
-        }
-        return total;
-    }
+
     /**
      * Get food weight of an animal inside
      * <p>

@@ -11,27 +11,14 @@ import util.Global;
 
 public class Park extends Facility implements Renderable {
     /**
-     * park_name define the name of the park
-     * as an identifier for a park-type cell
-     */
-    private String parkName;
-    /**
      * Park constructor
      * <p>
      * Make a Park type cell, can be used by people
-     * @param name : name of park that will be assigned
      */
-    public Park(String name) {
+    public Park() {
         super.setType(Global.PARK);
-        parkName = name;
     }
-    /**
-     * Getter for park_name
-     * <p>
-     * Give the name of the park
-     * @return string type park name
-     */
-    public String getParkName() { return parkName; }
+
     /**
      * Display Park into monitor
      * <p>

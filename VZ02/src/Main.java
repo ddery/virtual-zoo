@@ -6,7 +6,7 @@ import java.util.Scanner;
  * @since       1.0
  */
 
-public class Main {
+class Main {
     public static void main(String[] args) {
         Driver mesin;
         mesin = new Driver();
@@ -37,8 +37,8 @@ public class Main {
                     break;
                 case "5":
                     System.out.print("Setiap hari kebun binatang ini membutuhkan :\n");
-                    System.out.print("Daging kg\n" + mesin.getFoodConsum('C') + (float) mesin.getFoodConsum('O') / 2);
-                    System.out.print("Sayuran kg\n" + mesin.getFoodConsum('H') + (float) mesin.getFoodConsum('O') / 2);
+                    System.out.print("Daging kg\n" + mesin.getFoodConsum('C') + mesin.getFoodConsum('O') / 2);
+                    System.out.print("Sayuran kg\n" + mesin.getFoodConsum('H') + mesin.getFoodConsum('O') / 2);
                     break;
                 case "6":
                     System.out.print("Jumlah cage dalam Virtual Zoo ini adalah : \n" + mesin.getNbCage());

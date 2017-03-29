@@ -13,13 +13,12 @@ public class Panda extends Mammal implements LandAnimal {
 
     /**
      * Constructor of Panda
-     * @param name : name of this Panda
      * @param domestic : true if this Panda is tamed, false otherwise
      */
-    public Panda(String name, boolean domestic){
+    public Panda(boolean domestic){
         super(4,0);
         this.setWeight(100);
-        this.setName(name);
+        this.setName("Panda");
         this.setDomestic(domestic);
     }
 

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 /**
  * Created by nim_13515024 on 29/03/17.
  */
+@SuppressWarnings("ALL")
 public class CageTest {
     @Test
     public void OverallTest() {

@@ -13,13 +13,12 @@ public class Gorilla extends Mammal implements LandAnimal{
 
     /**
      * Constructor of Gorilla
-     * @param name : name of this Gorilla
      * @param domestic : true if this Gorilla is tamed, false otherwise
      */
-    public Gorilla(String name, boolean domestic){
+    public Gorilla(boolean domestic){
         super(2,2);
         this.setWeight(200);
-        this.setName(name);
+        this.setName("Gorilla");
         this.setDomestic(domestic);
     }
     @Override

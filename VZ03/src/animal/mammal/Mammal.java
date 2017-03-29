@@ -11,9 +11,9 @@ import util.Global;
 public abstract class Mammal extends Animal {
 
     /* number of legs */
-    private int numLegs;
+    private final int numLegs;
     /* number of hands */
-    private int numHands;
+    private final int numHands;
 
     /**
      * Constructor for mammal
@@ -24,7 +24,7 @@ public abstract class Mammal extends Animal {
      * @param numLegs : number of leg
      * @param numHands : number of hand
      */
-    public Mammal(int numLegs, int numHands){
+    protected Mammal(int numLegs, int numHands){
         this.setBioType(Global.LAND);
         this.setDietType((short) (Global.HERB+Global.CARN));
         this.setRespiratoryOrgan(Global.LUNG);

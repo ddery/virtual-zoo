@@ -5,11 +5,13 @@ package animal.flyinganimal;
  * @version     1.0
  * @since       1.0
  */
+@SuppressWarnings("ALL")
 public interface FlyingAnimal {
     /**
      * action when flying animal is flying
      * @param speed : speed when animal is flying in m/s
      * @param altitude : altitude of flying animal in m
      */
+    @SuppressWarnings("unused")
     void fly(double speed, double altitude);
 }

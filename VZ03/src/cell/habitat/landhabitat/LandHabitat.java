@@ -11,10 +11,6 @@ import util.Global;
 
 public class LandHabitat extends Habitat implements Renderable {
     /**
-     * soil_type define the type of the soil in the cell
-     */
-    private String soilType;
-    /**
      * LandHabitat constructor
      * Default attribute of LandHabitat :
      * soilType : Grass
@@ -23,27 +19,8 @@ public class LandHabitat extends Habitat implements Renderable {
     public LandHabitat() {
         super.setType(Global.LAND);
         super.setAnimal(null);
-        soilType = "Grass";
-    }
-    /**
-     * Getter for soilType
-     * <p>
-     * Give the soil type that used inside the cell
-     * @return string for soilType
-     */
-    public String getSoilType() {
-        return soilType;
     }
 
-    /**
-     * Setter for soilType
-     * <p>
-     * Give the soil type that used inside the cell
-     * @param soilType : type of soil that will be assigned
-     */
-    public void setSoilType(String soilType) {
-        this.soilType = soilType;
-    }
     /**
      * Display LandHabitat into monitor
      * <p>

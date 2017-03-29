@@ -13,13 +13,12 @@ public class KomodoDragon extends Reptile implements LandAnimal{
 
     /**
      * Constructor of KomodoDragon
-     * @param name : name of this KomodoDragon
      * @param domestic : true if this KomodoDragon is tamed, false otherwise
      */
-    public KomodoDragon(String name, boolean domestic){
+    public KomodoDragon(boolean domestic){
         super(4);
         this.setWeight(70);
-        this.setName(name);
+        this.setName("KomodoDragon");
         this.setDomestic(domestic);
     }
     @Override

@@ -13,14 +13,13 @@ public class Shark extends Pisces implements WaterAnimal {
 
     /**
      * Constructor of Shark
-     * @param name : name of this Shark
      * @param domestic : true if this Shark is tamed, false otherwise
      */
-    public Shark(String name, boolean domestic){
+    public Shark(boolean domestic){
         super(true);
         this.setDietType(Global.CARN);
         this.setWeight(907.1);
-        this.setName(name);
+        this.setName("Shark");
         this.setDomestic(domestic);
     }
     @Override

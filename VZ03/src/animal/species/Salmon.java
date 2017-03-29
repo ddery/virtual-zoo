@@ -13,14 +13,13 @@ public class Salmon extends Pisces implements WaterAnimal{
 
     /**
      * Constructor of Salmon
-     * @param name : name of this Salmon
      * @param domestic : true if this Salmon is tamed, false otherwise
      */
-    public Salmon(String name, boolean domestic){
+    public Salmon(boolean domestic){
         super(false);
         this.setDietType(Global.HERB);
         this.setWeight(4);
-        this.setName(name);
+        this.setName("Salmon");
         this.setDomestic(domestic);
     }
 

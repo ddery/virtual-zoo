@@ -14,15 +14,14 @@ public class Penguin extends Aves implements LandAnimal, WaterAnimal{
 
     /**
      * Constructor of Penguin
-     * @param name : name of this Penguin
      * @param domestic : true if this Penguin is tamed, false otherwise
      */
-    public Penguin(String name, boolean domestic){
+    public Penguin(boolean domestic){
         super(0.7);
         this.setBioType((short) (Global.LAND+Global.WATER));
         this.setDietType(Global.CARN);
         this.setWeight(30);
-        this.setName(name);
+        this.setName("Penguin");
         this.setDomestic(domestic);
     }
     @Override

@@ -13,14 +13,13 @@ public class Eagle extends Aves implements FlyingAnimal{
 
     /**
      * Constructor of Eagle
-     * @param name : name of this eagle
      * @param domestic : true if this eagle is tamed, false otherwise
      */
-    public Eagle(String name, boolean domestic){
+    public Eagle(boolean domestic){
         super(2.3);
         this.setDietType(Global.CARN);
         this.setWeight(4.1);
-        this.setName(name);
+        this.setName("Eagle");
         this.setDomestic(domestic);
     }
 

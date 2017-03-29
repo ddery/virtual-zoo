@@ -14,14 +14,13 @@ public class Salamander extends Amphibia implements LandAnimal,WaterAnimal{
 
     /**
      * Constructor of Salamander
-     * @param name : name of this Salamander
      * @param domestic : true if this Salamander is tamed, false otherwise
      */
-    public Salamander(String name, boolean domestic){
-        super(Global.LUNG);
+    public Salamander(boolean domestic){
+        super();
         this.setDietType(Global.HERB);
         this.setWeight(1);
-        this.setName(name);
+        this.setName("Salamander");
         this.setDomestic(domestic);
     }
     @Override

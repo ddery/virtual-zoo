@@ -22,7 +22,7 @@ public class Cell implements Renderable{
      */
     private int cageNumber = -1;
 
-    public Cell(){
+    protected Cell(){
         type = ' ';
         hewan = null;
     }

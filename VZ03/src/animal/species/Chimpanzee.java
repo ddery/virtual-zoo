@@ -13,13 +13,12 @@ public class Chimpanzee extends Mammal implements LandAnimal{
 
     /**
      * Constructor of Chimpanzee
-     * @param name : name of this Chimpanzee
      * @param domestic : true if this Chimpanzee is tamed, false otherwise
      */
-    public Chimpanzee(String name, boolean domestic){
+    public Chimpanzee(boolean domestic){
         super(2,2);
         this.setWeight(70);
-        this.setName(name);
+        this.setName("Chimpanzee");
         this.setDomestic(domestic);
     }
 

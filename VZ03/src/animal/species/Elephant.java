@@ -16,7 +16,7 @@ public class Elephant extends Mammal implements LandAnimal{
      * @param name : name of this Elephant
      * @param domestic : true if this Elephant is tamed, false otherwise
      */
-    Elephant(String name, boolean domestic){
+    public Elephant(String name, boolean domestic){
         super(4,0);
         this.setDietType(Global.HERB);
         this.setWeight(5000);
@@ -25,21 +25,21 @@ public class Elephant extends Mammal implements LandAnimal{
     }
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
+    public void interact() {System.out.println("NGUOOOKK");
 
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "El" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

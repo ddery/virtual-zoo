@@ -53,6 +53,10 @@ public class AirHabitat extends Habitat implements Renderable {
      * Display AirHabitat based on its characteristics
      */
     public void render() {
-        System.out.print(Global.ANSI_RED_BACKGROUND + "  " + Global.ANSI_RESET);
+        if(isAnimal()){
+            getAnimal().render();
+        } else {
+            System.out.print(Global.ANSI_RED_BACKGROUND + "  " + Global.ANSI_RESET);
+        }
     }
 }

@@ -26,21 +26,21 @@ public class Cat extends Mammal implements LandAnimal {
     
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
     public void interact() {
-
+        System.out.println("Meow");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Ct" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

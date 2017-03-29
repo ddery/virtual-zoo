@@ -16,7 +16,7 @@ public class Lion extends Mammal implements LandAnimal {
      * @param name : name of this Lion
      * @param domestic : true if this Lion is tamed, false otherwise
      */
-    Lion(String name, boolean domestic){
+    public Lion(String name, boolean domestic){
         super(4,0);
         this.setDietType(Global.HERB);
         this.setWeight(200);
@@ -25,21 +25,20 @@ public class Lion extends Mammal implements LandAnimal {
     }
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Auumm");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Li" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

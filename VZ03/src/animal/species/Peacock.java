@@ -16,7 +16,7 @@ public class Peacock extends Aves implements FlyingAnimal{
      * @param name : name of this Peacock
      * @param domestic : true if this Peacock is tamed, false otherwise
      */
-    Peacock(String name, boolean domestic){
+    public Peacock(String name, boolean domestic){
         super(1.7);
         this.setDietType(Global.HERB);
         this.setWeight(8);
@@ -25,21 +25,20 @@ public class Peacock extends Aves implements FlyingAnimal{
     }
     @Override
     public void fly(double speed, double altitude) {
-        
+        System.out.println(getName() + " is flying with speed " + speed + " m/s " + " and " + altitude + " m high");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Ngik ngik");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Pc" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

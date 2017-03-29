@@ -16,7 +16,7 @@ public class Tiger extends Mammal implements LandAnimal {
      * @param name : name of this Tiger
      * @param domestic : true if this Tiger is tamed, false otherwise
      */
-    Tiger(String name, boolean domestic){
+    public Tiger(String name, boolean domestic){
         super(4,0);
         this.setDietType(Global.CARN);
         this.setWeight(210);
@@ -25,21 +25,20 @@ public class Tiger extends Mammal implements LandAnimal {
     }
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Roar");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Ti" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

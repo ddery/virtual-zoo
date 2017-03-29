@@ -16,7 +16,7 @@ public class Shark extends Pisces implements WaterAnimal {
      * @param name : name of this Shark
      * @param domestic : true if this Shark is tamed, false otherwise
      */
-    Shark(String name, boolean domestic){
+    public Shark(String name, boolean domestic){
         super(true);
         this.setDietType(Global.CARN);
         this.setWeight(907.1);
@@ -25,21 +25,20 @@ public class Shark extends Pisces implements WaterAnimal {
     }
     @Override
     public void swim(double speed, double deep) {
-        
+        System.out.println(getName() + " is swimming with speed " + speed + " m/s " + " and " + deep + " m deep");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Shaaaaaark");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Sh" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

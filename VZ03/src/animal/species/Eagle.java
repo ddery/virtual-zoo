@@ -16,7 +16,7 @@ public class Eagle extends Aves implements FlyingAnimal{
      * @param name : name of this eagle
      * @param domestic : true if this eagle is tamed, false otherwise
      */
-    Eagle(String name, boolean domestic){
+    public Eagle(String name, boolean domestic){
         super(2.3);
         this.setDietType(Global.CARN);
         this.setWeight(4.1);
@@ -26,21 +26,20 @@ public class Eagle extends Aves implements FlyingAnimal{
 
     @Override
     public void fly(double speed, double altitude) {
-
+        System.out.println(getName() + " is flying with speed " + speed + " m/s " + " and " + altitude + " m high");
     }
 
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Eaaakk Eaaak");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Eg" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

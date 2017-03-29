@@ -16,7 +16,7 @@ public class Ostrich extends Aves implements LandAnimal{
      * @param name : name of this Ostrich
      * @param domestic : true if this Ostrich is tamed, false otherwise
      */
-    Ostrich(String name, boolean domestic){
+    public Ostrich(String name, boolean domestic){
         super(2.0);
         this.setBioType(Global.LAND);
         this.setDietType((short) (Global.CARN+Global.HERB));
@@ -25,22 +25,21 @@ public class Ostrich extends Aves implements LandAnimal{
         this.setDomestic(domestic);
     }
     @Override
-    public void interact() {
-
+    public void interact() {System.out.println("Os Os");
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Os" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 
     @Override
     public void move(double speed) {
-
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 }

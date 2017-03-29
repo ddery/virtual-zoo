@@ -18,6 +18,10 @@ public class Cell implements Renderable{
      * represent an animal that exist in a cell
      */
     private Animal hewan;
+    /**
+     * 0 if the cell not belong to any cage
+     */
+    private int cageNumber = -1;
 
     public Cell(){
         type = ' ';
@@ -67,8 +71,13 @@ public class Cell implements Renderable{
         return (hewan != null);
     }
 
+    public void setCageNumber(int cageNumber){
+        this.cageNumber = cageNumber;
+    }
+
+    public int getCageNumber(){return cageNumber;}
     @Override
-    public void render() {
+    public void render(){
         System.out.print('#');
     }
 }

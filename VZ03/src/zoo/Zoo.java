@@ -1,5 +1,6 @@
 package zoo;
 
+import animal.Animal;
 import cell.Cell;
 import cell.facility.park.Park;
 import cell.facility.restaurant.Restaurant;
@@ -99,10 +100,26 @@ public class Zoo implements Renderable {
         return null;
     }
 
+    public int getHeight(){
+        return height;
+    }
+
+    public int getWidth(){
+        return width;
+    }
     @Override
     public void render() {
+        System.out.println();
         for(int i = 0; i < height; i++){
-            for (int j = 0; j < width; j++) zCell[i][j].render();
+            for (int j = 0; j < width; j++) {
+                if (zCell[i][j].isAnimal()) {
+                    Animal temp;
+                    temp = zCell[i][j].getAnimal();
+                    temp.render();
+                }else {
+                    zCell[i][j].render();
+                }
+            }
             System.out.println();
         }
     }

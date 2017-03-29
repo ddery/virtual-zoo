@@ -17,7 +17,7 @@ public class GoliathFrog extends Amphibia implements LandAnimal,WaterAnimal {
      * @param name : name of this GoliathFrog
      * @param domestic : true if this GoliathFrog is tamed, false otherwise
      */
-    GoliathFrog(String name, boolean domestic){
+    public GoliathFrog(String name, boolean domestic){
         super(Global.LUNG);
         this.setDietType(Global.CARN);
         this.setWeight(5000);
@@ -27,26 +27,26 @@ public class GoliathFrog extends Amphibia implements LandAnimal,WaterAnimal {
     
     @Override
     public void move(double speed) {
-        
+        System.out.println(getName() + " move in " + speed + "m/s");
     }
 
     @Override
     public void swim(double speed, double deep) {
-
+        System.out.println(getName() + " is swimming with speed " + speed + " m/s " + " and " + deep + " m deep");
     }
 
     @Override
-    public void interact() {
+    public void interact() {System.out.println("Ngorek ngorek");
 
     }
 
     @Override
     public void render() {
-
+        System.out.print(Global.ANSI_BLUE + "Gf" + Global.ANSI_RESET);
     }
 
     @Override
     public void eat(String food) {
-
+        System.out.println(getName() + " is eating " + food);
     }
 }

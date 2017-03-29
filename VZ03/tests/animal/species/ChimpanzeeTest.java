@@ -6,7 +6,9 @@ import util.Global;
 import static org.junit.Assert.*;
 
 /**
- * Created by adr_rahman on 3/29/2017.
+ * @author      Abdurahman <13515024@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
 public class ChimpanzeeTest {
     @Test

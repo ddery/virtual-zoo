@@ -7,14 +7,15 @@ import util.Global;
 import static org.junit.Assert.*;
 
 /**
- * Created by nim_13515024 on 29/03/17.
+ * @author      Abdurahman <13515024@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
-@SuppressWarnings("ALL")
 public class CatTest {
     @Test
     public void OverallTest() {
-        Cat cat= new Cat("Kucing", true);
-        assertTrue(cat.getName().equals("Kucing"));
+        Cat cat= new Cat(true);
+        assertTrue(cat.getName().equals("Cat"));
         assertTrue(cat.isDomestic());
         assertTrue(cat.foodConsumption()==0.39);
         assertTrue(cat.getBioType()== Global.LAND);

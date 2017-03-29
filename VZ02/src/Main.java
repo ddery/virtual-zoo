@@ -33,12 +33,12 @@ class Main {
                     mesin.tourZoo();
                     break;
                 case "4":
-                    System.out.print("Total hewan yang ditangani berjumlah \n" + mesin.getnAnimal());
+                    System.out.print("Total hewan yang ditangani berjumlah "  + mesin.getnAnimal() + " \n");
                     break;
                 case "5":
                     System.out.print("Setiap hari kebun binatang ini membutuhkan :\n");
-                    System.out.print("Daging kg\n" + mesin.getFoodConsum('C') + mesin.getFoodConsum('O') / 2);
-                    System.out.print("Sayuran kg\n" + mesin.getFoodConsum('H') + mesin.getFoodConsum('O') / 2);
+                    System.out.print("Daging kg " + mesin.getFoodConsum('C') + (mesin.getFoodConsum('O') / 2) + " \n");
+                    System.out.print("Sayuran kg " + mesin.getFoodConsum('H') + (mesin.getFoodConsum('O') / 2) + " \n");
                     break;
                 case "6":
                     System.out.print("Jumlah cage dalam Virtual Zoo ini adalah : \n" + mesin.getNbCage());

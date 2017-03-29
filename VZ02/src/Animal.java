@@ -206,6 +206,7 @@ public class Animal {
      * @param tamed = define tamed condition
      * @param weight = define the weight
      */
+
     @SuppressWarnings("unused")
     Animal(String name, boolean tamed, double weight){
         this.name = name;
@@ -395,6 +396,7 @@ public class Animal {
      * Set a new value for dietType
      * @param dietType : as new value that is going to be assigned
      */
+  
     @SuppressWarnings("unused")
     public void setDietType(char dietType) {
         this.dietType = dietType;

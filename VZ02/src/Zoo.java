@@ -15,24 +15,27 @@ class Zoo {
     private final Cell[][] zCell;
     /**
      * height define the height of the zoo
-     * width define the width of the zoo
      */
     private final int height;
+    /**
+     * width define the width of the zoo
+     */
     private final int width;
 
     /**
      * Zoo constructor
      * <p>
      * Make a zoo, for cell and animal
-     *
+     * @param height = height of the zoo
+     * @param width = width of the zoo
      */
-    public Zoo() {
-        this.height = 20;
-        this.width = 20;
-        zCell = new Cell[20][20];
-        for (int i = 0; i < 20; i++) {
+    public Zoo(int height, int width) {
+        this.height = height;
+        this.width = width;
+        zCell = new Cell[height][width];
+        for (int i = 0;i < width;i++) {
             //zCell[i] = new Cell[width];
-            for (int j = 0; j < 20; j++)
+            for (int j = 0; j < width; j++)
                 zCell[i][j] = null;
         }
     }

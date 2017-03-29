@@ -20,7 +20,7 @@ class Driver {
      * generate zoo and cage
      */
     public Driver() {
-        wow = new Zoo();
+        wow = new Zoo(20, 20);
         kdg = new Cage[7];
         //set Jalan
         wow.buildCell(1, 0, 1, 1, 'E');

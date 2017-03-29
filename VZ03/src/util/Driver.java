@@ -12,9 +12,14 @@ import zoo.Zoo;
  */
 public class Driver {
 
+    /* zoo type */
     private final Zoo zoo;
+    /* cage array */
     private final Cage[] cage;
 
+    /**
+     * Driver constructor
+     */
     public Driver(){
         zoo = new Zoo(15, 40, "test.txt");
         cage = new Cage[100];
@@ -33,9 +38,9 @@ public class Driver {
         }
     }
 
-    /*	@brief displayMap
-        *	menampilkan bentuk zoo ke layar
-        */
+    /**
+     * Display logo in terminal
+     */
     public void displayMap(){
         zoo.render();
     }
@@ -46,10 +51,10 @@ public class Driver {
         System.out.print("   _|  _|  _|    _|    _|    _|  _|  _|          _|        _|    _|  _|    _|  \n");
         System.out.print("     _|  _|        _|_|        _|  _|          _|_|_|_|_|    _|_|      _|_|    \n");
     }
-    /*	@brief Zooinfo
-        *	menampilkan ke layar info makanan yang dibutuhkan dalam sehari dan
-        * list animal yang ada
-        */
+
+    /**
+     * print zoo information
+     */
     public void zooInfo(){
         for (int i = 0; i < getNbCage(); i++) {
             if(cage[i].getnAnimal()>0) {
@@ -58,9 +63,10 @@ public class Driver {
             }
         }
     }
-    /*	@brief animalmove
-        * membuat animal pindah secara acak
-        */
+
+    /**
+     * update zoo for 1 minutes
+     */
     public void update(){
         for (int i = 0; i < getNbCage(); i++){
             cage[i].updateOneMinutes();
@@ -80,6 +86,7 @@ public class Driver {
 
     /**	total food weight
      * @param type : animal type
+     * @return weight food consumption in specific type
      */
     public double getFoodConsum(short type){
         float total = 0;
@@ -90,12 +97,19 @@ public class Driver {
     }
 
     /**	get number of cage
-     * return number of cage
+     * @return number of cage
      */
     public int getNbCage(){
         return cage[0].getNbCage();
     }
 
+    /**
+     * Create animal in specific cage
+     * @param animalName name of animal
+     * @param isDomestic true if animal is domestic, false otherwise
+     * @param count count of that animals
+     * @param cageNumber which cage belong to that animal
+     */
     public void createAnimal(String animalName, boolean isDomestic, int count, int cageNumber) {
         switch (animalName) {
             case "Cat":
@@ -179,6 +193,9 @@ public class Driver {
         }
     }
 
+    /**
+     * print all available animal in this zoo
+     */
     public void printAvailableAnimal() {
         System.out.println("Cat");
         System.out.println("Chameleon");
@@ -207,14 +224,17 @@ public class Driver {
         System.out.println("Tiger");
     }
 
+    /**
+     * clear screen
+     */
     public void clear(){
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
-    /*	@brief Tourzoo
-        *	melakukan tour dengan cara memanggil prosedur Tour ada kelas zoo
-        */
+    /**
+     * generate path zoo tour
+     */
     public void tourZoo() {
         zoo.tour();
     }

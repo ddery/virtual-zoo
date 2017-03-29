@@ -10,6 +10,10 @@ import java.util.Scanner;
  * @since       1.0
  */
 class Main {
+    /**
+     * Main class
+     * @param args arguments
+     */
     public static void main(String[] args) {
         Driver driver = new Driver();
         driver.clear();

@@ -22,11 +22,20 @@ import java.util.Random;
  * @since       1.0
  */
 public class Zoo implements Renderable {
+
+    /* zCell array matrix of cell */
     private final Cell[][] zCell;
+    /* height of zoo */
     private final int height;
+    /* width of zoo */
     private final int width;
 
-    // max animal in 1 cell is 5
+    /**
+     * Constructor Zoo
+     * @param height : height of zoo
+     * @param width : width of zoo
+     * @param filename : from external file
+     */
     @SuppressWarnings("SameParameterValue")
     public Zoo(int height, int width, String filename){
         this.height = height;
@@ -77,6 +86,11 @@ public class Zoo implements Renderable {
         }
     }
 
+    /**
+     * Convert character type of cell to short int
+     * @param c : char type
+     * @return short int of type cell
+     */
     private short convertCharToType(char c){
         switch (c){
             case 'W' : return Global.WATER;
@@ -91,6 +105,12 @@ public class Zoo implements Renderable {
         }
     }
 
+    /**
+     * Get Cell in zoo
+     * @param i : row of cell
+     * @param j : col of cell
+     * @return cell in that position
+     */
     public Cell getCell(int i, int j){
         try {
             return zCell[i][j];
@@ -118,6 +138,9 @@ public class Zoo implements Renderable {
         }
     }
 
+    /**
+     * Tour in zoo
+     */
     public void tour() {
         boolean[][] visited;
         visited = new boolean[height][width];

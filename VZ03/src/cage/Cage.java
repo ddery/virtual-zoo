@@ -1,7 +1,11 @@
 package cage;
 
 import animal.Animal;
+import animal.species.Cat;
 import cell.Cell;
+import cell.habitat.airhabitat.AirHabitat;
+import cell.habitat.landhabitat.LandHabitat;
+import cell.habitat.waterhabitat.WaterHabitat;
 import renderable.Renderable;
 import util.Global;
 import zoo.Zoo;
@@ -114,10 +118,16 @@ public class Cage {
         int idx = 0;
         while(this.cellInside[idx] != null){ idx++; }
         if(idx>=size){
-            size++;
-            //cellInside[idx] = new Cell();
+            //size++;
+        } else {
+            if ((C.getType() & Global.WATER) > 0)
+                cellInside[idx] = new WaterHabitat();
+            else if ((C.getType() & Global.LAND) > 0)
+                cellInside[idx] = new LandHabitat();
+            if ((C.getType() & Global.AIR) > 0)
+                cellInside[idx] = new AirHabitat();
+            this.cellInside[idx] = C;
         }
-        this.cellInside[idx] = C;
     }
     /**
      * Adding new Animal to the cage
@@ -132,6 +142,7 @@ public class Cage {
         if((nAnimal + count) < 0.3*(this.size)) {
             if(animal.isDomestic() || (!animal.isDomestic() && nAnimal==0)) {
                 while (cellInside[idx].isAnimal()) { idx++; }
+                nAnimal = nAnimal + count;
                 while (count > 0) {
                     if((cellInside[idx].getType() & animal.getBioType()) > 0)
                         cellInside[idx++].setAnimal(animal);
@@ -211,22 +222,39 @@ public class Cage {
      * cell inside the cage and available to be placed
      */
     public void updateOneMinutes(){
-        Random rand = new Random();
-        int  idx;
-        for(int i = 0; i < nAnimal; i++){
-            int j = 0;
-            while(j<size){
-                if(cellInside[j].isAnimal()) {
-                    idx = rand.nextInt(size);
-                    while (cellInside[idx].isAnimal() || (!cellInside[idx].cekTypeCell(cellInside[idx].getAnimal().getBioType()))) {
-                        idx = (idx+1<size) ? idx+1 : 0;
-                    }
-                    System.out.print(idx);
-                    cellInside[idx].setAnimal(cellInside[idx].getAnimal());
-                    cellInside[idx].setAnimal(null);
+
+        Animal [] temp;
+        temp = new Animal[nAnimal];
+        int count = 0;
+        /* memindahkan seluruh kepemilikan animal ke array temporary */
+        for (int i = 0; i < size; i++) {
+            if (cellInside[i].isAnimal()) {
+                if (count < nAnimal) {
+                    temp[count++] = cellInside[i].getAnimal();
+                    cellInside[i].setAnimal(null);
                 }
-                j++;
             }
+        }
+        /* untuk setiap animal, akan diberikan cell baru */
+        Random rand = new Random();
+        int randomValue = rand.nextInt(size);
+        for (int i = 0;i < count;i++) {
+            int sizeHabit = 0, startHabitIdx = 0;
+            for(int j = 0;j < size;j++) {
+                if(sizeHabit == 0) { startHabitIdx = j; }
+                if (cellInside[j].cekTypeCell(temp[i].getBioType()))  { sizeHabit++; }
+            }
+            randomValue = rand.nextInt(size);
+            int index = startHabitIdx + randomValue % sizeHabit;
+            while (cellInside[index].isAnimal() || cellInside[index].cekTypeCell(temp[i].getBioType())) {
+                if (index>=startHabitIdx+sizeHabit-1) {
+                    index= 0;
+                } else {
+                    index++;
+                }
+            }
+            cellInside[index].setAnimal(temp[i]);
+            temp[i] = null;
         }
     }
 }

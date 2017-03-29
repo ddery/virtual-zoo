@@ -20,7 +20,6 @@ public class Main {
         int count,cageNumber;
         boolean domestic;
         String animalName;
-        Animal a;
         do {
             do {
                 System.out.println("Menu Setup: ");
@@ -37,6 +36,7 @@ public class Main {
                     animalName = reader.nextLine();
                     break;
                 } else if (animalName.equals("#")) break;
+                System.out.print(driver.getNAnimal());
             } while (!animalName.equals("3"));
             if(!animalName.equals("#")) {
                 System.out.print("Masukan jumlah hewan : ");count = reader.nextInt();
@@ -45,24 +45,38 @@ public class Main {
                 driver.createAnimal(animalName, domestic, count, cageNumber);
             }
         } while (!animalName.equals("#"));
-        int option;
+        String option;
         do {
             driver.clear();
             driver.logo();
             System.out.println("Selamat datang di Wow Zoo. Wow Zoo merupakan Virtual Zoo yang berisi " + driver.getNAnimal() + " hewan");
             System.out.println("Menu : ");
             System.out.println("1 : Display Map \n2 : Zoo Info \n3 : Tour \n4 : Banyak Animal \n5 : Jumlah Konsumsi Hewan \n6 : Jumlah Cage \n0 : exit");
-            option = reader.nextInt();
-            switch (option){
-                case 1 : driver.displayMap(); break;
-                case 2 : driver.zooInfo(); break;
-                case 3 : break;
-                case 4 : System.out.println(driver.getNAnimal()); break;
-                case 5 : System.out.println(driver.getFoodConsum(Global.HERB)+driver.getFoodConsum(Global.CARN)+(driver.getFoodConsum((short) (Global.HERB+Global.CARN))/2)); break;
-                case 6 : System.out.println(driver.getNbCage()); break;
-                case 0 : break;
-                default: System.out.println("Pilihan tidak tepat"); break;
+
+            System.out.print("Masukan pilihan : ");
+            option = reader.nextLine();
+            if(option.equals("1")) {
+                driver.update();
+                driver.displayMap();
+            } else if (option.equals("2")){
+                System.out.println("BABABA");
+                driver.zooInfo();
+            } else if (option.equals("3")) {
+            } else if (option.equals("4")) {
+                System.out.println(driver.getNAnimal());
+            } else if (option.equals("5")) {
+                System.out.println(driver.getFoodConsum(Global.HERB) + driver.getFoodConsum(Global.CARN) + (driver.getFoodConsum((short) (Global.HERB + Global.CARN)) / 2));
+            } else if(option.equals("6")) {
+                System.out.println(driver.getNbCage());
+                break;
+            } else if(option.equals("0")) {
+                break;
+            } else {
+                System.out.println("Pilihan tidak tersedia");
             }
-        } while(option != 0);
+            System.out.print("Tekan enter : ");
+
+            option = reader.nextLine();
+        } while(!option.equals("0"));
     }
 }

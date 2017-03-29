@@ -8,7 +8,7 @@ import util.Global;
  * @version     1.1
  * @since       1.0
  */
-public abstract class Cell implements Renderable{
+public class Cell implements Renderable{
     /**
      * type define what kind of cell it is
      */
@@ -77,5 +77,7 @@ public abstract class Cell implements Renderable{
 
     public int getCageNumber(){return cageNumber;}
     @Override
-    public abstract void render();
+    public void render(){
+        System.out.print('#');
+    }
 }

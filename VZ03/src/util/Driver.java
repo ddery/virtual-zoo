@@ -35,7 +35,6 @@ public class Driver {
         *	menampilkan bentuk zoo ke layar
         */
     public void displayMap(){
-        update();
         zoo.render();
     }
     public void logo(){

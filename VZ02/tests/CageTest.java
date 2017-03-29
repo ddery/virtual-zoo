@@ -2,7 +2,9 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- * Created by nim_13515024 on 29/03/17.
+ * @author      Abdurrahman <13515024@std.stei.itb.ac.id>
+ * @version     1.0
+ * @since       1.0
  */
 @SuppressWarnings("ALL")
 public class CageTest {

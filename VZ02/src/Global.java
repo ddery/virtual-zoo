@@ -1,3 +1,5 @@
+package util;
+
 /**
  * @author      Dery Rahman <13515097@std.stei.itb.ac.id>
  * @version     1.0

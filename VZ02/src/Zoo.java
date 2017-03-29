@@ -72,7 +72,7 @@ public class Zoo {
     public void tour() {
         boolean[][] visited;
         visited = new boolean[height][width];
-        for (int i = 0; i < height;i++) {
+        for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 visited[i][j] = false;
             }
@@ -85,7 +85,7 @@ public class Zoo {
             nowX = 1;
             nowY = 0;
             visited[nowX][nowY] = true;
-        }else {
+        } else {
             nowX = 19;
             nowY = 4;
             visited[nowX][nowY] = true;
@@ -96,28 +96,28 @@ public class Zoo {
             int visibleX[] = new int[3];
             int visibleY[] = new int[3];
             int visible = 0;
-            if(!zCell[nowX][nowY].isExit()) {
+            if (!zCell[nowX][nowY].isExit()) {
                 if (nowX != 0) {
         /* cek kirinya */
                     int tempX = nowX - 1;
-                    if(zCell[nowY][tempX].isAnimal()) {
+                    if (zCell[nowY][tempX].isAnimal()) {
                         Animal temp;
                         temp = zCell[nowY][tempX].getAnimal();
                         temp.interact();
-                    }else if(zCell[nowY][tempX].isRoad() && !visited[nowY][tempX]) {
+                    } else if (zCell[nowY][tempX].isRoad() && !visited[nowY][tempX]) {
                         visibleX[visible] = tempX;
                         visibleY[visible] = nowY;
                         visible++;
                     }
                 }
-                if(nowX != 19) {
+                if (nowX != 19) {
                     //cekkanan
                     int tempX = nowX + 1;
-                    if(zCell[nowY][tempX].isAnimal()) {
+                    if (zCell[nowY][tempX].isAnimal()) {
                         Animal temp;
                         temp = zCell[nowY][tempX].getAnimal();
                         temp.interact();
-                    }else if(zCell[nowY][tempX].isRoad() && !visited[nowY][tempX]) {
+                    } else if (zCell[nowY][tempX].isRoad() && !visited[nowY][tempX]) {
                         visibleX[visible] = tempX;
                         visibleY[visible] = nowY;
                         visible++;
@@ -126,24 +126,24 @@ public class Zoo {
                 if (nowY != 0) {
         /* cekatas */
                     int tempY = nowY - 1;
-                    if(zCell[tempY][nowX].isAnimal()) {
+                    if (zCell[tempY][nowX].isAnimal()) {
                         Animal temp;
                         temp = zCell[tempY][nowX].getAnimal();
                         temp.interact();
-                    }else if(zCell[tempY][nowX].isRoad() && !visited[tempY][nowX]) {
+                    } else if (zCell[tempY][nowX].isRoad() && !visited[tempY][nowX]) {
                         visibleX[visible] = nowX;
                         visibleY[visible] = tempY;
                         visible++;
                     }
                 }
-                if(nowY != 19) {
+                if (nowY != 19) {
                     //cekbawah
                     int tempY = nowY + 1;
-                    if(zCell[tempY][nowX].isAnimal()) {
+                    if (zCell[tempY][nowX].isAnimal()) {
                         Animal temp;
                         temp = zCell[tempY][nowX].getAnimal();
                         temp.interact();
-                    }else if(zCell[tempY][nowX].isRoad() && !visited[tempY][nowX]) {
+                    } else if (zCell[tempY][nowX].isRoad() && !visited[tempY][nowX]) {
                         visibleX[visible] = nowX;
                         visibleY[visible] = tempY;
                         visible++;
@@ -152,42 +152,42 @@ public class Zoo {
 
                 if (visible == 0) {
                     finish = true;
-                }else if (visible == 1) {
+                } else if (visible == 1) {
                     nowX = visibleX[0];
                     nowY = visibleY[0];
                     visited[nowY][nowX] = true;
-                }else if(visible > 1){
+                } else if (visible > 1) {
                     randomValue = rand.nextInt();
                     int future = (randomValue % visible);
-                    if( future == 0){
+                    if (future == 0) {
                         nowX = visibleX[future];
                         nowY = visibleY[future];
                         visited[nowY][nowX] = true;
-                    }else if( future == 1){
+                    } else if (future == 1) {
                         nowX = visibleX[future];
                         nowY = visibleY[future];
                         visited[nowY][nowX] = true;
-                    }else if( future == 2){
+                    } else if (future == 2) {
                         nowX = visibleX[future];
                         nowY = visibleY[future];
                         visited[nowY][nowX] = true;
                     }
                 }
-            }else {
+            } else {
                 finish = true;
                 if (nowX != 0) {
                 /* cek kirinya */
                     int tempX = nowX - 1;
-                    if(zCell[nowY][tempX].isAnimal()) {
+                    if (zCell[nowY][tempX].isAnimal()) {
                         Animal temp;
                         temp = zCell[nowY][tempX].getAnimal();
                         temp.interact();
                     }
                 }
-                if(nowX != 19) {
+                if (nowX != 19) {
                     //cekkanan
                     int tempX = nowX + 1;
-                    if(zCell[nowY][tempX].isAnimal()) {
+                    if (zCell[nowY][tempX].isAnimal()) {
                         Animal temp;
                         temp = zCell[nowY][tempX].getAnimal();
                         temp.interact();
@@ -196,16 +196,16 @@ public class Zoo {
                 if (nowY != 0) {
                 /* cekatas */
                     int tempY = nowY - 1;
-                    if(zCell[tempY][nowX].isAnimal()) {
+                    if (zCell[tempY][nowX].isAnimal()) {
                         Animal temp;
                         temp = zCell[tempY][nowX].getAnimal();
                         temp.interact();
                     }
                 }
-                if(nowY != 19) {
+                if (nowY != 19) {
                     //cekbawah
                     int tempY = nowY + 1;
-                    if(zCell[tempY][nowX].isAnimal()) {
+                    if (zCell[tempY][nowX].isAnimal()) {
                         Animal temp;
                         temp = zCell[tempY][nowX].getAnimal();
                         temp.interact();
@@ -213,7 +213,26 @@ public class Zoo {
                 }
             }
         }
-    }
 
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (zCell[i][j] == null) {
+                    System.out.print(" ");
+                } else {
+                    if (zCell[i][j].isAnimal()) {
+                        Animal temp;
+                        temp = zCell[i][j].getAnimal();
+                        temp.render();
+                    } else {
+                        if (visited[i][j]) {
+                            System.out.print(".");
+                        } else {
+                            zCell[i][j].render();
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

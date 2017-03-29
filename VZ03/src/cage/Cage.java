@@ -49,7 +49,7 @@ public class Cage {
      * Make a Cage, for cell and animal
      */
     public Cage(Zoo zoo, int i, int j, int i1, int j1){
-        size = (((j1 - j) + 1) * ((i1 - i) + 1));
+        size = ((j1 - j) * (i1 - i));
         cellInside = new Cell[size];
         cageNumber = nbCage;
         int idx = 0;
@@ -144,8 +144,10 @@ public class Cage {
                 while (cellInside[idx].isAnimal()) { idx++; }
                 nAnimal = nAnimal + count;
                 while (count > 0) {
-                    if((cellInside[idx].getType() & animal.getBioType()) > 0)
-                        cellInside[idx++].setAnimal(animal);
+                    if((cellInside[idx].getType() & animal.getBioType()) > 0) {
+                        cellInside[idx].setAnimal(animal);
+                        idx++;
+                    }
                     count--;
                 }
             }
@@ -235,26 +237,19 @@ public class Cage {
                 }
             }
         }
+        for(int i = 0; i < count; i++){
+            System.out.println(temp[i].getClass());
+        }
+
         /* untuk setiap animal, akan diberikan cell baru */
-        Random rand = new Random();
-        int randomValue = rand.nextInt(size);
-        for (int i = 0;i < count;i++) {
-            int sizeHabit = 0, startHabitIdx = 0;
-            for(int j = 0;j < size;j++) {
-                if(sizeHabit == 0) { startHabitIdx = j; }
-                if (cellInside[j].cekTypeCell(temp[i].getBioType()))  { sizeHabit++; }
+
+        for(int i = 0; i < count; i++) {
+            Random rand = new Random();
+            int randomValue = rand.nextInt(size);
+            while (cellInside[randomValue].isAnimal() || !cellInside[randomValue].cekTypeCell(temp[i].getBioType())) {
+                randomValue = (randomValue + 2 < size) ? randomValue + 2 : 0;
             }
-            randomValue = rand.nextInt(size);
-            int index = startHabitIdx + randomValue % sizeHabit;
-            while (cellInside[index].isAnimal() || cellInside[index].cekTypeCell(temp[i].getBioType())) {
-                if (index>=startHabitIdx+sizeHabit-1) {
-                    index= 0;
-                } else {
-                    index++;
-                }
-            }
-            cellInside[index].setAnimal(temp[i]);
-            temp[i] = null;
+            cellInside[randomValue].setAnimal(temp[i]);
         }
     }
 }

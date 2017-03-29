@@ -1,7 +1,6 @@
 package cell;
 import animal.*;
 import renderable.Renderable;
-import util.Global;
 
 /**
  * @author      Faiz Haznitrama <13515010@std.stei.itb.ac.id>
@@ -76,6 +75,7 @@ public class Cell implements Renderable{
     }
 
     public int getCageNumber(){return cageNumber;}
+
     @Override
     public void render(){
         System.out.print('#');

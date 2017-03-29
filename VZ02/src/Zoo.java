@@ -64,7 +64,7 @@ class Zoo {
      * @param j = y position
      * @param type = type of the cell
      */
-    private void setCell(int i, int j, char type) {
+    public void setCell(int i, int j, char type) {
         zCell[i][j] = new Cell(type);
     }
     /**

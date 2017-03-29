@@ -17,8 +17,9 @@ public class Zoo {
     public Zoo(int height, int width){
         this.height = height;
         this.width = width;
+        zCell = new Cell[height][width];
         for (int i = 0;i < width;i++) {
-            zCell[i] = new Cell[width];
+            //zCell[i] = new Cell[width];
             for (int j = 0; j < width; j++)
                 zCell[i][j] = null;
         }
@@ -36,11 +37,20 @@ public class Zoo {
 
     public void setCell(int i, int j, char type) {
         zCell[i][j] = new Cell(type);
+        /*
+        if (type == 'L'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'W'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'A'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'R'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'r'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'P'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'E'){ zCell[i][j] = new Cell(type); } else
+        if (type == 'e'){ zCell[i][j] = new Cell(type); }*/
     }
 
     public void buildCell(int xPosition, int yPosition, int h, int w, char type, Cage cg) {
-        for(int i = xPosition; i < h; i++) {
-            for (int j = yPosition; j < w; j++) {
+        for(int i = xPosition; i < h+xPosition; i++) {
+            for (int j = yPosition; j < w+yPosition; j++) {
                 this.setCell(i,j,type);
                 cg.setCell(zCell[i][j]);
             }
@@ -48,8 +58,8 @@ public class Zoo {
     }
 
     public void buildCell(int xPosition, int yPosition, int h, int w, char type) {
-        for(int i = xPosition; i < h; i++) {
-            for (int j = yPosition; j < w; j++) {
+        for(int i = xPosition; i < h+xPosition; i++) {
+            for (int j = yPosition; j < w+yPosition; j++) {
                 this.setCell(i,j,type);
             }
         }
@@ -57,8 +67,14 @@ public class Zoo {
 
     public void render() {
         for(int i = 0; i < height; i++){
-            for (int j = 0; j < width; j++) zCell[i][j].render();
-            //System.out.println();
+            for (int j = 0; j < width; j++) {
+                if(zCell[i][j] != null) {
+                    zCell[i][j].render();
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.print("\n");
         }
     }
 

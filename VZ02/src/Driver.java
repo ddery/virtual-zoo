@@ -6,6 +6,7 @@ public class Driver {
     public Cage[] kdg;
 
     public Driver() {
+        wow = new Zoo(20,20);
         kdg = new Cage[7];
         //set Jalan
         wow.buildCell(1,0,1,1,'E');
@@ -62,18 +63,20 @@ public class Driver {
         kdg[0].addAnimal(new Animal("Bunglon"),2);
         kdg[0].addAnimal(new Animal("Gajah"),2);
         kdg[0].addAnimal(new Animal("Orangutan"),1);
-        kdg[0].addAnimal(new Animal("Gorila"),1);
+        kdg[0].addAnimal(new Animal("Gorilla"),1);
         kdg[0].addAnimal(new Animal("Komodo"),2);
         kdg[0].addAnimal(new Animal("Simpanze"),2);
         kdg[1].addAnimal(new Animal("Burung Unta"),2);
         kdg[1].addAnimal(new Animal("Cendrawasi"),1);
         kdg[1].addAnimal(new Animal("Merak"),2);
-        kdg[1].addAnimal(new Animal("Elang"),2);
+        //kdg[1].addAnimal(new Animal("Elang"),2);
         kdg[1].addAnimal(new Animal("Flamingo"),1);
-        kdg[2].addAnimal(new Animal("Lumba Lumba"),2);
+        /*
+        kdg[2].addAnimal(new Animal("Lumba lumba"),2);
         kdg[2].addAnimal(new Animal("Pari"),2);
         kdg[2].addAnimal(new Animal("Salmon"),2);
-        kdg[3].addAnimal(new Animal("Panda"),10);
+        */
+        /*kdg[3].addAnimal(new Animal("Panda"),10);
         kdg[4].addAnimal(new Animal("Goliath Frog"),3);
         kdg[4].addAnimal(new Animal("Salamander"),3);
         kdg[4].addAnimal(new Animal("Pinguin"),3);
@@ -86,6 +89,7 @@ public class Driver {
         kdg[6].addAnimal(new Animal("Cendrawasi"),3);
         kdg[6].addAnimal(new Animal("Merak"),2);
         kdg[6].addAnimal(new Animal("Flamingo"),2);
+        */
     }
 
     public void logo() {

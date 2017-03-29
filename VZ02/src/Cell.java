@@ -1,3 +1,5 @@
+import util.*;
+
 /**
  * @author      Irfan Ariq <13515112@std.stei.itb.ac.id>
  * @version     1.0
@@ -13,9 +15,13 @@ public class Cell {
      * represent an animal that exist in a cell
      */
     private Animal hewan;
-
-    Cell(char new_type) {
-        type =  new_type;
+    /**
+     * Constructor
+     * @param newType type of cell
+     */
+    Cell(char newType) {
+        type = newType;
+        hewan = null;
     }
     /**
      * Get type of cell
@@ -81,13 +87,6 @@ public class Cell {
         return (type == 'P');
     }
     /**
-     * Validate a Road type cell
-     * @return True if cell type is Road, false if not
-     */
-    public boolean isRoad() {
-        return (type == 'r');
-    }
-    /**
      * Validate an Entrance type cell
      * @return True if cell type is Entrance, false if not
      */
@@ -102,10 +101,56 @@ public class Cell {
         return (type == 'e');
     }
     /**
+     * Validate a Road type cell
+     * @return True if cell type is Road, false if not
+     */
+    public boolean isRoad() {
+        return (type == 'r' || isEntrance() || isExit());
+    }
+    /**
      * Validate whether there is an Animal in the cell
      * @return True if Animal exist, false if not
      */
     public boolean isAnimal() {
         return (hewan != null);
+    }
+    /**
+     * Display Cell into monitor
+     * <p>
+     * Display cell based on its characteristics
+     */
+    public void render(){
+        if(isAnimal()) {
+            Animal temp;
+            temp = getAnimal();
+            temp.render();
+        }else {
+            switch (type) {
+                case 'L':
+                    System.out.print(Global.ANSI_PURPLE_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'W':
+                    System.out.print(Global.ANSI_BLUE_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'A':
+                    System.out.print(Global.ANSI_YELLOW_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'R':
+                    System.out.print(Global.ANSI_PURPLE_BACKGROUND+ "  " + Global.ANSI_RESET);
+                    break;
+                case 'r':
+                    System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'E':
+                    System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'e':
+                    System.out.print(Global.ANSI_BLACK_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+                case 'P':
+                    System.out.print(Global.ANSI_GREEN_BACKGROUND + "  " + Global.ANSI_RESET);
+                    break;
+            }
+        }
     }
 }

@@ -4,14 +4,40 @@
  * @since       1.0
  */
 public class Animal {
+    /**
+     * name define the name of an animal
+     */
     private String name;
+    /**
+     * expression define the interact of an animal
+     */
     private String expression;
+    /**
+     * dietType define the diet of an animal
+     */
     private char dietType;
+    /**
+     * bioType define the habitat of an animal
+     */
     private char bioType;
+    /**
+     * code define the code of an animal in monitor
+     */
     private char code;
+    /**
+     * weight define the weight of an animal
+     */
     private double weight;
+    /**
+     * tamed define the condition of an animal
+     */
     private boolean tamed;
 
+    /**
+     * Constructor animal
+     * <p>
+     * @param name = define the name
+     */
     Animal(String name){
         this.name = name;
         tamed = true;
@@ -172,7 +198,13 @@ public class Animal {
                 break;
         }
     }
-
+    /**
+     * Constructor animal
+     * <p>
+     * @param name = define the name
+     * @param tamed = define tamed condition
+     * @param weight = define the weight
+     */
     Animal(String name, boolean tamed, double weight){
         this.name = name;
         this.tamed = tamed;
@@ -334,58 +366,110 @@ public class Animal {
                 break;
         }
     }
-
+    /**
+     * Display to the monitor expression of the animal
+     * <p>
+     */
     public void interact() {
         System.out.println(expression);
     }
-
+    /**
+     * Get the value of food needed by an animal
+     * <p>
+     * Return the value of food needed
+     */
     public double foodConsumption() {
         return (weight/10.0);
     }
-
+    /**
+     * Getter for a dietType of an animal
+     * <p>
+     * Return the char of the dietType
+     */
     public char getDietType() {
         return dietType;
     }
-
+    /**
+     * Set a new value for dietType
+     * @param dietType : as new value that is going to be assigned
+     */
     public void setDietType(char dietType) {
         this.dietType = dietType;
     }
+    /**
+     * Getter for a bioType of an animal
+     * <p>
+     * Return the char of bioType
+     */
     public char getBioType() {
         return  bioType;
     }
-
+    /**
+     * Set a new value for bioType
+     * @param bioType : as new value that is going to be assigned
+     */
     public void setBioType(char bioType) {
         this.bioType = bioType;
     }
-
+    /**
+     * Getter for a weight of an animal
+     * <p>
+     * Return the value of weught
+     */
     public double getWeight(){
         return weight;
     }
-
+    /**
+     * Set a new value for weight
+     * @param weight : as new value that is going to be assigned
+     */
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
+    /**
+     * Getter for an attribute named tamed
+     * <p>
+     * Return the value of tamed
+     */
     public boolean isTamed() {
         return (tamed);
     }
-
+    /**
+     * Setter for a bioType of an animal
+     * @param tamed = define the tamed condtion
+     */
     public void setTamed(boolean tamed) {
         this.tamed = tamed;
     }
-
+    /**
+     * Display Animal into monitor
+     * <p>
+     * Display animal based on its species
+     */
     public void render() {
         System.out.print(code);
+        System.out.print(code);
     }
-
+    /**
+     * Set a new pointer to String for the name
+     * @param name : as new pointer to String that is going to be assigned
+     */
     public void setName(String name) {
         this.name = name;
     }
-
+    /**
+     * Getter for a name of an animal
+     * <p>
+     * Return the String of name
+     */
     public String getName() {
         return name;
     }
-
+    /**
+     * Getter for a code of an animal
+     * <p>
+     * Return the char of code
+     */
     public char getCode() {
         return code;
     }

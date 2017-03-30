@@ -24,10 +24,13 @@ import java.util.Random;
 public class Zoo implements Renderable {
 
     /* zCell array matrix of cell */
+    @SuppressWarnings("CanBeFinal")
     private Cell[][] zCell;
     /* height of zoo */
+    @SuppressWarnings("CanBeFinal")
     private int height;
     /* width of zoo */
+    @SuppressWarnings("CanBeFinal")
     private int width;
 
     /**
@@ -35,6 +38,7 @@ public class Zoo implements Renderable {
      * @param height height zoo
      * @param width width zoo
      */
+    @SuppressWarnings("SameParameterValue")
     public Zoo(int height, int width){
         this.height = height;
         this.width = width;
@@ -139,6 +143,54 @@ public class Zoo implements Renderable {
 
     @Override
     public void render() {
+        System.out.println();
+        for(int i = 0; i < height; i++){
+            for (int j = 0; j < width; j++) {
+                if (zCell[i][j].isAnimal()) {
+                    Animal temp;
+                    temp = zCell[i][j].getAnimal();
+                    temp.render();
+                }else {
+                    zCell[i][j].render();
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    public void render(boolean showNum) {
+        System.out.println();
+        int numT = -1;
+        for(int i = 0; i < height; i++){
+            for (int j = 0; j < width; j++) {
+                if (zCell[i][j].isAnimal()) {
+                    Animal temp;
+                    temp = zCell[i][j].getAnimal();
+                    temp.render();
+                }else {
+                    if(zCell[i][j].getCageNumber()!=-1 && showNum){
+                        if(numT!=zCell[i][j].getCageNumber()){
+                            if(numT<zCell[i][j].getCageNumber()) {
+                                System.out.print(String.format("%02d", zCell[i][j].getCageNumber()));
+                                numT = zCell[i][j].getCageNumber();
+                            } else {
+                                zCell[i][j].render();
+                            }
+                        } else {
+                            zCell[i][j].render();
+                        }
+                    } else {
+                        zCell[i][j].render();
+                    }
+                }
+            }
+            System.out.println();
+        }
+    }
+
+
+    public void render(int height, int width) {
         System.out.println();
         for(int i = 0; i < height; i++){
             for (int j = 0; j < width; j++) {

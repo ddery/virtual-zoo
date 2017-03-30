@@ -44,6 +44,19 @@ public class Driver {
     public void displayMap(){
         zoo.render();
     }
+    /**
+     * Display logo in terminal
+     */
+    public void displayMap(int height, int width){
+        zoo.render(height, width);
+    }
+    /**
+     * Display logo in terminal
+     */
+    @SuppressWarnings("SameParameterValue")
+    public void displayMap(boolean showNum){
+        zoo.render(showNum);
+    }
     public void logo(){
         System.out.print(" _|          _|    _|_|    _|          _|      _|_|_|_|_|    _|_|      _|_|    \n");
         System.out.print(" _|          _|  _|    _|  _|          _|            _|    _|    _|  _|    _|  \n");

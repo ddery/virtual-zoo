@@ -50,7 +50,14 @@ class Main {
             } while (!animalName.equals("3"));
             if(!animalName.equals("#")) {
                 System.out.print("Masukan jumlah hewan : ");count = reader.nextInt();
-                System.out.print("Masukan nomor kandang : ");cageNumber = reader.nextInt();
+                do {
+                    System.out.print("(-1 untuk melihat nomor kandang)\nMasukan nomor kandang :");
+                    cageNumber = reader.nextInt();
+                    if(cageNumber == -1) {
+                        driver.clear();
+                        driver.displayMap(true);
+                    }
+                } while (cageNumber == -1);
                 System.out.print("Apakah hewan ini jinak? : ");domestic = reader.nextBoolean();
                 driver.createAnimal(animalName, domestic, count, cageNumber);
             }
@@ -67,8 +74,19 @@ class Main {
             option = reader.nextLine();
             switch (option) {
                 case "1":
-                    driver.update();
-                    driver.displayMap();
+                    System.out.println("1 Display semua | 2 Display parsial");
+                    option = reader.nextLine();
+                    if(option.equals("1")) {
+                        driver.update();
+                        driver.displayMap();
+                    } else if(option.equals("2")){
+                        int height, width;
+                        height = reader.nextInt();
+                        width = reader.nextInt();
+                        driver.update();
+                        driver.displayMap(height,width);
+                        option = reader.nextLine();
+                    }
                     break;
                 case "2":
                     driver.zooInfo();
@@ -91,8 +109,10 @@ class Main {
                     System.out.println("Pilihan tidak tersedia");
                     break;
             }
-            System.out.print("Tekan enter : ");
-            option = reader.nextLine();
+            if(!option.equals("0")) {
+                System.out.print("Tekan enter : ");
+                option = reader.nextLine();
+            }
         } while(!option.equals("0"));
     }
 }

@@ -46,7 +46,7 @@ public class Cage {
         size = ((j1 - j) * (i1 - i));
         cellInside = new Cell[size];
         cageNumber = nbCage;
-        int idx = 0;
+        int idx = nbCage;
         for(int i2 = i;i2 < i1; i2++){
             for(int j2 = j;j2 < j1; j2++){
                 zoo.getCell(i2,j2).setCageNumber(idx);
